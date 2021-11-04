@@ -165,10 +165,26 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     
     <script type="text/javascript">
-
+        
+         jQuery(document).ready(function($) {
+            $('#slide-carousel').owlCarousel({
+              autoHeight: true,
+              loop: true,
+              nav: true,
+              responsive: {
+                0: {
+                  items: 1
+                },
+                600: {
+                  items: 1
+                }
+              }
+            });
+        });
       
         jQuery(document).ready(function($) {
             $('#mobile-product-carousel').owlCarousel({
+                autoHeight: true,
               loop: true,
               margin: 10,
               nav: true,
@@ -185,6 +201,7 @@
 
          jQuery(document).ready(function($) {
             $('#mobile-best-seller-carousel').owlCarousel({
+              autoHeight: true,
               loop: true,
               margin: 8,   
               responsive: {
@@ -200,6 +217,7 @@
 
          jQuery(document).ready(function($) {
             $('#mobile-top-product-carousel').owlCarousel({
+              autoHeight: true,
               loop: true,
               margin: 8,   
               responsive: {
@@ -215,6 +233,39 @@
 
          jQuery(document).ready(function($) {
             $('#mobile-best-product-carousel').owlCarousel({
+                autoHeight: true,
+              loop: true,
+              margin: 8,   
+              responsive: {
+                0: {
+                  items: 1.1
+                },
+                600: {
+                  items: 2.1
+                }
+              }
+            });
+        });
+
+         jQuery(document).ready(function($) {
+            $('#mobile-luxury-product-carousel').owlCarousel({
+                autoHeight: true,
+              loop: true,
+              margin: 8,   
+              responsive: {
+                0: {
+                  items: 1.1
+                },
+                600: {
+                  items: 2.1
+                }
+              }
+            });
+        });
+
+         jQuery(document).ready(function($) {
+            $('#banner-carousel').owlCarousel({
+              autoHeight: true,
               loop: true,
               margin: 8,   
               responsive: {

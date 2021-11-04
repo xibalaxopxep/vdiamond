@@ -26,11 +26,14 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/jquery-ui.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/countdownTimer.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/slick.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/bootstrap.css')}}" />
+    
+
+
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/demo1.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/design-owl-carousel.css')}}" />
 
@@ -47,8 +50,10 @@
     //slick -->
      <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 
 
 </head>

@@ -22516,16 +22516,16 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
 }
 
 .single-pro-content .ec-single-title {
-  color: #444444;
-  font-size: 22px;
-  text-transform: capitalize;
-  margin: 0 0 20px 0;
-  text-decoration: none;
-  display: block;
-  font-family: "Montserrat";
-  font-weight: 800;
-  line-height: 30px;
-  letter-spacing: 0.02rem;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 34px;
+  color: #000000;
+/* identical to box height */
+
+
+color: #000000;
 }
 .single-pro-content p {
   font-size: 14px;
@@ -22557,10 +22557,13 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
   float: unset;
 }
 .single-pro-content .ec-single-rating-wrap .ec-read-review a {
-  color: #444444;
-  text-decoration: underline;
-  font-size: 14px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
   line-height: 20px;
+
+  color: #000000;
 }
 .single-pro-content .ec-single-rating-wrap .ec-read-review a:hover {
   color: #3474d4;
@@ -22589,7 +22592,7 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
   display: -ms-flexbox;
   display: flex;
   padding: 15px;
-  border: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -22609,19 +22612,12 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
   display: none;
 }
 .single-pro-content .ec-single-sales .ec-single-sales-visitor {
-  color: #444444;
-  font-size: 16px;
-  line-height: 27px;
-  text-transform: capitalize;
-  font-weight: 500;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  letter-spacing: 0.1px;
-  margin-bottom: 16px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #000000;
 }
 .single-pro-content .ec-single-sales .ec-single-sales-visitor span {
   color: #ffffff;
@@ -22699,7 +22695,6 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
 .single-pro-content .ec-single-price-stoke > * {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -22713,18 +22708,31 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
   letter-spacing: 0;
 }
 .single-pro-content .ec-single-price-stoke .ec-single-sku {
-  line-height: 1.4;
-  font-size: 18px;
-  color: #444444;
-  font-weight: 600;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: #7E7E7E;
 }
 .single-pro-content .ec-single-price span.new-price {
-  color: #202020;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
-  font-family: "Montserrat";
-  letter-spacing: 0;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 41px;
+  color: #FF2E00;
+}
+
+.single-pro-content .ec-single-price span.old-price {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  text-decoration-line: line-through;
+  color: #7E7E7E;
 }
 .single-pro-content .ec-pro-variation {
   margin-bottom: 20px;
@@ -32527,5 +32535,31 @@ input[type=email]:focus::-webkit-input-placeholder {
 }
 .labels .ec-line-offer .ec-line-offer-info .offer-btn .btn-shop-now:hover {
   border: 1px solid #777;
+}
+
+.btn-buy {
+  background-color: #FA6400;
+}
+
+.btn-payment {
+  background-color: #004A8E;
+}
+
+.single-pro-des .buy-now {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.single-pro-des .gop {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFFFFF;
 }
 /*# sourceMappingURL=style.css.map */

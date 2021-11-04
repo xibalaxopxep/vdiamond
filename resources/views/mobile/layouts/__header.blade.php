@@ -57,17 +57,16 @@
                     <div class="col d-lg-none ">
                         <div class="ec-header-bottons">
                
-                           
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><img src="assets/images/icons/cart.svg"
+                                <div class="header-icon"><img src="{{asset('assets/images/icons/cart.svg')}}"
                                         class="svg_img header_svg" alt="" /></div>
                                 <span class="ec-header-count cart-count-lable">3</span>
                             </a>
                             <!-- Header Cart End -->
                             <!-- Header menu Start -->
                             <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                                <img src="assets/images/icons/menu.svg" class="svg_img header_svg" alt="icon" />
+                                <img src="{{asset('assets/images/icons/menu.svg')}}" class="svg_img header_svg" alt="icon" />
                             </a>
                             <!-- Header menu End -->
                         </div>

@@ -77,22 +77,24 @@
                             </div>
                             <!-- Header User End -->
                             <!-- Header Cart Start -->
+
                             <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                                <div class="header-icon"><img src="assets/images/icons/wishlist.svg"
+                                <div class="header-icon"><img src="{{asset('assets/images/icons/wishlist.svg')}}"
                                         class="svg_img header_svg" alt="" /></div>
                                 <span class="ec-header-count">4</span>
                             </a>
                             <!-- Header Cart End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><img src="assets/images/icons/cart.svg"
+                  
+                                <div class="header-icon"><img src="{{asset('assets/images/icons/cart.svg')}}"
                                         class="svg_img header_svg" alt="" /></div>
-                                <span class="ec-header-count cart-count-lable">3</span>
+                                <span class="ec-header-count cart-count-lable">4</span>
                             </a>
                             <!-- Header Cart End -->
                             <!-- Header menu Start -->
                             <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                                <img src="assets/images/icons/menu.svg" class="svg_img header_svg" alt="icon" />
+                                <img src="{{asset('assets/images/icons/menu.svg')}}" class="svg_img header_svg" alt="icon" />
                             </a>
                             <!-- Header menu End -->
                         </div>
@@ -135,7 +137,7 @@
                         <div class="align-self-center">
                             <div class="ec-header-bottons">
                                 <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><img src="assets/images/icons/cart.svg"
+                                    <div class="header-icon"><img src="{{asset('assets/images/icons/cart.svg')}}"
                                             class="svg_img header_svg" alt="" /></div>
                                     <span class="ec-header-count cart-count-lable">3</span>
                                 </a>
@@ -166,7 +168,7 @@
                         <div class="header-search">
                             <form class="ec-btn-group-form" action="#">
                                 <input class="form-control" placeholder="Enter Your Product Name..." type="text">
-                                <button class="submit" type="submit"><img src="assets/images/icons/search.svg"
+                                <button class="submit" type="submit"><img src="{{asset('assets/images/icons/search.svg')}}"
                                         class="svg_img header_svg" alt="icon" /></button>
                             </form>
                         </div>
@@ -183,7 +185,7 @@
                     <div class="col-md-12 align-self-center">
                         <div class="ec-main-menu">
                             <ul>
-                                <li style="background-color: #BE7B51; width: 55px; margin-left: 0px;"><a style="text-align: center;" href="index-2.html"><img  src="assets/images/icons/vhome.svg"></a></li>
+                                <li style="background-color: #BE7B51; width: 55px; margin-left: 0px;"><a style="text-align: center;" href="index-2.html"><img  src="{{asset('assets/images/icons/vhome.svg')}}"></a></li>
                                 <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
                                     <ul class="mega-menu d-block" style="color:white;">
                                         <li class="d-flex">
