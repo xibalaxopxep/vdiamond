@@ -1,0 +1,247 @@
+            .carousel-wrapper {
+              width: 1300px;
+              margin: auto;
+              position: relative;
+              text-align: center;
+              font-family: sans-serif;
+            }
+
+            #luxury-carousel .owl-nav {
+              overflow: hidden;
+              height: 0px;
+
+            }
+
+            #luxury-carousel .owl-dots .owl-dot.active span,
+            #luxury-carousel .owl-dots .owl-dot:hover span {
+              background: black;
+            }
+
+            .carousel-wrapper #luxury-carousel .owl-stage {
+      			    left: 30%;
+      			}
+
+             #luxury-carousel .owl-next{
+                left: 74%;
+             }
+
+             #luxury-carousel .owl-prev{
+                left: 70%;
+             }
+
+            #luxury-carousel .owl-dots{
+                margin-top:  40px;
+            }
+
+
+            #luxury-carousel .item {
+              text-align: center;
+            }
+
+            #luxury-carousel .nav-button {
+              height: 47px;
+              width: 47px;
+              cursor: pointer;
+              position: absolute;
+              top: 50;
+
+            }
+
+            #luxury-carousel .owl-prev.disabled,
+            #luxury-carousel .owl-next.disabled {
+              pointer-events: none;
+              opacity: 0.25;
+            }
+
+          
+            #luxury-carousel .owl-nav [class*=owl-] {
+              margin: 10px;
+              color: #fff;
+              font-size: 26px;
+              background: black;
+              border-radius: 100%;
+            }
+
+
+          /*///////////////// tin tuc*/
+
+             #news-carousel .owl-nav {
+              overflow: hidden;
+              height: 0px;
+            }
+
+            #news-carousel .owl-dots .owl-dot.active span,
+            #news-carousel .owl-dots .owl-dot:hover span {
+              background: black;
+            }
+
+            #news-carousel .owl-dots{
+                margin-top:  40px;
+                margin-bottom: 20px;
+            }
+
+
+            #news-carousel .item {
+              text-align: center;
+            }
+
+            #news-carousel .nav-button {
+              height: 47px;
+              width: 47px;
+              cursor: pointer;
+              position: absolute;
+              top: 165px !important;
+
+            }
+
+            #news-carousel .owl-prev.disabled,
+            #news-carousel .owl-next.disabled {
+              pointer-events: none;
+              opacity: 0.25;
+            }
+
+            #news-carousel .owl-prev {
+              left: -35px;
+            }
+
+            #news-carousel .owl-next {
+              right: -35px;
+            }
+
+            #news-carousel .owl-nav [class*=owl-] {
+              margin: 10px;
+              color: #e89f71;
+              font-size: 26px;
+              background: #fff;
+              border-radius: 100%;
+            }
+
+            #news-carousel .prev-carousel:hover {
+              background-position: 0px -53px;
+            }
+
+            #news-carousel .next-carousel:hover {
+              background-position: -24px -53px;
+            }
+
+       /*     best seller*/
+            #best-seller-carousel .owl-nav {
+              overflow: hidden;
+              height: 0px;
+
+            }
+
+            #best-seller-carousel .owl-dots .owl-dot.active span,
+            #best-seller-carousel .owl-dots .owl-dot:hover span {
+              background: rgba(64, 64, 64, 0.62);;
+            }
+
+            #best-seller-carousel .owl-dot span{
+              background: rgba(255, 255, 255, 0.72);
+            }
+
+        
+            #best-seller-carousel .owl-next{
+                left: 50%;
+             }
+
+            #best-seller-carousel .owl-prev{
+                right: 50%;
+             }
+
+            #best-seller-carousel .owl-dots{
+              position: absolute;
+              margin-left: 5px;
+              margin-top:  40px;
+              left: 0%;
+            }
+
+
+            #best-seller-carousel .item {
+              text-align: center;
+            }
+
+            #best-seller-carousel .nav-button {
+              height: 47px;
+              width: 47px;
+              cursor: pointer;
+              position: absolute;
+              top: 50;
+
+            }
+
+            #best-seller-carousel .owl-prev.disabled,
+            #best-seller-carousel .owl-next.disabled {
+              pointer-events: none;
+              opacity: 0.25;
+            }
+
+          
+            #best-seller-carousel .owl-nav [class*=owl-] {
+              margin: 10px;
+              color: #FFBA42;
+              font-size: 26px;
+              background: rgba(255, 255, 255, 0.7);;
+              border-radius: 100%;
+            }
+
+            /*---new carousel*/
+             #new-product-carousel .owl-nav {
+              overflow: hidden;
+              height: 0px;
+
+            }
+
+            #new-product-carousel .owl-dots .owl-dot.active span,
+            #new-product-carousel .owl-dots .owl-dot:hover span {
+              background: rgba(64, 64, 64, 0.62);;
+            }
+
+            #new-product-carousel .owl-dot span{
+              background: rgba(255, 255, 255, 0.72);
+            }
+
+        
+            #new-product-carousel .owl-next{
+                left: 50%;
+             }
+
+            #new-product-carousel .owl-prev{
+                right: 50%;
+             }
+
+            #new-product-carousel .owl-dots{
+              position: absolute;
+              margin-left: 5px;
+              margin-top:  40px;
+              left: 0%;
+            }
+
+
+            #new-product-carousel .item {
+              text-align: center;
+            }
+
+            #new-product-carousel .nav-button {
+              height: 47px;
+              width: 47px;
+              cursor: pointer;
+              position: absolute;
+              top: 50;
+
+            }
+
+            #new-product-carousel .owl-prev.disabled,
+            #new-product-carousel .owl-next.disabled {
+              pointer-events: none;
+              opacity: 0.25;
+            }
+
+          
+            #new-product-carousel .owl-nav [class*=owl-] {
+              margin: 10px;
+              color: #FFBA42;
+              font-size: 26px;
+              background: rgba(255, 255, 255, 0.7);;
+              border-radius: 100%;
+            }
