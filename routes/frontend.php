@@ -13,4 +13,10 @@ Route::group(['middleware' => 'frontend'], function() {
     Route::get('/danh-muc-tin/{alias}', ['as' => 'news_category.index', 'uses' => 'Frontend\NewsController@index']);
     Route::get('/tin-tuc/{alias}', ['as' => 'news.detail', 'uses' => 'Frontend\NewsController@detail']);
 
+    // Giỏ hàng
+    Route::get('/gio-hang', ['as' => 'checkout.index', 'uses' => 'Frontend\OrderController@index']);
+
+    // Điều khoản
+    Route::get('/gioi-thieu', ['as' => 'about.index', 'uses' => 'Frontend\FrontendController@about']);
+
 });

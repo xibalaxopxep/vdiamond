@@ -26,6 +26,11 @@ class ProductController extends Controller {
         $this->orderdetailRepo = $orderdetailRepo;
     }
 
+    public function index(Request $request){
+        ini_set('memory_limit', '2048M');
+        return view('frontend/product/list');
+    }
+
     public function detail(Request $request) {
             ini_set('memory_limit', '2048M');
             return view('frontend/product/detail');

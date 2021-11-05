@@ -32,13 +32,13 @@
 
 
     <!-- Main Style -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/demo1.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/design-owl-carousel.css')}}" />
 
     <!-- Background css -->
     <link rel="stylesheet" id="bg-switcher-css" href="{{asset('assets/frontend/css/backgrounds/bg-4.css')}}">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

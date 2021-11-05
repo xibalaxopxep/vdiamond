@@ -15898,7 +15898,7 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .section-space-p {
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 .section-space-pb {
@@ -19484,8 +19484,8 @@ button.btn-close.qty_close {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+/*  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);*/
   background-color: #555;
 }
 .ec-product-inner .ec-pro-image .flags .sale {
@@ -19759,21 +19759,30 @@ button.btn-close.qty_close {
   background-color: #ffffff;
   letter-spacing: 0.6px;
 }
+
+.ec-product-inner .ec-pro-content p{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: #585858;
+}
 .ec-product-inner .ec-pro-content .ec-pro-title {
+  text-align: center;
   font-size: 20px;
   margin: 0 0 7px;
 }
 .ec-product-inner .ec-pro-content .ec-pro-title a {
-  text-decoration: none;
-  color: #777;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  font-family: "Poppins, sans-serif";
+  font-family: Open Sans;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: #000000;
 }
 .ec-product-inner .ec-pro-content .ec-pro-title a:hover {
   color: #3474d4;
@@ -19791,14 +19800,29 @@ button.btn-close.qty_close {
           justify-content: left;
   color: #777777;
 }
+.ec-product-inner .ec-pro-content .model {
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #585858;
+}
 .ec-product-inner .ec-pro-content .ec-price:not(:last-child) {
   margin-bottom: 5px;
 }
 .ec-product-inner .ec-pro-content .ec-price span.new-price {
-  color: #555;
-  font-weight: 700;
-  font-size: 15px;
-  font-family: "Montserrat";
+  font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #FF2E00;
 }
 .ec-product-inner .ec-pro-content .ec-price span.old-price {
   font-size: 15px;
@@ -21242,17 +21266,17 @@ select::-ms-expand {
 
 .ec-sidebar-wrap {
   padding: 15px;
-  border: 1px solid #eeeeee;
+/*  border: 1px solid #eeeeee;*/
   background-color: #fff;
 }
 .ec-sidebar-wrap h3, .ec-sidebar-wrap .h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  position: relative;
-  display: block;
-  color: #555;
-  font-family: "Montserrat";
+  font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 20px;
+
+color: #000000;
 }
 .ec-sidebar-wrap .h3 {
   font-size: 18px;
@@ -21361,15 +21385,18 @@ select::-ms-expand {
   cursor: pointer;
 }
 .ec-sidebar-wrap .ec-sidebar-block .ec-sb-block-content li a {
-  margin-left: 30px;
   display: block;
-  color: #777;
-  font-size: 14px;
   margin-top: 0;
-  line-height: 20px;
-  font-weight: 400;
   text-transform: capitalize;
   cursor: pointer;
+  margin-left: 30px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: #000000;
 }
 .ec-sidebar-wrap .ec-sidebar-block .ec-sb-block-content li a:hover {
   color: #3474d4;
@@ -21818,7 +21845,7 @@ select::-ms-expand {
   About Us Page CSS
 ---------------------------------------------------*/
 .ec-cms-block {
-  background-color: #fff;
+  background-color: none;
 }
 .ec-cms-block .ec-cms-block-title {
   margin-bottom: 14px;
@@ -22591,7 +22618,8 @@ color: #000000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 15px;
+  /*padding: 15px;*/
+  padding-bottom: 27px;
   border-bottom: 1px solid #eeeeee;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -22616,17 +22644,15 @@ color: #000000;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 30px;
   color: #000000;
 }
 .single-pro-content .ec-single-sales .ec-single-sales-visitor span {
-  color: #ffffff;
+  color: #FF2E00;
   font-size: 16px;
   line-height: 27px;
   font-weight: 600;
-  background-color: #3474d4;
-  padding: 0 3px;
-  margin: 0 6px;
+
 }
 .single-pro-content .ec-single-sales .ec-single-sales-progress {
   display: -webkit-box;
@@ -23078,6 +23104,11 @@ i.ecicon.eci-star-o {
   letter-spacing: 0;
 }
 .ec-single-pro-tab-nav .nav-tabs .nav-link:hover {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
   color: #ffffff;
   background-color: #3474d4;
   border: 1px solid #3474d4;
@@ -23131,11 +23162,11 @@ i.ecicon.eci-star-o {
   color: #777;
 }
 .ec-single-pro-tab-content .ec-single-pro-tab-desc ul {
-  padding-left: 24px;
+  /*padding-left: 24px;*/
 }
 .ec-single-pro-tab-content .ec-single-pro-tab-desc ul li {
   font-size: 15px;
-  list-style: outside;
+  list-style: none;
   margin-bottom: 4px;
   color: #777;
 }
@@ -24770,7 +24801,7 @@ i.ecicon.eci-star-o {
   padding: 0 15px;
 }
 .ec-checkout-wrap .ec-check-bill-form .ec-bill-wrap.ec-bill-half {
-  width: 50%;
+  width: 33.33%;
 }
 .ec-checkout-wrap .ec-check-bill-form form {
   display: -webkit-box;
@@ -32562,4 +32593,65 @@ input[type=email]:focus::-webkit-input-placeholder {
   line-height: 19px;
   color: #FFFFFF;
 }
+
+.ec-single-pro-tab-content .ec-single-pro-tab-desc ul li span{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.ec-single-pro-tab-content .ec-single-pro-tab-desc ul li .text-1{
+  width: 30px;
+  color: #7E7E7E;
+}
+
+.ec-single-pro-tab-content .ec-single-pro-tab-desc ul li .text-2{
+  color: #000000;
+}
+
+.feedback-product .ec-title-customer {
+  margin-bottom: 27px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.ec-title-related{
+  margin-bottom: 27px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 34px;
+  /* identical to box height */
+  color: #585858;
+}
+
+.btn-orange{
+  background: #FA6400;
+  border-radius: 5px;
+}
+
+.btn-payment {
+  background: #F8F8F8;
+  box-sizing: border-box;\
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.btn-payment .active{
+  background: #F8F8F8;
+  border: 1px solid #FF6F00;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
 /*# sourceMappingURL=style.css.map */

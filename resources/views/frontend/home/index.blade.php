@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.layouts.master_index')
 @section('content')
     <div class="" style="position: fixed; left: 0; z-index: 9999; top:20%;">
     	<!-- <div class="row" >
