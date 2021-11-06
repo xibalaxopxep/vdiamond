@@ -19,4 +19,10 @@ Route::group(['middleware' => 'frontend'], function() {
     // Điều khoản
     Route::get('/gioi-thieu', ['as' => 'about.index', 'uses' => 'Frontend\FrontendController@about']);
 
+    // Contact
+    Route::get('/lien-he', ['as' => 'contact.index', 'uses' => 'Frontend\FrontendController@contact']);
+
+    // Contact
+    Route::get('/don-hang', ['as' => 'order.index', 'uses' => 'Frontend\OrderController@order']);
+
 });

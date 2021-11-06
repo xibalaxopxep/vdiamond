@@ -18447,6 +18447,8 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-size: 14px;
   line-height: 50px;
   font-weight: 600;
+  padding-left: 15px;
+  padding-right: 15px;
   text-decoration: none;
   letter-spacing: 0;
   text-transform: uppercase;

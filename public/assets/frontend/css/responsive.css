@@ -23,8 +23,23 @@
   .ec-product-inner .ec-pro-image .add-to-cart {
     font-size: 12px;
   }
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
 }
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
+
   .pt-48px {
     padding-top: 28px;
   }
@@ -95,6 +110,14 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
+
   .pt-48px {
     padding-top: 28px;
   }
@@ -117,6 +140,13 @@
   }
 }
 @media only screen and (max-width: 1450px) {
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
   .ec-slide-content .ec-slide-title {
     font-size: 55px;
   }
@@ -199,6 +229,13 @@
   }
 }
 @media only screen and (max-width: 1366px) {
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
   .section-space-p {
     padding: 35px 0;
   }
@@ -369,6 +406,13 @@
   }
 }
 @media only screen and (max-width: 1199px) {
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
   .mb-5 {
     margin-bottom: 20px !important;
   }
@@ -651,6 +695,13 @@
   }
 }
 @media only screen and (max-width: 991px) {
+  .footer-mobile{
+    display: none !important;
+  }
+
+  .footer-destop{
+    display: block !important;
+  }
   .section-space-p {
     padding: 30px 0;
   }
@@ -1432,9 +1483,76 @@
   }
 }
 @media only screen and (max-width: 767px) {
+
+  .footer-mobile{
+    display: block !important;
+  }
+
+  .footer-destop{
+    display: none !important;
+  }
+
+  .footer-mobile h4{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #DCC3A1;
+  }
+
+  .footer-mobile .content{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+
+  .footer-mobile .payment-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+  }
+  .footer-mobile .proof{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+/* or 167% */
+
+
+color: #FFFFFF;
   .section-space-p {
     padding: 25px 0;
   }
+
+  .about-v .content{
+    text-align: left;
+  }
+
+  .contact-v {
+    height: 100%;
+    margin-top: 0px;
+  }
+
+  .contact-v .list-content{
+    margin-bottom: 25px;
+    margin-top: 15px;
+  }
+
+
+
+
+
 
   .section-space {
     padding: 25px 0;
@@ -3321,6 +3439,7 @@
   #ec-popnews-box h2 {
     font-size: 20px;
   }
+
 }
 @media (max-width: 500px) {
   .ec-blog-card {

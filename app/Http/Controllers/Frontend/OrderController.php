@@ -13,8 +13,11 @@ class OrderController extends Controller {
     // }
 
     public function index() {
-        return view('frontend/order/checkout');
-      
+        return view('frontend/order/checkout'); 
+    }
+
+    public function order(){
+         return view('frontend/order/order-status');
     }
 
 }

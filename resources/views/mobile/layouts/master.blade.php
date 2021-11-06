@@ -10,7 +10,7 @@
         <div id="page">
             <!-- Main content -->
             <div class="content-wrapper">
-                @include('mobile/layouts/__header')
+                @include('frontend/layouts/__header')
                 @yield('content')
                 <!-- Footer -->
                 @include('mobile/layouts/__footer')

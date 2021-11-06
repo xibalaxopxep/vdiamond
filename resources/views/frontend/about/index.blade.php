@@ -1,86 +1,19 @@
 @extends('frontend.layouts.master')
 @section('content')
-<div  style="background-image: url('assets/images/background/about.png')">	
- <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row ec_breadcrumb_inner">
-                        <div class="col-md-6 col-sm-12">
-                            <h2 class="ec-breadcrumb-title">Terms & Condition</h2>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <!-- ec-breadcrumb-list start -->
-                            <ul class="ec-breadcrumb-list">
-                                <li class="ec-breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                <li class="ec-breadcrumb-item active">Condition</li>
-                            </ul>
-                            <!-- ec-breadcrumb-list end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Ec breadcrumb end -->
 
-    <!-- Start Terms & Condition page -->
-    <section class="ec-page-content section-space-p" >
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="section-title">
-                        <h2 class="ec-bg-title">Terms & Condition</h2>
-                        <h2 class="ec-title">Terms & Condition</h2>
-                        <p class="sub-title mb-3">Welcome to the ekka multivendor marketplace</p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ec-common-wrapper">
-                        <div class="col-sm-12 ec-cms-block">
-                            <div class="ec-cms-block-inner">
-                                <h3 class="ec-cms-block-title">Welcome to Ekka Multi Market.</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                        Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                    took a galley of type and scrambled it to make a type specimen book. It has survived
-                                    not only five centuries, but also the leap into electronic typesetting, remaining
-                                    essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 ec-cms-block">
-                            <div class="ec-cms-block-inner">
-                                <h3 class="ec-cms-block-title">Ekka Websites</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                        Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                    took a galley of type and scrambled it to make a type specimen book. It has survived
-                                    not only five centuries, but also the leap into electronic typesetting, remaining
-                                    essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 ec-cms-block">
-                            <div class="ec-cms-block-inner">
-                                <h3 class="ec-cms-block-title">How browsing and vendor works?</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                        Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                    took a galley of type and scrambled it to make a type specimen book. It has survived
-                                    not only five centuries, but also the leap into electronic typesetting, remaining
-                                    essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 ec-cms-block">
-                            <div class="ec-cms-block-inner">
-                                <h3 class="ec-cms-block-title">Becoming an vendor</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                        Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                    took a galley of type and scrambled it to make a type specimen book. It has survived
-                                    not only five centuries, but also the leap into electronic typesetting, remaining
-                                    essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+  <div style="height: 100%; background-image: url('assets/images/background/about.png');">
+  	  <div class="container" style="max-width: 1100px !important;">
+  	  	<div class="row about-v" style="justify-content: center;">
+	  	  	<h2 class="text-upper">NỘI THẤT CAO CẤP V DIAMOND</h2>
+	  	  	<img style=" width: 200px; margin-bottom: 70px; margin-top: 15px;" src="{{asset('assets/images/icons/about-icon.png')}}">
+	  	  	<p class="content">
+	  	  		Được xây dựng dựa trên tiêu chí Chất lượng - Bền vững - Phát triển V DIAMOND luôn không ngừng cố gắng, nỗ lực để khẳng định vị thế tiên phong của mình trên thị trường nội thất cao cấp tại Việt Nam hiện nay<br><br>
+	  	  		Chúng tôi lấy tên “V DIAMOND” với ý nghĩa sâu sắc về sự cao cấp, sang trọng, đi đầu trong mọi xu hướng nội thất cũng như tôn vinh ngành nội thất Việt.<br><br>
+	  	  		Mục tiêu trở thành một thương hiệu Việt mang tầm vóc quốc tế trong lĩnh vực nội thất, thấu hiểu tâm trí và chiếm lĩnh sự tin yêu của khách hàng. Mang đến sự trọn vẹn, yên tâm, tin cậy cho từng công trình nội thất. Tạo ra các giải pháp nội thất xanh, đẹp, lạ và cập nhật xu hướng của thế giới về Việt Nam. 
+	  	  	</p>
+	  	  	<img style=" width: 300px; margin-bottom: 80px; margin-top: 40px;" src="{{asset('assets/images/logo/about-logo.png')}}">
+  	    </div>
+  	  </div>
+  	
+  </div>
 @stop

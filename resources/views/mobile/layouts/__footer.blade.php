@@ -1,139 +1,35 @@
   <!-- Footer Start -->
-    <footer class="ec-footer section-space-mt">
-        <div class="footer-container">
-            <div class="footer-offer">
-                <div class="container">
-                    <div class="row">
-                        <div class="text-center footer-off-msg">
-                            <span>Win a contest! Get this limited-editon</span><a href="#" target="_blank">View
-                                Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-top section-space-footer-p">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-lg-3 ec-footer-contact">
-                            <div class="ec-footer-widget">
-                                <div class="ec-footer-logo"><a href="#"><img src="assets/images/logo/footer-logo.png"
-                                            alt=""><img class="dark-footer-logo" src="assets/images/logo/dark-logo.png"
-                                            alt="Site Logo" style="display: none;" /></a></div>
-                                <h4 class="ec-footer-heading">Contact us</h4>
-                                <div class="ec-footer-links">
-                                    <ul class="align-items-center">
-                                        <li class="ec-footer-link">71 Pilgrim Avenue Chevy Chase, east california.</li>
-                                        <li class="ec-footer-link"><span>Call Us:</span><a href="tel:+440123456789">+44
-                                                0123 456 789</a></li>
-                                        <li class="ec-footer-link"><span>Email:</span><a href="https://loopinfosol.in/cdn-cgi/l/email-protection#16736e777b667a735673753b737b777f7a3875797b"><span class="__cf_email__" data-cfemail="ae85cbd6cfc3dec2cbeecbcd83cbc3cfc7c280cdc1c3">[email&#160;protected]</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-2 ec-footer-info">
-                            <div class="ec-footer-widget">
-                                <h4 class="ec-footer-heading">Information</h4>
-                                <div class="ec-footer-links">
-                                    <ul class="align-items-center">
-                                        <li class="ec-footer-link"><a href="about-us.html">About us</a></li>
-                                        <li class="ec-footer-link"><a href="faq.html">FAQ</a></li>
-                                        <li class="ec-footer-link"><a href="track-order.html">Delivery Information</a></li>
-                                        <li class="ec-footer-link"><a href="contact-us.html">Contact us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-2 ec-footer-account">
-                            <div class="ec-footer-widget">
-                                <h4 class="ec-footer-heading">Account</h4>
-                                <div class="ec-footer-links">
-                                    <ul class="align-items-center">
-                                        <li class="ec-footer-link"><a href="user-profile.html">My Account</a></li>
-                                        <li class="ec-footer-link"><a href="track-order.html">Order History</a></li>
-                                        <li class="ec-footer-link"><a href="wishlist.html">Wish List</a></li>
-                                        <li class="ec-footer-link"><a href="offer.html">Specials</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-2 ec-footer-service">
-                            <div class="ec-footer-widget">
-                                <h4 class="ec-footer-heading">Services</h4>
-                                <div class="ec-footer-links">
-                                    <ul class="align-items-center">
-                                        <li class="ec-footer-link"><a href="track-order.html">Discount Returns</a></li>
-                                        <li class="ec-footer-link"><a href="privacy-policy.html">Policy & policy </a></li>
-                                        <li class="ec-footer-link"><a href="terms-condition.html">Customer Service</a></li>
-                                        <li class="ec-footer-link"><a href="terms-condition.html">Term & condition</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-3 ec-footer-news">
-                            <div class="ec-footer-widget">
-                                <h4 class="ec-footer-heading">Newsletter</h4>
-                                <div class="ec-footer-links">
-                                    <ul class="align-items-center">
-                                        <li class="ec-footer-link">Get instant updates about our new products and
-                                            special promos!</li>
-                                    </ul>
-                                    <div class="ec-subscribe-form">
-                                        <form id="ec-newsletter-form" name="ec-newsletter-form" method="post"
-                                            action="#">
-                                            <div id="ec_news_signup" class="ec-form">
-                                                <input class="ec-email" type="email" required=""
-                                                    placeholder="Enter your email here..." name="ec-email" value="" />
-                                                <button id="ec-news-btn" class="button btn-primary" type="submit"
-                                                    name="subscribe" value=""><i class="ecicon eci-paper-plane-o"
-                                                        aria-hidden="true"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Footer social Start -->
-                        <div class="col text-left footer-bottom-left">
-                            <div class="footer-bottom-social">
-                                <span class="social-text text-upper">Follow us on:</span>
-                                <ul class="mb-0">
-                                    <li class="list-inline-item"><a class="hdr-facebook" href="#"><i class="ecicon eci-facebook"></i></a></li>
-                                    <li class="list-inline-item"><a class="hdr-twitter" href="#"><i class="ecicon eci-twitter"></i></a></li>
-                                    <li class="list-inline-item"><a class="hdr-instagram" href="#"><i class="ecicon eci-instagram"></i></a></li>
-                                    <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i class="ecicon eci-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Footer social End -->
-                        <!-- Footer Copyright Start -->
-                        <div class="col text-center footer-copy">
-                            <div class="footer-bottom-copy ">
-                                <div class="ec-copy">Copyright © 2021-2022 <a class="site-name text-upper"
-                                        href="#">ekka<span>.</span></a>. All Rights Reserved</div>
-                            </div>
-                        </div>
-                        <!-- Footer Copyright End -->
-                        <!-- Footer payment -->
-                        <div class="col footer-bottom-right">
-                            <div class="footer-bottom-payment d-flex justify-content-end">
-                                <div class="payment-link">
-                                    <img src="assets/images/icons/payment.png" alt="">
-                                </div>
+    <div class="ec-side-cart-overlay" style=""></div>
 
-                            </div>
-                        </div>
-                        <!-- Footer payment -->
-                    </div>
+     <footer class="ec-footer section-space-mt" style="background-image: url('assets/images/background/footer.png'); background-repeat: no-repeat;  background-position: center;
+    background-size: cover;">
+          <div class="footer-mobile" style="">
+            <div style="background: rgba(16, 16, 16, 0.75);">
+              <div class="row" style="text-align: left; padding-left: 30px; padding-right: 30px;">
+                <div class="col-12 mt-4" style="text-align: center;">
+                  <img style="" src="assets/images/favicon/vdiamond.png" alt="">
                 </div>
+                <div class="col-12 mt-5 mb-3">
+                  <h4 class="text-upper mb-3">Liên hệ với chúng tôi</h4>
+                  <div class="content mb-3"><img src="{{asset('assets/images/icons/call-white.svg')}}"> Tư vấn: <b>1900 555 888</b></div>
+                  <div class="content mb-3"><img src="{{asset('assets/images/icons/gmail-white.svg')}}"> Email: <b>support@vdiamond.vn</b></div>
+                  <div class="content"><img src="{{asset('assets/images/icons/facebook-white.svg')}}"> Fanpage: <b>Nội thất cao cấp vdiamond</b></div>
+                </div>
+                <div class="col-12 mt-4 mb-3">
+                  <h4 class="text-upper mb-3">Liên hệ với chúng tôi</h4>
+                  <div class="content mb-3">- Vincom Plaza Hải Phòng Số 4 Lê Thánh Tông, Máy Tơ, Ngô Quyền, Hải Phòng</div>
+                  <div class="content">- AEON MALL Hải Phòng Số 10 Võ Nguyên Giáp, Kênh Dương, Lê Chân, Hải Phòng</div>
+                </div>
+                <div class="col-12 mt-4 pb-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.35);">
+                  <p class="payment-text">Chấp nhận thanh toán</p>
+                  <img src="assets/images/icons/payment-list.png" alt="">
+                </div>
+                <div class="col-12 mt-4 mb-3" >
+                  <p class="proof">Công Ty Cổ Phần Nội Thất Kim Cương Việt - Giấy phép kinh doanh số: 01160797 do Sở Kế hoạch và Đầu tư Thành phố Hải Phòng cấp ngày 16/07/2021</p>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
     </footer>
 
  
@@ -163,10 +59,26 @@
    <!-- //jquery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    
+   
     <script type="text/javascript">
         
          jQuery(document).ready(function($) {
+
+            $(".ec-mobile-menu-href").on("click", function(){
+                  $("#ec-mobile-menu").addClass( "ec-open");
+                  $('.ec-side-cart-overlay').show();
+                });
+
+                $('.ec-close').on('click',function(){
+                  $("#ec-mobile-menu, #ec-side-cart").removeClass("ec-open");
+                  $('.ec-side-cart-overlay').hide();
+                });
+
+                $(".ec-side-cart-href").on("click", function(){
+                  $("#ec-side-cart").addClass( "ec-open");
+                  $('.ec-side-cart-overlay').show();
+                });
+
             $('#slide-carousel').owlCarousel({
               autoHeight: true,
               loop: true,

@@ -1040,21 +1040,21 @@
     
 
      <section>
-        <div style="height: 1380px;" class="row">
+        <div style="height: 1380px; object-fit: cover; background-image:  url('assets/images/background/thuong-luu-bg.png');   background-position: center;" class="row">
             <div  class="best-seller-description">
 
             	<div class="best-seller-header best-seller-heading">
-            		<div class="centered-text-top">SỰ LỰA CHỌN CỦA GIỚI THƯỢNG LƯU</div>
+            		<div class="centered-text-top" style="">SỰ LỰA CHỌN CỦA GIỚI THƯỢNG LƯU</div>
             		<div class="centered-content-top">V DIAMOND mang đến cho Quý khách hàng những sản phẩm nội thất 
                      cổ điển mang hơi thở của thời gian</div>
                     <div class="centered-icon-top"><img src="assets/images/icons/top.png"></div>
-                    <img src="assets/images/background/customer-choose.png">
+                    <!-- <img src="assets/images/background/customer-choose.png"> -->
 
             	</div>
 
             	<div  class="container container-best-seller product-best-seller">
 	            <div class="col-md-9" style=" margin: auto; margin-top: 170px;">
-    			<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+    			<!-- <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 					  <ol class="carousel-indicators carousel-indicators-2">
 					    <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
 					    <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
@@ -1080,15 +1080,34 @@
                           <p style="margin-bottom: 35px;" class="text-upper top-carousel-h5">GIÁ: LIÊN HỆ</p> 
 					    </div>
 					  </div>
-					<!--   <a class="carousel-control-prev carousel-control-prev-2" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Previous</span>
-					  </a>
-					  <a class="carousel-control-next carousel-control-next-2" href="#carouselExampleIndicators2" role="button" data-slide="next">
-					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Next</span>
-					  </a> -->
-					</div>
+					
+					</div> -->
+                    <div class="owl-carousel owl-theme" id="luxury-carou">
+                      <div class="">
+                          <img class="d-block w-100" src="assets/images/product/top-product.png" alt="First slide">
+                          <h4 class="top-carousel-h4">bộ giường & tủ phòng ngủ tân cổ điển sang trọng cao cấp</h4>
+                          <h5 class="top-carousel-h5">mODEL: LX168</h5>
+                          <p style="margin-bottom: 35px;" class="text-upper top-carousel-h5">GIÁ: LIÊN HỆ</p>
+                        </div>
+                        <div class="">
+                          <img class="d-block w-100" src="assets/images/product/top-product.png" alt="First slide">
+                          <h4 class="top-carousel-h4">bộ giường & tủ phòng ngủ tân cổ điển sang trọng cao cấp</h4>
+                          <h5 class="top-carousel-h5">mODEL: LX168</h5>
+                          <p style="margin-bottom: 35px;" class="text-upper top-carousel-h5">GIÁ: LIÊN HỆ</p>
+                        </div>
+                        <div class="">
+                          <img class="d-block w-100" src="assets/images/product/top-product.png" alt="First slide">
+                          <h4 class="top-carousel-h4">bộ giường & tủ phòng ngủ tân cổ điển sang trọng cao cấp</h4>
+                          <h5 class="top-carousel-h5">mODEL: LX168</h5>
+                          <p style="margin-bottom: 35px;" class="text-upper top-carousel-h5">GIÁ: LIÊN HỆ</p>
+                        </div>
+                        <div class="">
+                          <img class="d-block w-100" src="assets/images/product/top-product.png" alt="First slide">
+                          <h4 class="top-carousel-h4">bộ giường & tủ phòng ngủ tân cổ điển sang trọng cao cấp</h4>
+                          <h5 class="top-carousel-h5">mODEL: LX168</h5>
+                          <p style="margin-bottom: 35px;" class="text-upper top-carousel-h5">GIÁ: LIÊN HỆ</p>
+                        </div>
+                    </div>
 				</div>
                 </div>
             </div>
@@ -1097,9 +1116,7 @@
 
 
 
-    		<div style="object-fit: cover; background-image:  url('assets/images/background/thuong-luu-bg.png')" class="col-md-12">
-    			
-    		</div>
+    		
 
 
     		
