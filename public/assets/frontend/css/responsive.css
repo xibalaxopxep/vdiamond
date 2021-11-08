@@ -706,6 +706,10 @@
     padding: 30px 0;
   }
 
+  .margin-top {
+    margin-top: -60px;
+  }
+
   .section-space {
     padding: 30px 0;
   }
@@ -1483,6 +1487,15 @@
   }
 }
 @media only screen and (max-width: 767px) {
+  .sort-price{
+     display: none !important;
+  }
+  .ec-shop-leftside{
+    display: none;
+  }
+  .input-group-text{
+  height: 45px; color: #fff; background: #FF6F00; font-family: Open Sans;
+  }
 
   .footer-mobile{
     display: block !important;
@@ -1862,7 +1875,9 @@ color: #FFFFFF;
 
   .ec-sidebar-wrap {
     padding: 20px 15px;
+    margin-top: -50px;
   }
+
   .ec-sidebar-wrap h3 {
     font-size: 16px;
   }

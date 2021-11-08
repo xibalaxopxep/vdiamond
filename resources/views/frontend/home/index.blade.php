@@ -1044,11 +1044,11 @@
             <div  class="best-seller-description">
 
             	<div class="best-seller-header best-seller-heading">
-            		<div class="centered-text-top" style="">SỰ LỰA CHỌN CỦA GIỚI THƯỢNG LƯU</div>
+            	<!-- 	<div class="centered-text-top" style="color:white;">SỰ LỰA CHỌN CỦA GIỚI THƯỢNG LƯU</div> -->
             		<div class="centered-content-top">V DIAMOND mang đến cho Quý khách hàng những sản phẩm nội thất 
                      cổ điển mang hơi thở của thời gian</div>
                     <div class="centered-icon-top"><img src="assets/images/icons/top.png"></div>
-                    <!-- <img src="assets/images/background/customer-choose.png"> -->
+                    <img src="assets/images/background/luxury.png">
 
             	</div>
 

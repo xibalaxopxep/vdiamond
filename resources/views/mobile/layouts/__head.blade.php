@@ -33,7 +33,7 @@
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('assets/mobile/css/demo1.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/mobile/css/responsive.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/mobile/css/design-owl-carousel.css')}}" />
 
     <!-- Background css -->

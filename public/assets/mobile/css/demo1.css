@@ -22019,7 +22019,7 @@ img{
 }
 
 .popular-text {
-   font-family: Open Sans;
+  font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -22030,6 +22030,21 @@ img{
   text-transform: uppercase;
 
   color: #000000;
+}
+
+.polular-container-button {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 12px 33px rgb(54 59 73 / 33%);
+  border-radius: 5px;
+  line-height: 45px;
+  text-align: center;
+  color: black;
+  width: 94%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 

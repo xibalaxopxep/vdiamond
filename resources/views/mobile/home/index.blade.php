@@ -57,14 +57,13 @@
 
 
     <!-- Product tab Area Start -->
-    <section class="section ec-product-tab section-space-p">
+    <section class="section ec-product-tab section-space-p margin-top">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="section-title">
                         <h2 class="ec-title text-upper">sản phẩm phổ thông</h2>
                     </div>
                 </div>
-
 
                 <!-- Tab Start -->
                 <div class="col-md-12 text-center">
@@ -153,8 +152,8 @@
     
 
     <!-- Sản phẩm bán chạy -->
-    <section class="section ec-product-tab section-space-p" style="margin-top: -5px !important; margin-bottom: -50px !important;">
-            <div class="row mobile-best-seller" style=" height:850px; background-image: linear-gradient(to right, #FFCC33, #FFB347);">
+    <section class="section ec-product-tab section-space-p margin-top" style="margin-top: -5px !important; margin-bottom: -50px !important;">
+            <div class="row mobile-best-seller" style=" height:820px; background-image: linear-gradient(to right, #FFCC33, #FFB347);">
                 <!--  <img style=" margin-left: 55%;  display: inline-block; height: 30%; padding: 21px; vertical-align: middle;" src="assets/frontend/images/another/best-seller.png"> -->
                 <div class="section-title">
                     <h2 class="mobile-ec-title text-upper">top sản phẩm <br> bán chạy giá tốt</h2>
@@ -237,7 +236,11 @@
                         </div>
                     </div>
                 </div>
+                   <div style="" class="polular-container-button">
+                            <span style="">Xem tất cả <span style="color: #ff2e00; font-weight: bold;"  class="number-product">456</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                    </div>
                 </div>
+
             </div>
     </section>
     <!-- end best seller -->
@@ -245,7 +248,7 @@
 
 
     <!-- sản phẩm cao cấp -->
-    <section class="section ec-product-tab section-space-p">
+    <section class="section ec-product-tab section-space-p margin-top">
         <div class="row mobile-top-product" style=" height:850px; background-image: url('assets/images/background/top-mobile.png')">
             <!--  <img style=" margin-left: 55%;  display: inline-block; height: 30%; padding: 21px; vertical-align: middle;" src="assets/frontend/images/another/best-seller.png"> -->
             <div class="section-title">
@@ -307,8 +310,8 @@
    <!--  end sp cao cấp -->
      
    <!--   sp thượng lưu -->
-     <section class="section ec-product-tab section-space-p">
-        <div class="row mobile-luxury-product" style=" height:944px; background-image: url('assets/images/background/best-mobile.png')">
+     <section class="section ec-product-tab section-space-p margin-top">
+        <div class="row mobile-luxury-product" style=" height:950px; background-image: url('assets/images/background/best-mobile.png')">
             <div class="container " style="text-align:  center;" >
                 <img class="vip-top" src="assets/images/banner/vip-top.png">  
                 <img class="vip-middle" style="z-index: 10; " src="assets/images/banner/vip.png">  
@@ -329,7 +332,7 @@
                                     </div>
                                     <div class="top-product-content-mobile" style="">
                                         <h4><a class="title" href="product-left-sidebar.html">Bộ Sofa cao cấp Elandor VD169</a></h4>
-                                        <div class="product-material">Chất liêu da: cao cấp</div>
+                                        <div class="product-material">Chất liệu da: cao cấp</div>
                                         <div style="display: flex;">
                                         <div class="new-price">$25.00</div>
                                         <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
@@ -405,9 +408,7 @@
                     <div style="" class="container-button">
                             <span style="color: white;">Xem tất cả <span style="color: #FA6400; font-weight: bold;"  class="number-product">456</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
                     </div>
-              
-            </div>
-                  
+            </div>       
         </div>
     </section>
 
@@ -420,12 +421,11 @@
                      <div class="">
                         <img src="assets/images/banner/banner-doi-2.png">
                      </div>
-
                 </div>
             </div>
     </section>
 
-     <section class="section ec-product-tab section-space-p">
+     <section class="section ec-product-tab section-space-p margin-top">
             <div class="container">
                 <h2 class="text-upper popular-text">Xu hướng mua sắm</h2>
                 <div class="row popular-mobile">
@@ -447,29 +447,22 @@
             </div>
      </section>
 
-
-
-
-   
     <style type="text/css">
-   
 
         .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
               background: white;
               height: 10px;
               width: 30px;
-       }
+        }
 
         .owl-theme .owl-dots .owl-dot span{
             color: rgba(255, 255, 255, 0.5);
         }
 
-       .owl-theme .owl-nav.disabled+.owl-dots {
+        .owl-theme .owl-nav.disabled+.owl-dots {
             margin-top: 24px;px;
         }
-
-
-            
+     
     </style>
 
 
