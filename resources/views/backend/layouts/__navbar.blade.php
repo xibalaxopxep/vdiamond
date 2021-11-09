@@ -40,4 +40,4 @@
         </ul>
     </div>
 </div>
-<!-- /main navbar -->2
+<!-- /main navbar -->

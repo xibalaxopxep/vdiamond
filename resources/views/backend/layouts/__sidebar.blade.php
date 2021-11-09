@@ -28,7 +28,7 @@
                     <div class="media-body">
                         <div class="media-title font-weight-semibold">{!!Auth::user()->full_name!!}</div>
                         <div class="font-size-xs opacity-50">
-                            <i class="icon-pin font-size-sm"></i> &nbsp;Kalzen media
+                            <i class="icon-pin font-size-sm"></i> &nbsp;Ces Media
                         </div>
                     </div>
 

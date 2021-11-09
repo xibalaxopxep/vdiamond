@@ -25,4 +25,7 @@ Route::group(['middleware' => 'frontend'], function() {
     // Contact
     Route::get('/don-hang', ['as' => 'order.index', 'uses' => 'Frontend\OrderController@order']);
 
+    // Khách Hàng
+    Route::get('/hinh-anh', ['as' => 'galerry.index', 'uses' => 'Frontend\FrontendController@galerry']);
+
 });

@@ -147,6 +147,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
+   <!-- image show -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
      
      <script type="text/javascript">
           $(document).ready(function(){
@@ -165,9 +168,7 @@
                   $('.ec-side-cart-overlay').show();
                 });
 
-               
-                
-                 
+                  
              
           });
         </script>

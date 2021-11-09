@@ -29,4 +29,8 @@ class FrontendController extends Controller {
         return view('frontend/about/contact');
     }
 
+    public function galerry(){
+        return view('frontend/gallery/index');
+    }
+
 }

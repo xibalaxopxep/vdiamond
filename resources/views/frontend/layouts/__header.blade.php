@@ -40,8 +40,8 @@
                     <div class="col header-top-right d-none d-lg-block">
                         <div class="header-top-lan-curr d-flex justify-content-end">
                             <!-- Currency Start -->
-                            <div class="header-top-curr dropdown">
-                                <button class="dropdown-toggle" data-bs-toggle="dropdown">Ngôn ngữ <i
+                            <div style="margin-right: 50px;" class="header-top-curr dropdown">
+                                <button class="dropdown-toggle" data-bs-toggle="dropdown"><img src="{{asset('assets/images/icons/vietnam.png')}}">  Ngôn ngữ <i
                                         class="ecicon eci-caret-down" aria-hidden="true"></i></button>
                                 <ul class="dropdown-menu">
                                     <li class="active"><a class="dropdown-item" href="#">Viet Nam</a></li>
@@ -50,12 +50,12 @@
                             </div>
                             <!-- Currency End -->
                             <div class="header-top-social">
-                            <span class="social-text">Kết nối  </span>
+                            
                             <ul class="mb-0">
-                                <li class="list-inline-item"><a class="hdr-facebook" href="#"><i class="ecicon eci-facebook"></i></a></li>
-                                <li class="list-inline-item"><a class="hdr-twitter" href="#"><i class="ecicon eci-twitter"></i></a></li>
-                                <li class="list-inline-item"><a class="hdr-instagram" href="#"><i class="ecicon eci-instagram"></i></a></li>
-                                <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i class="ecicon eci-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a class="hdr-facebook" href="#"><img src="{{asset('assets/images/icons/facebook-header.png')}}"></a></li>
+                                <li class="list-inline-item"><a class="hdr-twitter" href="#"><img src="{{asset('assets/images/icons/youtube.png')}}"></a></li>
+                                <!-- <li class="list-inline-item"><a class="hdr-instagram" href="#"><i class="ecicon eci-instagram"></i></a></li>
+                                <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i class="ecicon eci-linkedin"></i></a></li> -->
                             </ul>
                         </div>
 
@@ -167,7 +167,7 @@
                         <div class="ec-main-menu">
                             <ul>
                                 <li style="background-color: #BE7B51; width: 55px; margin-left: 0px;"><a style="text-align: center;" href="index-2.html"><img  src="{{asset('assets/images/icons/vhome.svg')}}"></a></li>
-                                <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
+                                <li class="dropdown position-static"><a href="javascript:void(0)">Categories <i class="fas fa-caret-down"></i></a>
                                     <ul class="mega-menu d-block" style="color:white;">
                                         <li class="d-flex">
                                             <ul class="d-block">

@@ -21844,8 +21844,8 @@ color: #FF2E00;
 
 .mobile-top-product .mobile-top-content {
   margin-top: 20px;
-  position: absolute;
-
+  /*position: absolute;*/
+  margin-bottom: 50px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -22045,6 +22045,34 @@ img{
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.news-mobile h3{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  /* or 157% */
+  text-transform: capitalize;
+  /* Color / Gray 1 */
+  color: #3A3A3A;
+}
+
+.news-mobile li{
+  display: inline;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  /* identical to box height */
+  text-transform: capitalize;
+  color: #898989;
+}
+
+.news-mobile img{
+  /*border-radius: 7px;*/
 }
 
 

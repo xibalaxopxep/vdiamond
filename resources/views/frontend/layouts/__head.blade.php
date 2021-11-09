@@ -28,8 +28,8 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/countdownTimer.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/bootstrap.css')}}" />
     
-
-
+    <!-- focorama -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}" />

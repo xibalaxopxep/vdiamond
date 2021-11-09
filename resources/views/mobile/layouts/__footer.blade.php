@@ -92,6 +92,20 @@
                 }
               }
             });
+
+            $("#news-mobile").owlCarousel({
+              autoHeight: true,
+              dots: true,
+              loop: true,
+              responsive: {
+                0: {
+                  items: 1
+                },
+                600: {
+                  items: 1
+                }
+              }
+        });
         });
       
         jQuery(document).ready(function($) {
@@ -161,7 +175,7 @@
 
          jQuery(document).ready(function($) {
             $('#mobile-luxury-product-carousel').owlCarousel({
-                autoHeight: true,
+             autoHeight: true,
               loop: true,
               margin: 8,   
               responsive: {
@@ -178,6 +192,7 @@
          jQuery(document).ready(function($) {
             $('#banner-carousel').owlCarousel({
               autoHeight: true,
+              dots: true,
               loop: true,
               margin: 8,   
               responsive: {

@@ -57,7 +57,7 @@
 
 
     <!-- Product tab Area Start -->
-    <section class="section ec-product-tab section-space-p margin-top">
+    <section class="section ec-product-tab section-space-p">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="section-title">
@@ -249,13 +249,13 @@
 
     <!-- sản phẩm cao cấp -->
     <section class="section ec-product-tab section-space-p margin-top">
-        <div class="row mobile-top-product" style=" height:850px; background-image: url('assets/images/background/top-mobile.png')">
+        <div class="row mobile-top-product" style=" height:750px; background-image: url('assets/images/background/top-mobile.png')">
             <!--  <img style=" margin-left: 55%;  display: inline-block; height: 30%; padding: 21px; vertical-align: middle;" src="assets/frontend/images/another/best-seller.png"> -->
             <div class="section-title">
                 <h2 class="mobile-top-title text-upper">Sản phẩm cao cấp</h2>
                 <div  class="mobile-top-content">Sản phẩm cao cấp được các nhà thiết kế thổi hồn giúp bạn định hình “Phong Cách Sống”</div>
                    
-                    <div  class="owl-carousel owl-theme" style="margin-top: 115px; padding-left: 40px;" id="mobile-top-product-carousel">
+                    <div  class="owl-carousel owl-theme" style=" padding-left: 40px;" id="mobile-top-product-carousel">
                             <div class="ec-product-content" >
                                 <div  class="ec-product-inner">
                                     <div  class="ec-pro-image-outer">
@@ -321,7 +321,7 @@
                 <div  class="mobile-luxury-content">V DIAMOND mang đến cho Quý khách hàng những sản phẩm nội thất cổ điển mang “hơi thở của thời gian”</div>
                     <div  class="owl-carousel owl-theme" style=" margin-top: 35px; padding-left: 40px;" id="mobile-luxury-product-carousel">
                             <div class="ec-product-content" >
-                                <div  class="ec-product-inner">
+                                <div  class="ec-product-inner" style="">
                                     <div  class="ec-pro-image-outer">
                                         <div  class="ec-pro-image">
                                             <a href="product-left-sidebar.html" class="image">
@@ -444,6 +444,97 @@
                        </button>
                     </div>
                 </div>
+            </div>
+     </section>
+
+     <section class="section ec-product-tab section-space-p" style=" background: #F3F1F1; height: 520px;">
+            <div class="container">
+                <h2 class="text-upper popular-text">Cẩm nang nội thất</h2>
+                <div class="owl-carousel owl-theme" id="news-mobile">
+                    <div class="row news-mobile">
+                        <div class="row mb-4">
+                           <div class="col-8">
+                              <h3 class="overflow-auto">Sofa nỉ cao cấp, Thiết kế đẳng cấp và thoải mái</h3>
+                              <ul>
+                                  <li>12 phút</li>
+                                  <li class="ml-1 mr-1"><img style="display: inline; width: 5px;" src="{{asset('assets/images/icons/circle.svg')}}"></li>
+                                  <li>Fotograph</li>
+                              </ul>
+                           </div>
+                           <div class="col-4">
+                              <img src="{{asset('assets/images/news/news1.png')}}">
+                           </div>
+                        </div>
+                        <div class="row mb-4">
+                           <div class="col-8">
+                              <h3 class="overflow-auto">Sofa nỉ cao cấp, Thiết kế đẳng cấp và thoải mái</h3>
+                              <ul>
+                                  <li>12 phút</li>
+                                  <li class="ml-1 mr-1"><img style="display: inline; width: 5px;" src="{{asset('assets/images/icons/circle.svg')}}"></li>
+                                  <li>Fotograph</li>
+                              </ul>
+                           </div>
+                           <div class="col-4">
+                              <img src="{{asset('assets/images/news/news1.png')}}">
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-8">
+                              <h3 class="overflow-auto">Sofa nỉ cao cấp, Thiết kế đẳng cấp và thoải mái</h3>
+                              <ul>
+                                  <li>12 phút</li>
+                                  <li class="ml-1 mr-1"><img style="display: inline; width: 5px;" src="{{asset('assets/images/icons/circle.svg')}}"></li>
+                                  <li>Fotograph</li>
+                              </ul>
+                           </div>
+                           <div class="col-4">
+                              <img src="{{asset('assets/images/news/news1.png')}}">
+                           </div>
+                        </div>
+                    </div>
+                    <div class="row news-mobile">
+                        <div class="row mb-4">
+                           <div class="col-8">
+                              <h3 class="overflow-auto">Sofa nỉ cao cấp, Thiết kế đẳng cấp và thoải mái</h3>
+                              <ul>
+                                  <li>12 phút</li>
+                                  <li class="ml-1 mr-1"><img style="display: inline; width: 5px;" src="{{asset('assets/images/icons/circle.svg')}}"></li>
+                                  <li>Fotograph</li>
+                              </ul>
+                           </div>
+                           <div class="col-4">
+                              <img src="{{asset('assets/images/news/news1.png')}}">
+                           </div>
+                        </div>
+                        <div class="row mb-4">
+                           <div class="col-8">
+                              <h3 class="overflow-auto">Sofa nỉ cao cấp, Thiết kế đẳng cấp và thoải mái</h3>
+                              <ul>
+                                  <li>12 phút</li>
+                                  <li class="ml-1 mr-1"><img style="display: inline; width: 5px;" src="{{asset('assets/images/icons/circle.svg')}}"></li>
+                                  <li>Fotograph</li>
+                              </ul>
+                           </div>
+                           <div class="col-4">
+                              <img src="{{asset('assets/images/news/news1.png')}}">
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-8">
+                              <h3 class="overflow-auto">Sofa nỉ cao cấp, Thiết kế đẳng cấp và thoải mái</h3>
+                              <ul>
+                                  <li>12 phút</li>
+                                  <li class="ml-1 mr-1"><img style="display: inline; width: 5px;" src="{{asset('assets/images/icons/circle.svg')}}"></li>
+                                  <li>Fotograph</li>
+                              </ul>
+                           </div>
+                           <div class="col-4">
+                              <img src="{{asset('assets/images/news/news1.png')}}">
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
      </section>
 
