@@ -92,6 +92,13 @@
                         <li class="nav-item"><a href="{{route('admin.attribute.index')}}" class="nav-link">Thuộc tính</a></li>
                     </ul>
                 </li>
+
+                  <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Mã giảm giá</span></a>
+                    <ul class="nav nav-group-sub" data-submenu-title="Sản phẩm">
+                        <li class="nav-item"><a href="{{route('admin.coupon.index')}}" class="nav-link">Danh sách mã </a></li>
+                    </ul>
+                </li>
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Giao diện</span></a>
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">

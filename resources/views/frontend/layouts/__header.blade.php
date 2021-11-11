@@ -66,11 +66,12 @@
                     <div class="col d-lg-none ">
                         <div class="ec-header-bottons">
                             <!-- Header Cart Start -->
-                            <a id="" class="ec-side-cart-href ec-header-btn ec-side-toggle">
+                           <!--  ec-side-cart-href -->
+                            <a href="{{route('checkout.index')}}" id="" class="ec-header-btn ec-side-toggle">
                   
                                 <div class="header-icon"><img src="{{asset('assets/images/icons/cart.svg')}}"
                                         class="svg_img header_svg" alt="" /></div>
-                                <span class="ec-header-count cart-count-lable">4</span>
+                                <span class="ec-header-count cart-count-lable quantityCart">{{Session::get('quantityCart')}}</span>
                             </a>
                             <!-- Header Cart End -->
                             <!-- Header menu Start -->
@@ -117,10 +118,14 @@
                         <!-- Ec Header Button Start -->
                         <div class="col-md-3">
                             <div class="ec-header-bottons">
-                                <a class="ec-side-cart-href ec-header-btn ec-side-toggle">
+                                <a href="{{route('checkout.index')}}" class=" ec-header-btn ec-side-toggle">
                                     <div class="header-icon"><img src="{{asset('assets/images/icons/cart.svg')}}"
                                             class="svg_img header_svg" alt="" /></div>
-                                    <span class="ec-header-count cart-count-lable">3</span>
+                                            @if(Session::get('quantityCart'))
+                                    <span class="ec-header-count cart-count-lable quantityCart">{{Session::get('quantityCart')}}</span>
+                                    @else
+                                    <span class="quantityCart ec-header-count cart-count-lable">0</span>
+                                    @endif
                                 </a>
                                 <!-- Header Cart End -->
                             </div>
@@ -693,46 +698,24 @@
         <div class="ec-cart-inner">
             <div class="ec-cart-top">
                 <div class="ec-cart-title">
-                    <span class="cart_title">My Cart</span>
+                    <span class="cart_title">Giỏ hàng</span>
                     <button class="ec-close">×</button>
                 </div>
                 <ul class="eccart-pro-items">
+      
                     <li>
                         <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
-                                src="assets/images/product-image/6_1.jpg" alt="product"></a>
+                                src="" alt="product"></a>
                         <div class="ec-pro-content">
-                            <a href="product-left-sidebar.html" class="cart_pro_title">T-shirt For Women</a>
-                            <span class="cart-price"><span>$76.00</span> x 1</span>
+                            <a href="product-left-sidebar.html" class="cart_pro_title">title</a>
+                            <span class="cart-price"><span>Gía</span></span>
                             <div class="qty-plus-minus">
-                                <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                                <input class="qty-input updateCart" type="text" name="ec_qtybtn" value="1" />
                             </div>
                             <a href="javascript:void(0)" class="remove">×</a>
                         </div>
                     </li>
-                    <li>
-                        <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
-                                src="assets/images/product-image/12_1.jpg" alt="product"></a>
-                        <div class="ec-pro-content">
-                            <a href="product-left-sidebar.html" class="cart_pro_title">Women Leather Shoes</a>
-                            <span class="cart-price"><span>$64.00</span> x 1</span>
-                            <div class="qty-plus-minus">
-                                <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                            </div>
-                            <a href="javascript:void(0)" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
-                                src="assets/images/product-image/3_1.jpg" alt="product"></a>
-                        <div class="ec-pro-content">
-                            <a href="product-left-sidebar.html" class="cart_pro_title">Girls Nylon Purse</a>
-                            <span class="cart-price"><span>$59.00</span> x 1</span>
-                            <div class="qty-plus-minus">
-                                <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                            </div>
-                            <a href="javascript:void(0)" class="remove">×</a>
-                        </div>
-                    </li>
+              
                 </ul>
             </div>
             <div class="ec-cart-bottom">

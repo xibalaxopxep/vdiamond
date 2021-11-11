@@ -92,21 +92,16 @@
     <!-- ekka Cart End -->
 
     <!-- Ec breadcrumb start -->
-    <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+    <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb" style="height:130px; background-image: url('/assets/images/background/breakcum.png')">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="row ec_breadcrumb_inner">
                         <div class="col-md-6 col-sm-12">
-                            <h2 class="ec-breadcrumb-title">Single Products</h2>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <!-- ec-breadcrumb-list start -->
-                            <ul class="ec-breadcrumb-list">
+                            <ul style="float:left;" class="ec-breadcrumb-list">
                                 <li class="ec-breadcrumb-item"><a href="index-2.html">Home</a></li>
                                 <li class="ec-breadcrumb-item active">Products</li>
                             </ul>
-                            <!-- ec-breadcrumb-list end -->
                         </div>
                     </div>
                 </div>
@@ -146,16 +141,16 @@
                                 </div>
                                 <div class="single-pro-desc single-pro-desc-no-sidebar">
                                     <div class="single-pro-content">
-                                        <h5 class="ec-single-title">Sản phẩm VD111</h5>
+                                        <h5 class="ec-single-title">{{$record->title}}</h5>
                                         <div class="ec-single-rating-wrap">
-                                            <span class="ec-read-review"><a href="#ec-spt-nav-review">Model: VD111</a></span>
+                                            <span class="ec-read-review"><a href="#ec-spt-nav-review">{{$record->model}}</a></span>
                                         </div>
                                     
                                        
                                         <div class="ec-single-price-stoke">
                                             <div class="ec-single-price ">
-                                                <span style="margin-right: 30px;" class="old-price">$68.00</span>
-                                                <span class="new-price">13.000.000 đ</span>
+                                                <span style="margin-right: 30px;" class="old-price">{{$record->getPrice()}}</span>
+                                                <span class="new-price">{{$record->getSalePrice()}}</span>
                                             </div>
                                             <div class="btn btn-light ec-single-stoke col-0">
                                                 <span class="ec-single-sku"><img src="{{asset('assets/images/icons/cart-detail.svg')}}"> Thêm vào giỏ hàng </span>
@@ -167,8 +162,8 @@
                                                 <div class="ec-single-sales-title">sales accelerators</div>
                                                 <div class="ec-single-sales-visitor"><img src="{{asset('assets/images/icons/discount.svg')}}">  Giảm <span>200.000₫</span> khi đặt hàng online</div>
                                                 <div class="ec-single-sales-visitor"><img style="width: 22px; height: 22px;" src="{{asset('assets/images/icons/freeship.svg')}}">  Miễn phí vận chuyển <a href="#">(xem chi tiết)</a></div>
-                                                <div class="ec-single-sales-visitor"><img src="{{asset('assets/images/icons/change.svg')}}">  Miễn phí vận chuyển <a href="#">(xem chi tiết)</a></div>
-                                                <div class="ec-single-sales-visitor"><img src="{{asset('assets/images/icons/freework.svg')}}">  Miễn phí vận chuyển <a href="#">(xem chi tiết)</a></div>
+                                                <div class="ec-single-sales-visitor"><img src="{{asset('assets/images/icons/change.svg')}}">  Đổi trả trong 3 ngày <a href="#">(xem chi tiết)</a></div>
+                                                <div class="ec-single-sales-visitor"><img src="{{asset('assets/images/icons/freework.svg')}}">  Miễn phí lắp đặt <a href="#">(xem chi tiết)</a></div>
                                             </div>
                                         </div>
 
@@ -178,9 +173,10 @@
                                                 <span class="col-md-2 col-xs-12">Màu sắc:</span>
                                                 <div class="ec-pro-variation-content col-md-8">
                                                     <ul>
-                                                        <li class="active"><span
-                                                                style="background-color:#23839c;"></span></li>
-                                                        <li><span style="background-color:#000;"></span></li>
+                                                        @foreach($colors as $color)
+                                                        <li class="color-active"><span
+                                                                style="background-color: {{$color->color}};"></span></li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                                 <!-- <div class="qty-plus-minus col-md-2">
@@ -189,76 +185,25 @@
                                             </div>
                                             </div>
                                         </div>
-                               
+                                       <form method="post" action="{{route('addToCart', $record->id)}}">
+                                        @csrf
                                         <div class="row" style="padding-left: 0px !important;">
+                                            
                                             <div class="col-md-6 col-xs-6 col-6">
-                                                <button style="width: 100%; height: auto;" class="btn btn-buy">
+                                                <button style="width: 100%; height: 60px;" class="btn btn-buy">
                                                     <div style="font-family: Open Sans; font-style: normal; font-weight: bold; font-size: 16px; line-height: 22px; color: #FFFFFF;" class="buy-now">Mua ngay</div>
                                                     <div style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px; line-height: 19px; color: #FFFFFF;" class="gop">Mua trả góp</div>
                                                 </button>
                                             </div>
+                                            
                                              <div class="col-md-6 col-xs-6 col-6">
-                                                <button style="width: 100%; height: auto;" class="btn btn-payment">
+                                                <button style="width: 100%; height: 60px; background-color: #004A8E;" class="btn">
                                                     <div style="font-family: Open Sans; font-style: normal; font-weight: bold; font-size: 16px; line-height: 22px; color: #FFFFFF;" class="buy-now">Mua trả góp</div>
-                                                    <div style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px; line-height: 19px; color: #FFFFFF;" class="gop">trả góp trực tiếp</div>
+                                                    <div style="font-family: Open Sans; font-style: normal; font-weight: normal; font-size: 14px; line-height: 19px; color: #FFFFFF;" class="gop">trả góp qua thẻ</div>
                                                 </button>
-                                            </div>
+                                            </div>  
                                         </div>
-
-                                        
-                                       <!--  <button style="width: 100%;" class="btn btn-gray">
-                                            <div class="row">
-                                                <div class="col-md-4 row">
-                                                    <div class="col-md-4">
-                                                        <img style="background-color: red; border-radius: 100%;" src="{{asset('assets/images/icons/hotline.svg')}}">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div>123</div>
-                                                        <div>123</div>
-                                                    </div>
-                                                </div>
-                                                 <div class="col-md-4 row">
-                                                     <div class="col-md-4">
-                                                        <img style="width: 50px; height: 50px;" src="{{asset('assets/images/icons/facebook.svg')}}">
-                                                    </div>
-                                                    <div style="margin-left: -50px;" class="col-md-8">
-                                                        <div>123</div>
-                                                        <div>123</div>
-                                                    </div>
-                                                </div>
-                                                 <div class="col-md-4 row">
-                                                    <div class="col-md-4">
-                                                        <img style="width: 70px; height: 50px;" src="{{asset('assets/images/icons/zalo2.png')}}">
-                                                    </div>
-                                                    <div style="margin-left: -50px;" class="col-md-8">
-                                                        <div>123</div>
-                                                        <div>123</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        -->
-
-
-                                        
-                                       <!--  <div class="ec-single-social">
-                                            <ul class="mb-0">
-                                                <li class="list-inline-item facebook"><a href="#"><i
-                                                            class="ecicon eci-facebook"></i></a></li>
-                                                <li class="list-inline-item twitter"><a href="#"><i
-                                                            class="ecicon eci-twitter"></i></a></li>
-                                                <li class="list-inline-item instagram"><a href="#"><i
-                                                            class="ecicon eci-instagram"></i></a></li>
-                                                <li class="list-inline-item youtube-play"><a href="#"><i
-                                                            class="ecicon eci-youtube-play"></i></a></li>
-                                                <li class="list-inline-item behance"><a href="#"><i
-                                                            class="ecicon eci-behance"></i></a></li>
-                                                <li class="list-inline-item whatsapp"><a href="#"><i
-                                                            class="ecicon eci-whatsapp"></i></a></li>
-                                                <li class="list-inline-item plus"><a href="#"><i
-                                                            class="ecicon eci-plus"></i></a></li>
-                                            </ul>
-                                        </div> -->
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -281,11 +226,14 @@
                                 <div id="ec-spt-nav-details" class="tab-pane fade show active">
                                     <div class="ec-single-pro-tab-desc">
                                         <ul class="disable-list-style">
-                                            <li><span class="text-1 col-md-4">Kích thước: </span><span class="text-2">2m x 1.6m</span></li>
+                                            @foreach($attributes as $key => $attr)
+                                                <li class=""><span class="text-1 col-md-4">{{$attributes[$key]->parent_name}}: </span><span class="text-2 col-md-8">{{$attr[0]->title}}</span></li>
+                                            @endforeach
+                                            <!-- <li><span class="text-1 col-md-4">Kích thước: </span><span class="text-2">2m x 1.6m</span></li>
                                             <li><span class="text-1 col-md-4">Màu sắc: </span><span class="text-2">Vàng, xám, đỏ đô, xanh, be </span></li>
                                             <li><span class="text-1 col-md-4">Nệm mút: </span><span class="text-2">Mút cao su thiên nhiên</span></li>
                                             <li><span class="text-1 col-md-4">Chất liệu: </span><span class="text-2">Gỗ sồi 7 năm Việt Nam</span></li>
-                                            <li><span class="text-1 col-md-4">Bảo hành: </span><span class="text-2">15 năm</span></li>
+                                            <li><span class="text-1 col-md-4">Bảo hành: </span><span class="text-2">15 năm</span></li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -362,6 +310,8 @@
             </div>
         </div>
     </section>
+
+
     <!-- Related Product end -->
 
     @stop

@@ -8,7 +8,7 @@ class Product extends Model {
 
     protected $table = 'product';
     protected $fillable = [
-        'created_by', 'is_hot', 'is_new', 'content', 'price', 'sale_price', 'image' , 'images', 'title', 'model', 'description', 'keywords', 'meta_title', 'meta_description', 'meta_keywords', 'view_count', 'sell_count', 'status', 'alias', 'ordering'
+        'created_by', 'is_hot', 'is_new', 'is_combo','is_best_seller','content', 'price', 'sale_price', 'image' , 'images', 'title', 'model', 'description', 'keywords', 'meta_title', 'meta_description', 'meta_keywords', 'view_count', 'sell_count', 'status', 'alias', 'ordering'
     ];
 
     public function attributes() {
@@ -29,11 +29,11 @@ class Product extends Model {
     }
 
     public function getPrice() {
-        return $this->price > 0 ? number_format($this->price) . ' đ' : 'Liên hệ';
+        return $this->price > 0 ? number_format($this->price) . 'đ' : 'Liên hệ';
     }
 
     public function getSalePrice() {
-        return number_format($this->sale_price) . ' đ';
+        return $this->sale_price > 0 ? number_format($this->sale_price) . 'đ' : "";
     }
 
     public function createdBy() {

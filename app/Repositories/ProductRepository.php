@@ -45,6 +45,13 @@ class ProductRepository extends AbstractRepository {
         ];
     }
 
+    public function readProductByCat($cat_id) {
+        $category_id = DB::table('category')->where('parent_id', $cat_id)->get()->pluck('id');
+        $product_ids = DB::table('product_category')->whereIn('category_id', $category_id)->get()->pluck('product_id');
+        $product_ids[count($product_ids)] = $cat_id;
+        return $this->model->whereIn('id', $product_ids)->get();
+    }
+
     public function readFE($request) {
         $model = $this->model;
         if ($request->get('category_id')) {

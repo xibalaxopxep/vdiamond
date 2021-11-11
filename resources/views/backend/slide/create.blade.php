@@ -28,6 +28,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-md-3 col-form-label text-right">Sản phẩm <span class="text-danger">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="product_name" value="{!!old('product_name')!!}">
+                                    {!! $errors->first('product_name', '<span class="text-danger">:message</span>') !!}
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
                                 <label class="col-md-3 col-form-label text-right">Mô tả: </label>
                                 <div class="col-md-9">
                                     <textarea class="form-control" name="caption">{!!old('caption')!!}</textarea>

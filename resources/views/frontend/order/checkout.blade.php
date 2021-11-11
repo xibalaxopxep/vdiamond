@@ -34,7 +34,7 @@
         </div>
     </div>
     <!-- Ec breadcrumb end -->
-
+    @if(Session::get('cart'))
     <!-- Ec checkout page -->
     <section class="ec-page-content section-space-p">
         <div class="container">
@@ -46,16 +46,16 @@
                             
                             <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                                 <div class="ec-checkout-block ec-check-bill">
-                                    <h3 class="ec-checkout-title">Billing Details</h3>
+                                    <h3 class="ec-checkout-title">Thông tin nhận hàng</h3>
                                     <div class="ec-bl-block-content">
                                         
                                         <div class="ec-check-bill-form">
                                             <form action="#" method="post">
-                                                <span class="ec-bill-wrap ec-bill-half">
-                                                    <input type="text" name="firstname"
+                                                <span style="width: 50%;" class="ec-bill-wrap ec-bill-half">
+                                                    <input  type="text" name="firstname"
                                                         placeholder="Họ tên" required />
                                                 </span>
-                                                <span class="ec-bill-wrap ec-bill-half">
+                                                <span style="width: 50%;" class="ec-bill-wrap ec-bill-half">
                                                     <input type="text" name="lastname"
                                                         placeholder="Số điện thoại" required />
                                                 </span>
@@ -80,11 +80,7 @@
                                                         <select name="ec_select_city" id="ec-select-city"
                                                             class="ec-bill-select">
                                                             <option selected disabled>Chọn Quận/Huyện</option>
-                                                            <option value="1">City 1</option>
-                                                            <option value="2">City 2</option>
-                                                            <option value="3">City 3</option>
-                                                            <option value="4">City 4</option>
-                                                            <option value="5">City 5</option>
+                                                            
                                                         </select>
                                                     </span>
                                                 </span>
@@ -93,11 +89,7 @@
                                                         <select name="ec_select_country" id="ec-select-country"
                                                             class="ec-bill-select">
                                                             <option selected disabled>Chọn Phường/Xã</option>
-                                                            <option value="1">Country 1</option>
-                                                            <option value="2">Country 2</option>
-                                                            <option value="3">Country 3</option>
-                                                            <option value="4">Country 4</option>
-                                                            <option value="5">Country 5</option>
+                                                            
                                                         </select>
                                                     </span>
                                                 </span>
@@ -154,34 +146,31 @@
                             <div class="ec-sb-block-content">
                                 
                                 <div class="ec-checkout-pro">
+                                    @foreach(Session::get('cart') as $key => $product)
                                     <div class="col-sm-12 mb-6">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/1_1.jpg"
-                                                            alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/1_2.jpg"
+                                                        <img style="height: 136px;" class="main-image"
+                                                            src="{{url($product['image'])}}"
                                                             alt="Product" />
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Baby toy teddy bear</a></h5>
+                                                <h5 style="text-align: left !important;" class="ec-pro-title"><a href="product-left-sidebar.html">{{$product['title']}}</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <span class="model">Model: MD123</span>
+                                                    <span class="model">{{$product['title']}}</span>
                                                 </div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$95.00</span>
-                                                    <span style="color: #FA6400;" class="new-price">$79.00</span>
+                                                    <span style="color: #FA6400;" class="new-price">{{number_format($product['price'])}}đ</span>
                                                 </span>
                                                 <div style="margin-top: 15px;">
                                                     <div class="number-input">
-                                                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-                                                          <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" data-product_id="{{$key}}" class="down-quantity"></button>
+                                                          <input class="quantity updateQuantity totalCart" min="0" name="quantity" value="{{$product['quantity']}}" type="number">
+                                                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" data-product_id="{{$key}}" class="plus up-quantity"></button>
                                                         </div>
                                                 </div>
                                                 
@@ -189,68 +178,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 mb-6">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/1_1.jpg"
-                                                            alt="Product" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Baby toy teddy bear</a></h5>
-                                                <div class="ec-pro-rating">
-                                                    <span class="model">Model: MD123</span>
-                                                </div>
-                                                <span class="ec-price">
-                                                    <span class="old-price">$95.00</span>
-                                                    <span style="color: #FA6400;" class="new-price">$79.00</span>
-                                                </span>
-                                                <div style="margin-top: 15px;">
-                                                    <div class="number-input">
-                                                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-                                                          <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                                                        </div>
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                    
                                 </div>
                                 <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                              <input type="text" class="form-control couponCode" placeholder="Nhập mã giảm giá" >
                               <div class="input-group-append">
-                                <span style="" class="input-group-text" id="basic-addon2">Áp dụng</span>
+                                <button style="" type="button" class="input-group-text applyCoupon" id="basic-addon2">Áp dụng</button>
                               </div>
                             </div>
                                 <div class="ec-checkout-summary order-3">
                                     <div>
-                                        <span class="text-left">Sub-Total</span>
-                                        <span class="text-right">$80.00</span>
+                                        <span class="text-left">Tạm tính</span>
+                                        <span class="text-right totalNow">{{number_format($total)}}đ</span>
                                     </div>
                                     <div>
-                                        <span class="text-left">Delivery Charges</span>
-                                        <span class="text-right">$80.00</span>
+                                        <span class="text-left">Mã giảm giá</span>
+                                        <span class="text-right totalDiscount">0đ</span>
                                     </div>
-                                    <div>
-                                        <span class="text-left">Coupan Discount</span>
-                                        <span class="text-right"><a class="ec-checkout-coupan">Apply Coupan</a></span>
-                                    </div>
-                                    <div class="ec-checkout-coupan-content">
-                                        <form class="ec-checkout-coupan-form" name="ec-checkout-coupan-form"
-                                            method="post" action="#">
-                                            <input class="ec-coupan" type="text" required=""
-                                                placeholder="Enter Your Coupan Code" name="ec-coupan" value="">
-                                            <button class="ec-coupan-btn button btn-primary" type="submit"
-                                                name="subscribe" value="">Apply</button>
-                                        </form>
-                                    </div>
+                                    
+                                   
                                     <div class="ec-checkout-summary-total">
-                                        <span class="text-left">Total Amount</span>
-                                        <span class="text-right">$80.00</span>
+                                        <span class="text-left">Tổng tiền</span>
+                                        <span class="text-right totalCart">{{number_format($total)}}đ</span>
                                     </div>
                                 </div>
                             </div>
@@ -263,4 +213,22 @@
             </div>
         </div>
     </section>
+    @else
+     
+    <section style="height: 35vh;" class="ec-under-maintenance">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="under-maintenance">
+                        <h4>Không có sản phẩm nào trong giỏ hàng</h4>
+                        
+                        <a href="{{route('home.index')}}" class="btn btn-lg btn-primary" tabindex="0">Về trang chủ</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    @endif
     @stop

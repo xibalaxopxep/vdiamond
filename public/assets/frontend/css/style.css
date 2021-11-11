@@ -64,83 +64,83 @@
   Fonts Family & Style CSS
 ---------------------------------------------------*/
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-Light.ttf");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/poppins/Poppins-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: "Fjalla One";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/fjalla/FjallaOne-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/montserrat/Montserrat-SemiBold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   src: url("../fonts/montserrat/Montserrat-ExtraBold.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
@@ -163,7 +163,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -335,7 +335,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--bs-font-monospace);
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   direction: ltr /* rtl:ignore */;
   unicode-bidi: bidi-override;
@@ -431,7 +431,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   font-size: inherit;
   line-height: inherit;
 }
@@ -685,7 +685,7 @@ progress {
 body {
   margin: 0 auto;
   background-color: #ffffff;
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -979,7 +979,7 @@ a > code {
 }
 
 pre {
-  font-family: var(--bs-font-monospace);
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   display: block;
   margin-top: 0;
@@ -995,7 +995,7 @@ pre code {
 }
 
 code {
-  font-family: var(--bs-font-monospace);
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   font-size: 0.875rem;
   color: #D63384;
@@ -1003,7 +1003,7 @@ code {
 }
 
 kbd {
-  font-family: var(--bs-font-monospace);
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   padding: 3.2px 6.4px;
   font-size: 0.875rem;
@@ -1018,7 +1018,7 @@ kbd kbd {
 }
 
 samp {
-  font-family: var(--bs-font-monospace);
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
 }
 
@@ -1093,7 +1093,7 @@ label {
 button {
   border-radius: 0;
   margin: 0;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   font-size: inherit;
   line-height: inherit;
   overflow: visible;
@@ -1119,7 +1119,7 @@ button:not(:disabled) {
 
 input {
   margin: 0;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   font-size: inherit;
   line-height: inherit;
   overflow: visible;
@@ -1147,7 +1147,7 @@ input:focus {
 
 select {
   margin: 0;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   font-size: inherit;
   line-height: inherit;
   text-transform: none;
@@ -1156,14 +1156,14 @@ select {
 
 optgroup {
   margin: 0;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   font-size: inherit;
   line-height: inherit;
 }
 
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   font-size: inherit;
   line-height: inherit;
   resize: vertical;
@@ -5720,7 +5720,7 @@ textarea.form-control.is-invalid {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5875,7 +5875,7 @@ textarea.form-control.is-invalid {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -8346,7 +8346,7 @@ textarea.form-control.is-invalid {
 }
 
 .font-monospace {
-  font-family: var(--bs-font-monospace);
+  font-family: "Open Sans", sans-serif;
 }
 
 .user-select-all {
@@ -15884,12 +15884,12 @@ body {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-weight: 300;
 }
 
 h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 
 /*----  Section  ----*/
@@ -16041,7 +16041,7 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   position: relative;
 }
 .section-title .ec-title {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 30px;
   font-weight: 800;
   margin-bottom: 7px;
@@ -16079,7 +16079,7 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   display: none;
 }
 .section-title .ec-bg-title {
-  font-family: "Fjalla One";
+  font-family: "Open Sans", sans-serif;
   font-size: 63px;
   position: absolute;
   left: 0;
@@ -18055,7 +18055,7 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: #444444;
   display: block;
   font-size: 15px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   line-height: 22px;
   font-weight: 700;
   margin: 0 auto;
@@ -18922,7 +18922,7 @@ body.ec-open:before {
 .ec-side-cart .ec-cart-inner .ec-cart-title .cart_title {
   font-size: 17px;
   color: #555;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
 .ec-side-cart .ec-cart-inner .ec-cart-title .ec-close {
@@ -18992,7 +18992,7 @@ body.ec-open:before {
 .ec-side-cart .ec-menu-title .menu_title {
   font-size: 18px;
   color: #3474d4;
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
 .ec-side-cart .ec-menu-title .ec-close {
@@ -20168,7 +20168,7 @@ section.ec-test-section {
           flex-direction: column;
 }
 .ec-test-section .ec-test-name {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 6px;
@@ -20819,7 +20819,7 @@ div#ec_news_signup {
 .ec-category-section .ec-cat-tab-nav .cat-link .cat-desc span {
   margin-top: 5px;
   font-size: 17px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   color: #444444;
   letter-spacing: 0;
@@ -21326,7 +21326,7 @@ color: #000000;
   position: relative;
   display: block;
   color: #3474d4;
-  font-family: "Fjalla One";
+  font-family: "Open Sans", sans-serif;
   letter-spacing: 0.4px;
 }
 .ec-sidebar-wrap .ec-sb-block-content {
@@ -21493,7 +21493,7 @@ color: #000000;
   border-bottom: none;
   background: #f5f5f5;
   padding: 21px 15px 15px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 
 .ec-sidebar-heading h1, .ec-sidebar-heading .h1 {
@@ -21501,7 +21501,7 @@ color: #000000;
   color: #777;
   display: block;
   font-size: 16px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   line-height: 20px;
   background: #f7f7f7;
@@ -21895,7 +21895,7 @@ color: #000000;
   font-weight: 700;
   letter-spacing: 0;
   text-align: left;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-cms-block p {
   font-family: Open Sans;
@@ -22124,7 +22124,7 @@ color: #000000;
   background-color: #fff;
 }
 .ec_contact_info .ec_contact_info_head {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 19px;
@@ -22231,7 +22231,7 @@ h2.ec-faq-heading, .ec-faq-heading.h2 {
   padding: 0;
   margin-bottom: 15px;
   margin-top: 2px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 
 .ec-faq-block {
@@ -22269,7 +22269,7 @@ h4.ec-faq-title, .ec-faq-title.h4 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 h4.ec-faq-title::after, .ec-faq-title.h4::after {
   content: "";
@@ -22404,7 +22404,7 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
   line-height: 1.5;
   letter-spacing: 0.5px;
   font-weight: 400;
-  font-family: "Poppins, sans-serif";
+  font-family: "Open Sans", sans-serif;
 }
 .product_page .ec-sidebar-slider .ec-sb-pro-sl .ec-sb-pro-sl-item .ec-pro-content .ec-pro-rating {
   margin: 4px 0 6px;
@@ -22443,7 +22443,7 @@ h4.ec-faq-title::after, .ec-faq-title.h4::after {
   max-width: 100%;
 }
 .product_page .ec-sb-slider-title {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   text-decoration: none;
   color: #212121;
   display: block;
@@ -22652,7 +22652,7 @@ color: #000000;
   letter-spacing: 0;
   word-break: break-all;
   line-height: 1.7;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .single-pro-content .ec-single-sales {
   margin: 25px 0 30px 0;
@@ -22674,7 +22674,7 @@ color: #000000;
   position: relative;
   display: block;
   color: #444444;
-  font-family: "Fjalla One";
+  font-family: "Open Sans", sans-serif;
   letter-spacing: 0.5px;
   text-transform: capitalize;
   line-height: 1.2;
@@ -22827,7 +22827,7 @@ color: #000000;
   line-height: 1.1;
   letter-spacing: 0.04rem;
   text-transform: uppercase;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .single-pro-content .ec-pro-variation .ec-pro-variation-inner .ec-pro-variation-content li {
   -webkit-transition: all 0.3s ease-in-out;
@@ -23167,7 +23167,7 @@ i.ecicon.eci-star-o {
 
 .tab-pane p {
   color: #777;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 500;
 }
@@ -23213,7 +23213,7 @@ i.ecicon.eci-star-o {
 }
 .ec-single-pro-tab-content .ec-single-pro-tab-moreinfo p {
   color: #777;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-weight: 500;
 }
@@ -23304,7 +23304,7 @@ i.ecicon.eci-star-o {
   font-weight: 700;
   line-height: 1;
   margin-bottom: 10px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-single-pro-tab-content .ec-ratting-content .ec-ratting-star {
   display: -webkit-box;
@@ -23614,7 +23614,7 @@ i.ecicon.eci-star-o {
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: 0;
@@ -23641,7 +23641,7 @@ i.ecicon.eci-star-o {
   letter-spacing: 0;
   word-break: break-all;
   line-height: 24px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-blog-inner .ec-blog-btn a.btn {
   min-width: 130px;
@@ -23664,7 +23664,7 @@ i.ecicon.eci-star-o {
   letter-spacing: 0;
   line-height: 1;
   font-weight: 600;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-sidebar-recent-blog .ec-sidebar-block-item .ec-blog-date {
   font-size: 16px;
@@ -23741,7 +23741,7 @@ i.ecicon.eci-star-o {
 }
 
 .ec-blog-detail .ec-blog-title {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 24px;
   letter-spacing: 0;
@@ -23799,7 +23799,7 @@ i.ecicon.eci-star-o {
 }
 .ec-blog-comment-wrapper .ec-single-comment-wrapper h5, .ec-blog-comment-wrapper .ec-single-comment-wrapper .h5 {
   color: #777;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
@@ -24323,7 +24323,7 @@ i.ecicon.eci-star-o {
   position: relative;
   display: block;
   color: #555;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   letter-spacing: 0;
   margin: 0 auto;
   text-align: center;
@@ -24410,7 +24410,7 @@ i.ecicon.eci-star-o {
       -ms-flex-align: center;
           align-items: center;
   color: #ffffff;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   background-color: #3474d4;
   letter-spacing: 0;
   padding: 15px;
@@ -24451,7 +24451,7 @@ i.ecicon.eci-star-o {
           justify-content: space-between;
 }
 .ec-trackorder-top .ec-order-id {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 40px;
@@ -24601,7 +24601,7 @@ i.ecicon.eci-star-o {
   position: relative;
   display: block;
   color: #444444;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   line-height: 1;
 }
 .checkout_page .ec-checkout-wrap .ec-check-login h3, .checkout_page .ec-checkout-wrap .ec-check-login .h3 {
@@ -25314,7 +25314,7 @@ i.ecicon.eci-star-o {
 ---------------------------------------------------*/
 .ec-tab-wrapper-1 .ec-single-pro-tab-content .ec-single-pro-tab-desc p, .ec-tab-wrapper-2 .ec-single-pro-tab-content .ec-single-pro-tab-desc p, .ec-tab-wrapper-3 .ec-single-pro-tab-content .ec-single-pro-tab-desc p, .ec-tab-wrapper-4 .ec-single-pro-tab-content .ec-single-pro-tab-desc p {
   margin: 0;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-weight: 500;
 }
@@ -26576,7 +26576,7 @@ i.ecicon.eci-star-o {
   min-height: 50px;
   border-radius: 60px;
   color: #fff;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   background: #222;
   cursor: pointer;
@@ -26981,7 +26981,7 @@ i.ecicon.eci-star-o {
   background: transparent;
   padding: 0;
   font-size: inherit;
-  font-family: inherit;
+  font-family: "Open Sans", sans-serif;
   direction: ltr !important;
 }
 .ec-bg-swipe .ec-btn-bg-swipe {
@@ -27638,7 +27638,7 @@ i.ecicon.eci-star-o {
   font-weight: 500;
   margin: 0 0 5px;
   color: #777;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-product-fw .ec-product-body .ec-rating {
   padding: 0;
@@ -28649,7 +28649,7 @@ i.ecicon.eci-star-o {
 /* -----------/ END Product-sup -----------*/
 /* ----------- START Product-sbtn -----------*/
 .ec-product-sbtn {
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   text-align: center;
 }
 .ec-product-sbtn:hover {
@@ -29137,7 +29137,7 @@ i.ecicon.eci-star-o {
 
 .ec-title a {
   color: #777;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-weight: 500;
   white-space: nowrap;
@@ -29312,7 +29312,7 @@ i.ecicon.eci-star-o {
   margin: 0;
   color: #777;
   font-size: 16px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 
 /*-----  Title Section-1 CSS  -----*/
@@ -29919,7 +29919,7 @@ input[type=email]:focus::-webkit-input-placeholder {
   -webkit-transition: all, 0.5s;
   transition: all, 0.5s;
   line-height: 45px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-card-grid-space .ec-card h1, .ec-card-grid-space .ec-card .h1 {
   margin: 0;
@@ -29929,7 +29929,7 @@ input[type=email]:focus::-webkit-input-placeholder {
   color: #ffffff;
   -webkit-transition: all, 0.5s;
   transition: all, 0.5s;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -29942,7 +29942,7 @@ input[type=email]:focus::-webkit-input-placeholder {
   color: #ffffff;
   -webkit-transition: all, 0.5s;
   transition: all, 0.5s;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-card-grid-space .ec-card .ec-date {
   position: absolute;
@@ -29955,7 +29955,7 @@ input[type=email]:focus::-webkit-input-placeholder {
   opacity: 0.8;
   -webkit-transition: all, 0.5s;
   transition: all, 0.5s;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .ec-card-grid-space .ec-card .ec-tags {
   display: -webkit-box;
@@ -30292,7 +30292,7 @@ input[type=email]:focus::-webkit-input-placeholder {
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
 }
 .ec-blog-card .ec-title-content h3 a:hover, .ec-blog-card .ec-title-content .h3 a:hover {
@@ -30333,7 +30333,7 @@ input[type=email]:focus::-webkit-input-placeholder {
   z-index: 20;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
 }
 .ec-blog-card .ec-card-info a {
@@ -30770,7 +30770,7 @@ input[type=email]:focus::-webkit-input-placeholder {
 }
 .typography h1, .typography .h1, .typography h2, .typography .h2, .typography h3, .typography .h3, .typography h4, .typography .h4, .typography h5, .typography .h5, .typography h6, .typography .h6 {
   margin-bottom: 30px;
-  font-family: "Montserrat";
+  font-family: "Open Sans", sans-serif;
 }
 .typography .ec-fc {
   color: #3474d4;

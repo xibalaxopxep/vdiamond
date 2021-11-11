@@ -25,17 +25,16 @@ class AttributeRepository extends AbstractRepository {
     public function validateUpdate($id) {
         return $rules = [
             'title' => 'required|unique:attribute,title,' . $id . ',id',
-            'type' => 'required',
-            'module' => 'required'
+            'type' => 'required'        
         ];
     }
 
-    public function readAttributeByParentAdmin($module = 'product', $parent_id = 0, $type = '') {
+    public function readAttributeByParentAdmin($module = ['product','color'], $parent_id = 0, $type = '') {
         $model = $this->model;
         if ($type) {
             $model = $model->where('type', 'select');
         }
-        $data = $model->where('parent_id', $parent_id)->where('module', $module)->get();
+        $data = $model->where('parent_id', $parent_id)->whereIn('module', $module)->get();
         foreach ($data as $key => $val) {
             $data[$key]->children = $this->model->where('parent_id', $val->id)->get();
         }

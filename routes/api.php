@@ -17,7 +17,17 @@ use Illuminate\Http\Request;
   return $request->user();
   });
  */
+
+//cart 
+Route::post('/add-to-cart', ['as' => 'api.addtocart', 'uses' => 'Api\ProductController@addToCart']);
+Route::post('/update-cart', ['as' => 'api.updatecart', 'uses' => 'Api\ProductController@updateCart']);
+Route::post('/delete-cart', ['as' => 'api.deletecart', 'uses' => 'Api\ProductController@deleteCart']);
+Route::post('/up-quantity', ['as' => 'api.upQuantityCart', 'uses' => 'Api\ProductController@upQuantityCart']);
+Route::post('/apply-coupon', ['as' => 'api.applyCoupon', 'uses' => 'Api\ProductController@applyCoupon']);
+Route::post('/get-address', ['as' => 'api.getAddress', 'uses' => 'Api\ProductController@getAddress']);
+
 Route::post('/get-product-attribute', ['as' => 'api.get_product_attribute', 'uses' => 'Api\ProductController@getProductAttribute']);
+
 Route::post('/get-sale-product-attribute', ['as' => 'api.get_sale_product_attribute', 'uses' => 'Api\ProductController@getSaleProductAttribute']);
 Route::post('/slugify', ['as' => 'api.slugify', 'uses' => 'Api\BackendController@slugify']);
 Route::post('/change-status', ['as' => 'api.change_status', 'uses' => 'Api\BackendController@changeStatus']);

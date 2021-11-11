@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Repositories\ProductRepository;
 use Repositories\AttributeRepository;
+use Carbon\Carbon;
 
 class ProductController extends Controller {
 
@@ -41,8 +42,9 @@ class ProductController extends Controller {
                 $count += $val['quantity'];
                 $total += ($val['price'] * $val['quantity']);
             }
+            session()->put('quantityCart', $count);
             return response()->json([
-                        'success' => true, 'count' => $count, 'total' => number_format($total)
+                'success' => true, 'count' => $count, 'total' => number_format($total)
             ]);
         }
         if (isset($cart[$id])) {
@@ -53,6 +55,7 @@ class ProductController extends Controller {
                 $count += $val['quantity'];
                 $total += ($val['price'] * $val['quantity']);
             }
+            session()->put('quantityCart', $count);
             return response()->json([
                         'success' => true, 'count' => $count, 'total' => number_format($total)
             ]);
@@ -70,6 +73,7 @@ class ProductController extends Controller {
             $count += $val['quantity'];
             $total += ($val['price'] * $val['quantity']);
         }
+        session()->put('quantityCart', $count);
         return response()->json([
                     'success' => true, 'count' => $count, 'total' => number_format($total)
         ]);
@@ -82,36 +86,120 @@ class ProductController extends Controller {
             $cart = session()->get('cart');
             $new_price = $request->quantity * $cart[$request->product_id]["price"];
             $cart[$request->product_id]["quantity"] = $request->quantity;
-
+            if($cart[$request->product_id]["quantity"] <= 0){
+                $cart[$request->product_id]["quantity"] = 1;  
+            }
             session()->put('cart', $cart);
 
             foreach (session('cart') as $val) {
                 $count += $val['quantity'];
                 $total += ($val['price'] * $val['quantity']);
             }
+            session()->put('quantityCart', $count);
             return response()->json([
                         'success' => true, 'count' => $count, 'total' => number_format($total),'new_price'=>number_format($new_price)
             ]);
         }
     }
 
-    public function deleteCart(Request $request) {
+    public function upQuantityCart(Request $request) {
         $total = 0;
         $count = 0;
         if ($request->product_id) {
-            $cart = session()->get('cart');
-            if (isset($cart[$request->product_id])) {
-                unset($cart[$request->product_id]);
-                session()->put('cart', $cart);
-            }
+            $cart =  session()->get('cart');
+            $new_price = $request->quantity * $cart[$request->product_id]["price"];
+            $cart[$request->product_id]["quantity"] +=1;
+            session()->put('cart', $cart);
             foreach (session('cart') as $val) {
                 $count += $val['quantity'];
                 $total += ($val['price'] * $val['quantity']);
             }
+            session()->put('quantityCart', $count);
             return response()->json([
-                        'success' => true, 'count' => $count, 'total' => number_format($total)
+                        'success' => true, 'count' => $count, 'total' => number_format($total),'new_price'=>number_format($new_price)
             ]);
         }
+    }
+
+    public function downQuantityCart(Request $request) {
+       $total = 0;
+        $count = 0;
+
+        $cart = session()->get('cart');
+        $cart[$request->product_id]["quantity"] -= 1;
+
+        session()->put('cart', $cart);
+        foreach (session('cart') as $val) {
+            $count += $val['quantity'];
+            $total += ($val['price'] * $val['quantity']);
+        }
+        return response()->json([
+                    'success' => true, 'count' => $count, 'total' => number_format($total),'new_price'=>number_format($new_price)
+        ]);
+    }
+
+    public function applyCoupon(Request $request) {
+        $total_coupon = 0;
+        $coupon = \DB::table('coupon')->where('coupon_code', $request->coupon_code)->first();
+        if($coupon){
+            if($coupon->coupon_end >= Carbon::now('Asia/Ho_Chi_Minh') && $coupon->coupon_status == 1){
+                Session::put('coupon', $request->coupon_code);
+                $total = 0;
+                $cart = session()->get('cart');
+                session()->put('cart', $cart);
+                foreach (session('cart') as $val) {
+                    $total += ($val['price'] * $val['quantity']);
+                }
+                if($total > $coupon->coupon_condition){
+                if($coupon->coupon_type == 1){
+                    $total_coupon = $total - ($total / 100 * $coupon->coupon_value);
+                }
+                else{
+                    $total_coupon = $total - $coupon->coupon_value;
+                    if($total_coupon < 0){
+                        $total_coupon = 0;
+                    }
+                }
+                $total_discount = $total - $total_coupon;
+                return response()->json([
+                        'success' => true, 'total_coupon' => number_format($total_coupon), 'total_discount' => number_format($total_discount)
+                ]);
+                }else{
+                    return response()->json(['success'=> false]);
+                }
+        }else{
+            return response()->json(['success'=> false]);
+        }
+        }else{
+            return response()->json(['success'=> false]);
+        }
+    }
+
+
+
+    public function totalCoupon(){
+        $coupon = \DB::table('coupon')->where('coupon_code', Session::get('coupon'))->first();
+     
+
+    }
+
+    public function deleteCart(Request $request) {
+        $total = 0;
+        $count = 0;
+
+        $cart = session()->get('cart');
+        $cart[$request->product_id]["quantity"] -= 1;
+        if($cart[$request->product_id]["quantity"] <= 0){
+            $cart[$request->product_id]["quantity"] = 1;  
+        }
+        session()->put('cart', $cart);
+        foreach (session('cart') as $val) {
+            $count += $val['quantity'];
+            $total += ($val['price'] * $val['quantity']);
+        }
+        return response()->json([
+                    'success' => true, 'count' => $count, 'total' => number_format($total),'new_price'=>number_format($new_price)
+        ]);
     }
 
     public function getProductAttribute(Request $request) {

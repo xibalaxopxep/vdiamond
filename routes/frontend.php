@@ -26,6 +26,9 @@ Route::group(['middleware' => 'frontend'], function() {
     Route::get('/don-hang', ['as' => 'order.index', 'uses' => 'Frontend\OrderController@order']);
 
     // Khách Hàng
-    Route::get('/hinh-anh', ['as' => 'galerry.index', 'uses' => 'Frontend\FrontendController@galerry']);
+    Route::get('/hinh-anh', ['as' => 'galerry.index', 'uses' => 'Frontend\FrontendController@']);
+
+    //Thêm giỏ hàng
+    Route::post('/add-to-cart/{id}', ['as' => 'addToCart', 'uses' => 'Frontend\OrderController@addToCart']);
 
 });

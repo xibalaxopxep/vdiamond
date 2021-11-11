@@ -42,7 +42,7 @@
                                             {!! $errors->first('alias', '<span class="text-danger">:message</span>') !!}
                                         </div>
                                     </div>
-                                      <div class="form-group row">
+                                    <div class="form-group row">
                                         <label class="col-md-2 col-form-label text-right">Model <span class="text-danger">*</span></label>
                                         <div class="col-md-10">
                                             <input type="text" class="form-control" name="model" value="{!!is_null(old('model'))?$record->model:old('model')!!}" required="">
@@ -161,16 +161,32 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="form-check col-md-6 form-check-right">
+                                        <label class="form-check-label float-right">
+                                            Combo giá tốt
+                                            <input type="checkbox" class="form-check-input-styled" name="is_combo" data-fouc="" @if($record->is_combo) checked @endif>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-check col-md-6 form-check-right">
+                                        <label class="form-check-label float-right">
+                                            Bán chạy
+                                            <input type="checkbox" class="form-check-input-styled" name="is_best_seller" data-fouc="" @if($record->is_best_seller) checked @endif>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- <div class="col-md-12">
-
+                            <div class="col-md-12">
                                 <div class="form-group row">
                                     <label class="col-md-2 col-form-label text-right">Nội dung: </label>
                                     <div class="col-md-12">
                                         <textarea class="form-control ckeditor" id="content" name="content">{!!is_null(old('content'))?$record->content:old('content')!!}</textarea>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
+
                         </div>
                     </div>
 
@@ -182,10 +198,19 @@
                                     <label class="col-md-3 col-form-label text-right">{{$val->title}}</label>
                                     <div class="col-md-9">
                                         @if ($val->type == \App\Attribute::TYPE_SELECT)
+                                        @if($val->module != 'color')
                                         <select name="attribute_select[]" class="select-search" data-placeholder="Chọn">
+                                        @else
+                                         <select multiple="" name="attribute_select[]" class="select-search" data-placeholder="Chọn">
+                                        @endif
                                             <option></option>
                                             @foreach ($val->children as $k => $v)
-                                            <option value="{{$v->id}}" @if(in_array($v->id, $product_attribute_ids)) selected @endif>{{$v->title}}</option>
+                                            @if($val->module != 'color')
+                                            <option  value="{{$v->id}}" @if(in_array($v->id, $product_attribute_ids)) selected @endif>{{$v->title}}</option>
+                                            @else
+                                            <option  value="{{$v->id}}" @if(in_array($v->id, $product_attribute_ids)) selected @endif data-color="blue">{{$v->title}}</option>
+                                            @endif
+
                                             @endforeach
                                         </select>
                                         @else

@@ -161,8 +161,25 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="form-check col-md-6 form-check-right">
+                                        <label class="form-check-label float-right">
+                                            Combo sản phẩm
+                                            <input type="checkbox" class="form-check-input-styled" name="is_combo" data-fouc="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-check col-md-6 form-check-right">
+                                        <label class="form-check-label float-right">
+                                            Bán chạy
+                                            <input type="checkbox" class="form-check-input-styled" name="is_best_seller" data-fouc="">
+                                        </label>
+                                    </div>
+                                </div>
+
                             </div>
-                         <!--    <div class="col-md-12">
+                            <div class="col-md-12">
 
                                 <div class="form-group row">
                                     <label class="col-md-2 col-form-label text-right">Nội dung: </label>
@@ -170,7 +187,7 @@
                                         <textarea class="form-control ckeditor" id="content" name="content">{!!old('content')!!}</textarea>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
 
@@ -182,7 +199,11 @@
                                     <label class="col-md-3 col-form-label text-right">{{$val->title}}</label>
                                     <div class="col-md-9">
                                         @if ($val->type == \App\Attribute::TYPE_SELECT)
+                                        @if($val->module != 'color')
                                         <select name="attribute_select[]" class="select-search" data-placeholder="Chọn">
+                                        @else
+                                        <select multiple="" name="attribute_select[]" class="select-search" data-placeholder="Chọn">
+                                        @endif
                                             <option></option>
                                             @foreach ($val->children as $k => $v)
                                             <option value="{{$v->id}}">{{$v->title}}</option>

@@ -12,6 +12,7 @@ use Repositories\AttributeRepository;
 use Repositories\CategoryRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\OrderDetailRepository;
+use App\Product;
 
 
 class ProductController extends Controller {
@@ -26,15 +27,22 @@ class ProductController extends Controller {
         $this->orderdetailRepo = $orderdetailRepo;
     }
 
-    public function index(Request $request){
+    public function index(Request $request) {
         ini_set('memory_limit', '2048M');
         return view('frontend/product/list');
     }
 
     public function detail(Request $request) {
-            ini_set('memory_limit', '2048M');
-            return view('frontend/product/detail');
+        ini_set('memory_limit', '2048M');
+        $record = $this->productRepo->findByAlias($request->alias);
+        $attr_ids = \DB::table('product_attribute')->where('product_id', $record->id)->get()->pluck('attribute_id');
+        $attributes = \DB::table('attribute')->where('module','product')->whereIn('id', $attr_ids)->get()->groupBy('parent_id');
+        foreach ($attributes as $key => $val) {
+            $attributes[$key]->parent_name = \DB::table('attribute')->where('id', $key)->pluck('title')->first();
         }
+        $colors = \DB::table('attribute')->where('module','color')->whereIn('id', $attr_ids)->get();
+        return view('frontend/product/detail', compact('record','attributes','colors'));
+    }
     
 
     public function sale(Request $request) {

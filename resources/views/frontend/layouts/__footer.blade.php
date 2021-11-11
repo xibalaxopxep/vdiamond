@@ -153,10 +153,16 @@
      
      <script type="text/javascript">
           $(document).ready(function(){
-                $(".ec-mobile-menu-href").on("click", function(){
-                  $("#ec-mobile-menu").addClass( "ec-open");
-                  $('.ec-side-cart-overlay').show();
-                });
+
+              $('.color-active').on('click', function(){
+                  $('.color-active').removeClass('active');
+                  $(this).addClass('active');
+              });
+
+                // $(".ec-mobile-menu-href").on("click", function(){
+                //   $("#ec-mobile-menu").addClass( "ec-open");
+                //   $('.ec-side-cart-overlay').show();
+                // });
 
                 $('.ec-close').on('click',function(){
                   $("#ec-mobile-menu, #ec-side-cart").removeClass("ec-open");
@@ -167,9 +173,77 @@
                   $("#ec-side-cart").addClass( "ec-open");
                   $('.ec-side-cart-overlay').show();
                 });
+                
+                $('.updateQuantity').on('change',function(){
+                   $.ajax({
+                        url: '/api/up-quantity',
+                        type: 'POST',
+                        data: {
+                            product_id: $(this).data('product_id')
+                        },
+                        success: function(data) {
+                             $('.totalCart').html(data.total+"đ");
+                             $('.totalNow').html(data.total+"đ");
+                             $('.quantityCart').html(data.count);
+                             $('.totalDiscount').html("0");
+                             $('.couponCode').val("");
+                        }
+                    });
+                });
 
-                  
-             
+                $('.up-quantity').on('click',function(){
+                    $.ajax({
+                        url: '/api/up-quantity',
+                        type: 'POST',
+                        data: {
+                            product_id: $(this).data('product_id')
+                        },
+                        success: function(data) {
+                            $('.totalCart').html(data.total+"đ");
+                            $('.totalNow').html(data.total+"đ");
+                            $('.quantityCart').html(data.count);
+                            $('.totalDiscount').html("0");
+                            $('.couponCode').val("");
+                        }
+                    });
+                });
+
+                $('.down-quantity').on('click',function(){
+                    $.ajax({
+                        url: '/api/down-quantity',
+                        type: 'POST',
+                        data: {
+                            product_id: $(this).data('product_id')
+                        },
+                        success: function(data) {
+                             $('.totalCart').html(data.total+"đ");
+                             $('.totalNow').html(data.total+"đ");
+                             $('.quantityCart').html(data.count);
+                             $('.totalDiscount').html("0");
+                             $('.couponCode').val("");
+                        }
+                    });
+                });
+
+                $('.applyCoupon').on('click',function(){
+                    $.ajax({
+                        url: '/api/apply-coupon',
+                        type: 'POST',
+                        data: {
+                            coupon_code: $('.couponCode').val()
+                        },
+                        success: function(data) {
+                            if(data.success == false){
+                              alert('Mã giảm giá không đúng hoặc hết hiệu lực');
+                            }
+                            else{
+                              $('.totalCart').html(data.total_coupon);
+                              $('.totalDiscount').html("- "+data.total_discount+"đ");
+                            }
+                        }
+                    });
+                });
+ 
           });
         </script>
     
@@ -219,6 +293,36 @@
             autoplayTimeout: 3000,
             nav: true
         });
+
+        $("#slide-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000
+        });
+
+        $("#popular-new").owlCarousel({
+            items: 1,
+            loop: true,
+            navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+            nav: true
+        });
+
+        $("#popular-hot").owlCarousel({
+            items: 1,
+            loop: true,
+            navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+            nav: true
+        });
+
+        $("#popular-combo").owlCarousel({
+            items: 1,
+            loop: true,
+            navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+            nav: true
+        });
+
+
 
 
         $("#top-carousel").owlCarousel({
