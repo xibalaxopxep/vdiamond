@@ -23,22 +23,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <h6 class="mb-0">Email:</h6>
-                    </td>
-                    <td><span>{{$record->email}}</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <h6 class="mb-0">Tên công ty:</h6>
-                    </td>
-                    <td><span>{{$record->company_name}}</span></td>
-                </tr>
-                <tr>
-                    <td>
                         <h6 class="mb-0">Nội dung:</h6>
                     </td>
                     <td><span>{{$record->content}}</span></td>
-                </tr>
+                
                 </tbody>
             </table>
 

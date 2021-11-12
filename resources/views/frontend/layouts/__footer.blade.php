@@ -146,10 +146,11 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
    <!-- image show -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-
+   
      
      <script type="text/javascript">
           $(document).ready(function(){
@@ -240,6 +241,40 @@
                               $('.totalCart').html(data.total_coupon);
                               $('.totalDiscount').html("- "+data.total_discount+"đ");
                             }
+                        }
+                    });
+                });
+
+                $('.select-address').on('change',function(){
+                    var select = $(this).data('select')
+                    $.ajax({
+                        url: '/api/select-address',
+                        type: 'post',
+                        data: {
+                            select : select,
+                            id : $(this).val()
+                        },
+                        success: function(data) {
+                            if(select == "province"){
+                              $('.select-district').html(data);
+                            }
+                            else{
+                              $('.select-ward').html(data);
+                            }
+                        }
+                    });
+                });
+
+                 $('.add-to-cart').on('click',function(){
+                   $.ajax({
+                        url: '/api/add-to-cart',
+                        type: 'POST',
+                        data: {
+                            product_id: $(this).data('product_id'),
+                            quantity: 1
+                        },
+                        success: function(data) {                
+                             $('.quantityCart').html(data.count);
                         }
                     });
                 });

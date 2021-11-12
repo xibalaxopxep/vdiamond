@@ -82,7 +82,9 @@
             $('#slide-carousel').owlCarousel({
               autoHeight: true,
               loop: true,
-              nav: true,
+              dots: false,
+              autoplay: true,
+                autoplayTimeout: 3000,
               responsive: {
                 0: {
                   items: 1
@@ -111,9 +113,37 @@
         jQuery(document).ready(function($) {
             $('#mobile-product-carousel').owlCarousel({
                 autoHeight: true,
+                dots: false,
               loop: true,
               margin: 10,
-              nav: true,
+              responsive: {
+                0: {
+                  items: 2.2
+                },
+                600: {
+                  items: 4.2
+                }
+              }
+            });
+             $('#mobile-product-carousel1').owlCarousel({
+                autoHeight: true,
+                dots: false,
+              loop: true,
+              margin: 10,
+              responsive: {
+                0: {
+                  items: 2.2
+                },
+                600: {
+                  items: 4.2
+                }
+              }
+            });
+              $('#mobile-product-carousel2').owlCarousel({
+                autoHeight: true,
+                dots: false,
+              loop: true,
+              margin: 10,
               responsive: {
                 0: {
                   items: 2.2

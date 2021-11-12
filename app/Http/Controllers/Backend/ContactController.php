@@ -21,6 +21,7 @@ class ContactController extends Controller
     public function show($id)
     {
         $record = $this->contactRepo->find($id);
+        \DB::table('contact')->where('id', $id)->update(['is_read' => 1]);
         return view('backend/contact/detail', compact('record'));
     }
 

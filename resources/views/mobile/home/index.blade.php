@@ -1,42 +1,48 @@
 @extends('mobile.layouts.master')
 @section('content')
+   <style type="text/css">
+       .carousel-mobile{
+          text-align: center;
+           width: 100%;
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+       }
+
+       .carousel-mobile h1{
+         color: #fff;
+         font-size: 13px;
+
+       }
+
+       .carousel-mobile h2{
+         color: #fff;
+         font-size: 18px;
+
+       }
+   </style>
       <!-- Main Slider Start -->
     <div class="sticky-header-next-sec ec-main-slider section section-space-pb">
-        <div class="owl-theme owl-carousel" id="slide-carousel">
-            <!-- Main slider -->
-            <div class="swiper-wrapper">
-                <div class="ec-slide-item swiper-slide d-flex ec-slide-1">
-                    <div class="container align-self-center">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-7 col-md-7 col-sm-7 align-self-center">
-                                <div class="ec-slide-content ">
-                                    <h2 class="ec-slide-stitle text-upper">SẢN PHẨM MỚI</h2>
-                                    <h1 class="ec-slide-title text-upper">Bộ ghế phòng khách linh hoạt</h1>
-                                    <a href="#" class="btn btn-lg btn-secondary text-upper">Mua ngay</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div style="text" class="ec-slide-item swiper-slide d-flex ec-slide-2">
-                    <div class="container align-self-center">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-7 col-md-7 col-sm-7 align-self-center">
-                                <div class="ec-slide-content slider-animation">
-                                    <h2 class="ec-slide-stitle">sản phẩm hot</h2>
-                                    <h1 class="ec-slide-title">Bộ ghế phòng khách hot</h1>
-                                    <a href="#"  class="btn btn-lg btn-secondary text-upper">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="owl-carousel owl-theme" id="slide-carousel">
+            @foreach($slides as $slide)
+            @if($slide->position == 1)
+            <div class="carousel-item active">
+              <img class="d-block w-100 responsive" style="height: 250px; object-fit: cover;" src="{{url($slide->image)}}" alt="First slide">
+              <div class="carousel-mobile pr-3 pl-3 mt-2">
+              <div class="carousel-content">
+                <h1 class="text-upper slide-text-1">{{$slide->title}}</h1>
+                <h2 class="text-upper slide-text-2">{{$slide->product_name}}</h2>
+                <button style=" filter: drop-shadow(0px 3px 12px rgba(255, 111, 0, 0.69)); background-color: #FF6F00;  border-radius: 0px; width: 115px; height:  auto;" class="btn mt-4"><a target="_blank" style="color: white; font-size: 13px;" href="{{$slide->url}}">{{$slide->button_text}}</a></button>
+              </div>
+              </div>
             </div>
+            @endif
+            @endforeach
             
-        
+        </div>
     </div>
-</div>
+
     <!-- Main Slider End -->
      
     <!-- Danh mục -->
@@ -85,7 +91,8 @@
                         <div class="tab-pane fade show active" id="tab-pro-for-all">
                    
                                 <div class="owl-carousel owl-theme" id="mobile-product-carousel">
-                                  <div class="ec-product-content" >
+                                @foreach($new_products as $new_pro)
+                                <div class="ec-product-content" >
                                     <div class="ec-product-inner">
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
@@ -95,18 +102,22 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="ec-pro-content" style="padding: 0px !important;">
-                                            <h4><a class="title" href="product-left-sidebar.html">Sản phẩm mẫu VD01</a></h4>
-                                            <div class="product-material">Chất liêu da: cao cấp</div>
-                                            <div class="new-price">$25.00</div>
-                                            <div class="old-price">$30.00</div>
+                                        <div class="ec-pro-content pl-1 pr-1" style="padding-top: 0px !important;">
+                                            <h4 style="line-height: 0.9 !important;"><a class="title" href="product-left-sidebar.html">{{$new_pro->title}}</a></h4>
+                                            <div class="new-price">{{$new_pro->getSalePrice()}}</div>
+                                            @if($new_pro->price > 0)
+                                            <div class="old-price">{{$new_pro->getPrice()}}</div>
+                                            @else
                                             <div class="order">Liên hệ đặt hàng</div>
+                                            @endif
+                                           
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                                 </div>
                                 <div style="" class="container">
-                                     <span>Xem tất cả <span class="number-product">456</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                                     <span>Xem tất cả <span class="number-product">{{($popular_total)}}</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
                                 </div>
                                
                           
@@ -114,18 +125,70 @@
                         <!-- ec 1st Product tab end -->
                         <!-- ec 2nd Product tab start -->
                         <div class="tab-pane fade" id="tab-pro-for-men">
-                            <div class="row">
-                                <!-- Product Content -->
+                              <div class="owl-carousel owl-theme" id="mobile-product-carousel1">
+                                @foreach($hot_products as $hot_pro)
+                                <div class="ec-product-content" >
+                                    <div class="ec-product-inner">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <a href="product-left-sidebar.html" class="image">
+                                                    <img style="height: 130px; " class="main-image"
+                                                        src="assets/images/product/image1.png" alt="Product" />  
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="ec-pro-content pl-1 pr-1" style="padding-top: 0px !important;">
+                                            <h4 style="line-height: 0.9 !important;"><a class="title" href="product-left-sidebar.html">{{$hot_pro->title}}</a></h4>
+                                            <div class="new-price">{{$hot_pro->getSalePrice()}}</div>
+                                            @if($hot_pro->price > 0)
+                                            <div class="old-price">{{$hot_pro->getPrice()}}</div>
+                                            @else
+                                            <div class="order">Liên hệ đặt hàng</div>
+                                            @endif
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                </div>
+                                <div style="" class="container">
+                                     <span>Xem tất cả <span class="number-product">{{($popular_total)}}</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                                </div>
                                 
-                            </div>
+                   
                         </div>
                         <!-- ec 2nd Product tab end -->
                         <!-- ec 3rd Product tab start -->
                         <div class="tab-pane fade" id="tab-pro-for-women">
-                            <div class="row">
-                                <!-- Product Content -->                                
-                                
-                            </div>
+                              <div class="owl-carousel owl-theme" id="mobile-product-carousel2">
+                                @foreach($combo_products as $combo_pro)
+                                <div class="ec-product-content" >
+                                    <div class="ec-product-inner">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <a href="product-left-sidebar.html" class="image">
+                                                    <img style="height: 130px; " class="main-image"
+                                                        src="assets/images/product/image1.png" alt="Product" />  
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="ec-pro-content pl-1 pr-1" style="padding-top: 0px !important;">
+                                            <h4 style="line-height: 0.9 !important;"><a class="title" href="product-left-sidebar.html">{{$combo_pro->title}}</a></h4>
+                                            <div class="new-price">{{$combo_pro->getSalePrice()}}</div>
+                                            @if($combo_pro->price > 0)
+                                            <div class="old-price">{{$combo_pro->getPrice()}}</div>
+                                            @else
+                                            <div class="order">Liên hệ đặt hàng</div>
+                                            @endif
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                </div>
+                                <div style="" class="container">
+                                     <span>Xem tất cả <span class="number-product">{{($popular_total)}}</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                                </div>
                         </div>
                         <!-- ec 3rd Product tab end -->
                         <!-- ec 4th Product tab start -->
@@ -160,84 +223,43 @@
                     <div  class="mobile-ec-content">Các mẫu sản phẩm được ưa chuộng, săn đón nhất trong năm 2021</div>
                     <div class="container">
                      <div class="owl-carousel owl-theme" id="mobile-best-seller-carousel">
-
+                        @php
+                           $index = 0;
+                           $sum_best_pro_page = ceil(count($best_sell_products) / 3);
+                        @endphp
+                        @for($i = 0 ; $i < $sum_best_pro_page; $i++)
                         <div class="row  no-padding" >
-                            <div class="row  no-padding pb-2">
-                                <div class="col-7 no-padding" >
-                                    <img style="height: 137px; object-fit: cover;" src="assets/images/product/image1.png">
-                                </div>
-                                <div  class="col-5 no-padding best-seller-content">
-                                    <h4><a class="title" href="#">Round Neck T-Shirt</a></h4>
-                                    <div class="product-material">Chất liêu da: cao cấp</div>
-                                    <div class="new-price">$25.00</div>
-                                    <div class="old-price">$30.00</div>
-                                </div>
-                            </div> 
-                            <div class="row  no-padding pb-2">
-                                <div class="col-7 no-padding" >
-                                    <img style="height: 137px; object-fit: cover;" src="assets/images/product/image1.png">
-                                </div>
-                                <div  class="col-5 no-padding best-seller-content">
-                                    <h4><a class="title" href="#">Round Neck T-Shirt</a></h4>
-                                    <div class="product-material">Chất liêu da: cao cấp</div>
-                                    <div class="new-price">$25.00</div>
-                                    <div class="old-price">$30.00</div>
-                                </div>
-                            </div>
-                            <div class="row  no-padding pb-2">
-                                <div class="col-7 no-padding" >
-                                    <img style="height: 137px; object-fit: cover;" src="assets/images/product/image1.png">
-                                </div>
-                                <div  class="col-5 no-padding best-seller-content">
-                                    <h4><a class="title" href="#">Round Neck T-Shirt</a></h4>
-                                    <div class="product-material">Chất liêu da: cao cấp</div>
-                                    <div class="new-price">$25.00</div>
-                                    <div class="old-price">$30.00</div>
-                                </div>
-                            </div> 
-                        
-                        </div>
-
-                        <div class="row  no-padding" >
-                            <div class="row no-padding pb-2" >
-                                <div class="col-7 no-padding" >
-                                    <img style="height: 137px; object-fit: cover;" src="assets/images/product/image2.png">
-                                </div>
-                                <div  class="col-5 no-padding best-seller-content">
-                                    <h4><a class="title" href="#">Round Neck T-Shirt</a></h4>
-                                    <div class="product-material">Chất liêu da: cao cấp</div>
-                                    <div class="new-price">$25.00</div>
-                                    <div class="old-price">$30.00</div>
-                                </div>
-                            </div> 
-                            <div class="row  no-padding pb-2">
-                                <div class="col-7 no-padding" >
-                                    <img  style="height: 137px; object-fit: cover;" src="assets/images/product/image2.png">
-                                </div>
-                                <div  class="col-5 no-padding best-seller-content">
-                                    <h4><a class="title" href="#">Round Neck T-Shirt</a></h4>
-                                    <div class="product-material">Chất liêu da: cao cấp</div>
-                                    <div class="new-price">$25.00</div>
-                                    <div class="old-price">$30.00</div>
-                                </div>
-                            </div>
-                            <div class="row  no-padding pb-2">
-                                <div class="col-7 no-padding" >
-                                    <img style="height: 137px; object-fit: cover;"  src="assets/images/product/image2.png">
-                                </div>
-                                <div  class="col-5 no-padding best-seller-content">
-                                    <h4><a class="title" href="#">Round Neck T-Shirt</a></h4>
-                                    <div class="product-material">Chất liêu da: cao cấp</div>
-                                    <div class="new-price">$25.00</div>
-                                    <div class="old-price">$30.00</div>
-                                </div>
-                            </div> 
                             
+                            @foreach($best_sell_products as $key => $best_pro)
+                            @if($key >= $index)
+                            <div class="row  no-padding pb-2">
+                                <div class="col-7 no-padding" >
+                                    <img style="height: 137px; object-fit: cover;" src="assets/images/product/image1.png">
+                                </div>
+                                <div  class="col-5 no-padding best-seller-content">
+                                    <h4><a class="title" href="#">{{$best_pro->title}}</a></h4>
+                                    <div class="new-price">{{$best_pro->getSalePrice()}}</div>
+                                    <div class="old-price">{{$best_pro->getPrice()}}</div>
+                                </div>
+                            </div> 
+                            @else
+                            @continue;
+                            @endif
+                            @php
+                               $index++;
+                               if($index%3 == 0){
+                                  break;
+                               }   
+                            @endphp
+                            @endforeach
+                           
                         </div>
+                         @endfor
+
                     </div>
                 </div>
                    <div style="" class="polular-container-button">
-                            <span style="">Xem tất cả <span style="color: #ff2e00; font-weight: bold;"  class="number-product">456</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                            <span style="">Xem tất cả <span style="color: #ff2e00; font-weight: bold;"  class="number-product">{{count($best_sell_products)}}</span> sản phẩm bán chạy <img src="assets/images/icons/right.svg"><span>
                     </div>
                 </div>
 
@@ -256,51 +278,32 @@
                 <div  class="mobile-top-content">Sản phẩm cao cấp được các nhà thiết kế thổi hồn giúp bạn định hình “Phong Cách Sống”</div>
                    
                     <div  class="owl-carousel owl-theme" style=" padding-left: 40px;" id="mobile-top-product-carousel">
+                        @foreach($advance_products as $advance_product)
                             <div class="ec-product-content" >
                                 <div  class="ec-product-inner">
                                     <div  class="ec-pro-image-outer">
                                         <div  class="ec-pro-image">
                                             <a href="product-left-sidebar.html" class="image">
                                                 <img style=" border-radius: 7px;" class="main-image"
-                                                    src="assets/images/product/image1.png" alt="Product" />  
+                                                    src="{{url($advance_product->image)}}" alt="Product" />  
                                             </a>
                                         </div>
                                     </div>
                                     <div class="top-product-content-mobile" style="">
-                                        <h4><a class="title" href="product-left-sidebar.html">Round Neck T-Shirt</a></h4>
-                                        <div class="product-material">Chất liêu da: cao cấp</div>
+                                        <h4><a class="title" href="product-left-sidebar.html">{{$advance_product->title}}</a></h4>
                                         <div style="display: flex;">
-                                        <div class="new-price">$25.00</div>
+                                        <div class="new-price">{{$advance_product->getPrice()}}</div>
                                         <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
                                         </div>
                                         <div class="contact"><i class="fa fa-phone-alt" aria-hidden="true"></i> Liên hệ đặt hàng</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="ec-product-content" >
-                                <div  class="ec-product-inner">
-                                    <div  class="ec-pro-image-outer">
-                                        <div  class="ec-pro-image">
-                                            <a href="product-left-sidebar.html" class="image">
-                                                <img style=" border-radius: 7px;" class="main-image"
-                                                    src="assets/images/product/image1.png" alt="Product" />  
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div  class="top-product-content-mobile" style="">
-                                        <h4><a class="title" href="product-left-sidebar.html">Bộ sofa cao cấp VD147</a></h4>
-                                        <div class="product-material">Chất liêu: Da cao cấp</div>
-                                        <div style="display: flex;">
-                                        <div class="new-price">$25.00</div>
-                                        <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
-                                        </div>
-                                        <div class="contact"><i class="fa fa-phone-alt" aria-hidden="true"></i> Liên hệ đặt hàng</div>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                           
                     </div>
                     <div style="" class="container-button">
-                            <span style="color: white;">Xem tất cả <span style="color: #FA6400; font-weight: bold;"  class="number-product">456</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                            <span style="color: white;">Xem tất cả <span style="color: #FA6400; font-weight: bold;"  class="number-product">{{count($advance_products)}}</span> sản phẩm cao cấp <i style="color: #fff;" class="fas fa-caret-right"></i><span>
                     </div>
               
             </div>
@@ -320,93 +323,31 @@
             <div class="section-title" style="margin-top: -95px !important;">
                 <div  class="mobile-luxury-content">V DIAMOND mang đến cho Quý khách hàng những sản phẩm nội thất cổ điển mang “hơi thở của thời gian”</div>
                     <div  class="owl-carousel owl-theme" style=" margin-top: 35px; padding-left: 40px;" id="mobile-luxury-product-carousel">
+                        @foreach($luxury_products as $lux_product)
                             <div class="ec-product-content" >
                                 <div  class="ec-product-inner" style="">
                                     <div  class="ec-pro-image-outer">
                                         <div  class="ec-pro-image">
                                             <a href="product-left-sidebar.html" class="image">
                                                 <img style=" border-radius: 7px;" class="main-image"
-                                                    src="assets/images/product/image1.png" alt="Product" />  
+                                                    src="{{url($lux_product->image)}}" alt="Product" />  
                                             </a>
                                         </div>
                                     </div>
                                     <div class="top-product-content-mobile" style="">
-                                        <h4><a class="title" href="product-left-sidebar.html">Bộ Sofa cao cấp Elandor VD169</a></h4>
-                                        <div class="product-material">Chất liệu da: cao cấp</div>
+                                        <h4><a class="title" href="product-left-sidebar.html">{{$lux_product->title}}</a></h4>
                                         <div style="display: flex;">
-                                        <div class="new-price">$25.00</div>
+                                        <div class="new-price">{{$lux_product->getPrice()}}</div>
                                         <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
                                         </div>
                                         <div class="contact"><i class="fa fa-phone-alt" aria-hidden="true"></i> Liên hệ đặt hàng</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="ec-product-content" >
-                                <div  class="ec-product-inner">
-                                    <div  class="ec-pro-image-outer">
-                                        <div  class="ec-pro-image">
-                                            <a href="product-left-sidebar.html" class="image">
-                                                <img style=" border-radius: 7px;" class="main-image"
-                                                    src="assets/images/product/image1.png" alt="Product" />  
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="top-product-content-mobile" style="">
-                                        <h4><a class="title" href="product-left-sidebar.html">Bộ Sofa cao cấp Elandor VD169</a></h4>
-                                        <div class="product-material">Chất liêu da: cao cấp</div>
-                                        <div style="display: flex;">
-                                        <div class="new-price">$25.00</div>
-                                        <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
-                                        </div>
-                                        <div class="contact"><i class="fa fa-phone-alt" aria-hidden="true"></i> Liên hệ đặt hàng</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ec-product-content" >
-                                <div  class="ec-product-inner">
-                                    <div  class="ec-pro-image-outer">
-                                        <div  class="ec-pro-image">
-                                            <a href="product-left-sidebar.html" class="image">
-                                                <img style=" border-radius: 7px;" class="main-image"
-                                                    src="assets/images/product/image1.png" alt="Product" />  
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="top-product-content-mobile" style="">
-                                        <h4><a class="title" href="product-left-sidebar.html">Bộ Sofa cao cấp Elandor VD169</a></h4>
-                                        <div class="product-material">Chất liêu da: cao cấp</div>
-                                        <div style="display: flex;">
-                                        <div class="new-price">$25.00</div>
-                                        <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
-                                        </div>
-                                        <div class="contact"><i class="fa fa-phone-alt" aria-hidden="true"></i> Liên hệ đặt hàng</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ec-product-content" >
-                                <div  class="ec-product-inner">
-                                    <div  class="ec-pro-image-outer">
-                                        <div  class="ec-pro-image">
-                                            <a href="product-left-sidebar.html" class="image">
-                                                <img style=" border-radius: 7px;" class="main-image"
-                                                    src="assets/images/product/image1.png" alt="Product" />  
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div  class="top-product-content-mobile" style="">
-                                        <h4><a class="title" href="product-left-sidebar.html">Bộ sofa cao cấp VD147</a></h4>
-                                        <div class="product-material">Chất liêu: Da cao cấp</div>
-                                        <div style="display: flex;">
-                                        <div class="new-price">$25.00</div>
-                                        <div class="arrow-right" style=""><i class="fas fa-arrow-right"></i></div>
-                                        </div>
-                                        <div class="contact"><i class="fa fa-phone-alt" aria-hidden="true"></i> Liên hệ đặt hàng</div>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach        
                     </div>
                     <div style="" class="container-button">
-                            <span style="color: white;">Xem tất cả <span style="color: #FA6400; font-weight: bold;"  class="number-product">456</span> sản phẩm phổ thông <img src="assets/images/icons/right.svg"><span>
+                            <span style="color: white;">Xem tất cả <span style="color: #FA6400; font-weight: bold;"  class="number-product">{{count($luxury_products)}}</span> sản phẩm thượng lưu <i style="color: #fff;" class="fas fa-caret-right"></i><span>
                     </div>
             </div>       
         </div>
@@ -415,12 +356,15 @@
     <section class="section ec-product-tab section-space-p">
             <div class="row">
                 <div style="margin-left: 10px;" class="owl-carousel owl-theme" id="banner-carousel">
+                
+                    @foreach($slides as $slide)
+                     @if($slide->position == 3)
+
                      <div class="">
-                        <img src="assets/images/banner/banner-doi-1.png">
+                        <a target="_blank" href="{{$slide->url}}"><img src="{{url($slide->image)}}"></a>
                      </div>
-                     <div class="">
-                        <img src="assets/images/banner/banner-doi-2.png">
-                     </div>
+                     @endif
+                    @endforeach
                 </div>
             </div>
     </section>
@@ -429,25 +373,22 @@
             <div class="container">
                 <h2 class="text-upper popular-text">Xu hướng mua sắm</h2>
                 <div class="row popular-mobile">
-                    <div class="col-6">
-                       <button style="width: 100%; height: auto" class="btn btn-grey">
-                           <img src="assets/images/icons/sofa.svg">
-                           <h4>Ghế Sofa</h4>
-                           <p>1200 sản phẩm</p>
+                     @foreach($trends as $trend)
+                        <div class="col-6 mb-3">
+                        <button style="width: 100%; height: auto" class="btn btn-grey">
+                           <img src="{{url($trend->image)}}">
+                           <h4 style="line-height: 12px;" class="mt-2">{{$trend->title}}</h4>
+                         <!--   <p>1200 sản phẩm</p> -->
                        </button>
                     </div>
-                     <div class="col-6">
-                        <button style="width: 100%; height: auto" class="btn btn-grey">
-                           <img src="assets/images/icons/sofa.svg">
-                           <h4>Ghế Sofa</h4>
-                           <p>1200 sản phẩm</p>
-                       </button>
+                     @endforeach
+                    
                     </div>
                 </div>
             </div>
      </section>
 
-     <section class="section ec-product-tab section-space-p" style=" background: #F3F1F1; height: 520px;">
+    <!--  <section class="section ec-product-tab section-space-p" style=" background: #F3F1F1; height: 520px;">
             <div class="container">
                 <h2 class="text-upper popular-text">Cẩm nang nội thất</h2>
                 <div class="owl-carousel owl-theme" id="news-mobile">
@@ -537,7 +478,7 @@
                 
             </div>
      </section>
-
+ -->
     <style type="text/css">
 
         .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {

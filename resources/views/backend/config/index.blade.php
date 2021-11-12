@@ -74,6 +74,12 @@
                  
                             </div>
                             <div class="form-group row">
+                                                <label class="col-md-3 col-form-label text-right">Giới thiệu công ty: </label>
+                                                <div class="col-md-9">
+                                                    <textarea class="form-control ckeditor" id="about" name="about">{!!old('about')!!}</textarea>
+                                                </div>
+                             </div>
+                            <div class="form-group row">
                                 <label class="col-md-3 col-form-label text-right">Tên trang web:</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="title" value="{!!$config->title!!}" required="">
@@ -177,4 +183,6 @@
 <script src="{!! asset('assets/global_assets/js/plugins/uploaders/fileinput/plugins/purify.min.js') !!}"></script>
 <script src="{!! asset('assets/global_assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js') !!}"></script>
 <script src="{!! asset('assets/global_assets/js/plugins/uploaders/fileinput/fileinput.min.js') !!}"></script>
+<script src="{!! asset('assets/backend/ckeditor/ckeditor.js') !!}"></script>
+<script src="{!! asset('ckfinder/ckfinder.js') !!}"></script>
 @stop

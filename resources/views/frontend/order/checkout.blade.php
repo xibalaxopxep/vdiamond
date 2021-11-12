@@ -8,6 +8,24 @@
 [data-toggle="buttons-checkbox"]>.btn>input[type="checkbox"] {
     display: none;
 }
+
+.button-radio-group input{
+    width: 25px; 
+    height: 25px; 
+    margin-top: -1px;
+    vertical-align: middle;
+}
+
+.button-radio-group .middle-radio{
+    margin-top: -1px;
+    vertical-align: middle;
+}
+
+
+input[type=radio]::-ms-check {
+  border-color: red; /* This will make the border red when the button is checked. */
+  color: red; /* This will make the circle red when the button is checked. */
+}
 </style>
 
 
@@ -43,42 +61,41 @@
                     <!-- checkout content Start -->
                     <div class="ec-checkout-content">
                         <div class="ec-checkout-inner">
-                            
+                           
                             <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                                 <div class="ec-checkout-block ec-check-bill">
                                     <h3 class="ec-checkout-title">Thông tin nhận hàng</h3>
                                     <div class="ec-bl-block-content">
                                         
                                         <div class="ec-check-bill-form">
-                                            <form action="#" method="post">
+                                            <form action="{{route('order.index')}}" method="post">
+                                                @csrf
                                                 <span style="width: 50%;" class="ec-bill-wrap ec-bill-half">
-                                                    <input  type="text" name="firstname"
+                                                    <input required="" type="text" name="name"
                                                         placeholder="Họ tên" required />
                                                 </span>
                                                 <span style="width: 50%;" class="ec-bill-wrap ec-bill-half">
-                                                    <input type="text" name="lastname"
+                                                    <input required="" type="text" name="mobile"
                                                         placeholder="Số điện thoại" required />
                                                 </span>
                                                 <span class="ec-bill-wrap">
-                                                    <input type="text" name="address" placeholder="Địa chi" />
+                                                    <input required="" type="text" name="address" placeholder="Địa chỉ" />
                                                 </span>
                                                 <span class="ec-bill-wrap ec-bill-half">
                                                     <span class="ec-bl-select-inner">
-                                                        <select name="ec_select_city" id="ec-select-city"
-                                                            class="ec-bill-select">
+                                                        <select required="" data-select="province" name="privince" id="ec-select-city"
+                                                            class="ec-bill-select select-address">
                                                             <option selected disabled>Chọn tỉnh thành</option>
-                                                            <option value="1">City 1</option>
-                                                            <option value="2">City 2</option>
-                                                            <option value="3">City 3</option>
-                                                            <option value="4">City 4</option>
-                                                            <option value="5">City 5</option>
+                                                            @foreach($province as $provin)
+                                                            <option value="{{$provin->provinceid}}">{{$provin->name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </span>
                                                 </span>
                                                 <span class="ec-bill-wrap ec-bill-half">
                                                     <span class="ec-bl-select-inner">
-                                                        <select name="ec_select_city" id="ec-select-city"
-                                                            class="ec-bill-select">
+                                                        <select required="" data-select="district"  name="district" id="ec-select-city select-district"
+                                                            class="ec-bill-select select-address select-district">
                                                             <option selected disabled>Chọn Quận/Huyện</option>
                                                             
                                                         </select>
@@ -86,49 +103,51 @@
                                                 </span>
                                                 <span class="ec-bill-wrap ec-bill-half">
                                                     <span class="ec-bl-select-inner">
-                                                        <select name="ec_select_country" id="ec-select-country"
-                                                            class="ec-bill-select">
+                                                        <select  required="" name="ward" id="ec-select-country "
+                                                            class="ec-bill-select select-ward">
                                                             <option selected disabled>Chọn Phường/Xã</option>
-                                                            
                                                         </select>
                                                     </span>
                                                 </span>
+                                                
                                                  <span class="ec-bill-wrap">
-                                                    <input type="text" name="address" placeholder="Ghi chú" />
+                                                    <input type="text" name="note" placeholder="Ghi chú" />
                                                 </span>
-                                            </form>
+                                          
                                         </div>
                                         
                                         <div class="ec-check-subtitle">Chọn hình thức thanh toán</div>
 
-                                        <div class="payment-method" style="justify-content: left;">
-                                            <div style="height: auto; display: flex;" class="col-md-12 btn btn-payment">
-                                                <div class="col-md-1">
-                                                 <input style="width: 15px; height: 15px;" type="radio" id="bill1" name="radio-group">
+                                         <div class="button-radio-group">
+                                            <div style="height: auto; display: flex;" class="col-md-12 btn btn-payment pb-2">
+                                                <div class="col-md-1 col-3 pt-3 middle-radio" style="">
+                                                 <input checked="" value="1" type="radio" id="bill1" name="payment_method">
                                                 <img class="" src="{{asset('assets/images/icons/cod.svg')}}">
+                                                </div>
+                                                <label style="" class="col-md-10 col-9 pt-3 pl-4">Thanh toán khi nhận hàng (COD)<br> Miễn phí vận chuyển với mọi đơn hàng trên</label>
+                                            </div>
+                                            <div class="col-md-12 btn btn-payment" style="height: auto; display: flex;">
+                                                <div class="col-md-1 col-3 pt-3 middle-radio">
+                                                    <input  value="2" style="" type="radio" id="bill1" name="payment_method">
+                                                    <img class="" src="{{asset('assets/images/icons/atm.png')}}">
                                                  </div>
-                                                  <label style="" class="col-md-10">Thanh toán khi nhận hàng (COD)<br> Miễn phí vận chuyển với mọi đơn hàng trên</label>
-                                            </div>
-                                            <div class="col-md-12 btn btn-payment">
-                                                <input style="width: 15px; height: 15px;" type="radio" id="bill1" name="radio-group">
-                                                <img src="{{asset('assets/images/icons/atm.png')}}">
-                                                <label for="bill1">I want to use an existing address</label>
-                                            </div>
-                                            <div class="col-md-12 btn btn-payment">
-                                                <input style="width: 15px; height: 15px;" type="radio" id="bill1" name="radio-group">
-                                                 <img src="{{asset('assets/images/icons/atm.png')}}">
-                                                <label for="bill1">I want to use an existing address</label>
+                                                <label class="col-md-10 col-9 pt-3 pl-4">Cổng thanh toán điện tử<br> Thẻ ATM / Internet Banking <br> Thẻ tín dụng</label>
                                             </div>
                                         </div>
-                                        
+                                           
+                         
+                                          
                                     </div>
                                 </div>
 
                             </div>
-                            <span class="btn btn-orange" style="justify-content: center; width: 100%; height: auto;">
-                                <a href="#">Mua ngay</a>
-                                <p>Ship tới không mua không sao - mua rồi vẫn đổi trả miễn phí.</p>
-                            </span>
+                
+                            <button class="btn btn-orange" type="submit" style=" width: 100%; height: auto;">
+                                <a class="" >Đặt hàng</a>
+                                <p style="text-transform: capitalize; margin-top: -10px;">Ship tới không mua không sao - mua rồi vẫn đổi trả miễn phí.</p>
+                            </button>
+                            </form>
+                      
                         </div>
                     </div>
                     <!--cart content End -->

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use App\Repositories\ProductRepository;
 use Repositories\AttributeRepository;
 use Carbon\Carbon;
+use DB;
 
 class ProductController extends Controller {
 
@@ -134,7 +135,7 @@ class ProductController extends Controller {
             $total += ($val['price'] * $val['quantity']);
         }
         return response()->json([
-                    'success' => true, 'count' => $count, 'total' => number_format($total),'new_price'=>number_format($new_price)
+                    'success' => true, 'count' => $count, 'total' => number_format($total)
         ]);
     }
 
@@ -181,6 +182,27 @@ class ProductController extends Controller {
         $coupon = \DB::table('coupon')->where('coupon_code', Session::get('coupon'))->first();
      
 
+    }
+
+    public function selectAddress(Request $request){
+        $type = $request->select;
+        $id = $request->id;
+        $html = "";
+        $html .= "<option selected='' disable=''>---Chọn---</option>";
+        if($type == 'province'){
+            $records = DB::table('district')->where('provinceid',$id)->get();
+
+            foreach($records as $record){
+               $html .= "<option value='".$record->districtid."'>". $record->name ."</option>";
+            }
+        }
+        else{
+            $records = DB::table('ward')->where('districtid',$id)->get();
+            foreach($records as $record){
+               $html .= "<option>".$record->name."</option>";
+            }
+        }
+        return $html;
     }
 
     public function deleteCart(Request $request) {
@@ -232,6 +254,7 @@ class ProductController extends Controller {
         }
        return response()->json(array('html' => $html));
     }
+
     public function getSaleProductAttribute(Request $request) {
         session_start();
         ini_set('memory_limit', '2048M');

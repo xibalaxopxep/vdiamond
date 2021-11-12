@@ -46,18 +46,32 @@
                             </td>
                             <td><span>{{$record->payment_method}}</span></td>
                         </tr>
-                        <tr>
+                         <tr>
                             <td>
-                                <h6 class="mb-0">Phương thức vận chuyển:</h6>
+                                <h6 class="mb-0">Mã giảm giá: </h6>
                             </td>
-                            <td><span>{{$record->transport_method}}</span></td>
+                            <td><span>{{$record->coupon}}</span></td>
                         </tr>
                         <tr>
                             <td>
-                                <h6 class="mb-0">Tổng đơn hàng:</h6>
+                                <h6 class="mb-0">Tổng chưa giảm giá:</h6>
                             </td>
                             <td><span>{{number_format($record->total)}}</span></td>
                         </tr>
+                         <tr>
+                            <td>
+                                <h6 class="mb-0">Tiền giảm :</h6>
+                            </td>
+                            <td><span>{{number_format($record->discount)}}</span></td>
+                        </tr>
+                          <tr>
+                            <td>
+                                <h6 class="mb-0">Tổng đơn hàng:</h6>
+                            </td>
+                            <td><span>{{number_format($record->total - $record->discount)}}</span></td>
+                        </tr>
+                       
+                        
                         </tbody>
                     </table>
 
@@ -74,7 +88,7 @@
                             <td>
                                 <h6 class="mb-0">Họ tên:</h6>
                             </td>
-                            <td><span>{{$record->contact}}</span></td>
+                            <td><span>{{$record->name}}</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -84,9 +98,21 @@
                         </tr>
                         <tr>
                             <td>
-                                <h6 class="mb-0">Email:</h6>
+                                <h6 class="mb-0">Tỉnh thành:</h6>
                             </td>
-                            <td><span>{{$record->email}}</span></td>
+                            <td><span>{{$record->thanh_pho}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6 class="mb-0">Quận huyện:</h6>
+                            </td>
+                            <td><span>{{$record->quan_huyen}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6 class="mb-0">Phường xã:</h6>
+                            </td>
+                            <td><span>{{$record->phuong_xa}}</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -95,6 +121,7 @@
                             <td><span>{{$record->address}}</span></td>
                         </tr>
                         <tr>
+
                             <td>
                                 <h6 class="mb-0">Ghi chú:</h6>
                             </td>
@@ -130,13 +157,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($record->products as $key=>$product)
+                        @foreach($order_detail as $key=>$detail)
                             <tr>
                                 <td>{{++$key}}</td>
-                                <td>{{$product->title}}</td>
-                                <td class="text-right">{{number_format($product->price)}}</td>
-                                <td class="text-center">{{$product->pivot->quantity}}</td>
-                                <td class="text-right">{{number_format($product->pivot->sub_total)}}</td>
+                                <td>{{$detail->title}}</td>
+                                <td class="">{{number_format($detail->price)}}</td>
+                                <td class="">{{$detail->quantity}}</td>
+                                <td class="">{{number_format($detail->sub_total)}}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -145,7 +172,7 @@
             </div>
 
         </div>
-        <div class="content">
+        <!-- <div class="content">
             <div class="row">
                 <div class="col-md-6"></div>
                 <div class="col-md-6">
@@ -162,7 +189,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 @stop
 @section('script')

@@ -19315,7 +19315,7 @@ body.ec-open:before {
   height: 5px;
   width: 50px;
   margin: 0 auto;
-  background: #3474d4;
+  background: #fff;
   left: 4px;
   right: auto;
 }
@@ -21277,10 +21277,13 @@ section.ec-instagram-section {
 }
 .ec-footer .footer-top .ec-footer-widget .ec-footer-heading {
   font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: justify;
+  color: #FFFFFF;
   margin-bottom: 11px;
-  color: #777;
   letter-spacing: 0.7px;
   position: relative;
   display: block;
@@ -21291,12 +21294,13 @@ section.ec-instagram-section {
 .ec-footer .footer-top .ec-footer-widget .ec-footer-links .ec-footer-link {
   display: block;
   margin: 0;
-  font-size: 13px;
-  line-height: 26px;
-  border: 0;
-  padding: 0;
-  font-weight: 400;
-  color: #777;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFFFFF;
+
 }
 .ec-footer .footer-top .ec-footer-widget .ec-footer-links .ec-footer-link span {
   color: #777;
@@ -21307,10 +21311,10 @@ section.ec-instagram-section {
   margin-bottom: 8px;
 }
 .ec-footer .footer-top .ec-footer-widget .ec-footer-links .ec-footer-link a {
-  font-size: 13px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 19px;
   padding: 0;
-  color: #777777;
+  color: #fff;
   margin-bottom: 0;
   display: inline-block;
   position: relative;

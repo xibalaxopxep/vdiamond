@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model {
 
     protected $table = 'order';
-    protected $fillable = ['ref', 'status', 'contact', 'email', 'payment_method', 'mobile', 'note', 'transport_method', 'total', 'address'];
+    protected $fillable = ['ref', 'status', 'name', 'discount', 'payment_method', 'mobile', 'note', 'transport_method', 'total', 'address','coupon','thanh_pho', 'quan_huyen','phuong_xa'];
 
     public function created_at() {
         return date("d/m/Y", strtotime($this->created_at));

@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master_index')
 @section('content')
+
     <div class="" style="position: fixed; left: 0; z-index: 9999; top:20%;">
     	<!-- <div class="row" >
     		<div class="col-md-12" >
@@ -54,18 +55,20 @@
                 </div>
             </div>
         </div>
-        
+      
         <div class="owl-carousel owl-theme" id="slide-carousel">
             @foreach($slides as $slide)
+            @if($slide->position == 1)
             <div class="carousel-item active">
               <img class="d-block w-100 responsive" style="height: 648px;" src="{{url($slide->image)}}" alt="First slide">
               <div class="carousel-content">
                 <h1 class="text-upper slide-text-1">{{$slide->title}}</h1>
                 <h2 class="text-upper slide-text-2">{{$slide->product_name}}</h2>
                 <p class="text-upper slide-text-3">{{$slide->caption}}</p>
-                <button style=" filter: drop-shadow(0px 3px 12px rgba(255, 111, 0, 0.69)); background-color: #FF6F00; color: white; border-radius: 0px; width: 161px; height:  40px;" class="btn">{{$slide->button_text}}</button>
+                <button style=" filter: drop-shadow(0px 3px 12px rgba(255, 111, 0, 0.69)); background-color: #FF6F00;  border-radius: 0px; width: 161px; height:  40px;" class="btn"><a target="_blank" style="color: white;" href="{{$slide->url}}">{{$slide->button_text}}</a></button>
               </div>
             </div>
+            @endif
             @endforeach
             
         </div>
@@ -73,15 +76,23 @@
      
         <div class="container" style="margin-top: 20px;">
             <div class="row mt-3 ">
-                <div class="col-md-4 radius-image">
-                    <img style="width: 100%;" src="assets/images/images/image3.png">
-                </div>
-                <div class="col-md-4 radius-image">
-                     <img style="width: 100%;" src="assets/images/images/image4.png">
-                </div>
-                <div class="col-md-4 radius-image">
-                     <img style="width: 100%;" src="assets/images/images/image3.png">
-                </div>
+                @php
+                $index2 = 0;
+                @endphp
+                @foreach($slides as $slide)
+
+                    @if($slide->position == 2)
+                    <div class="col-md-4 radius-image">
+                        <a target="_blank" href="{{$slide->url}}"><img style="width: 100%;" src="{{url($slide->image)}}"></a>
+                    </div>
+                    @php
+                        $index2++;
+                        if($index2 ==3){
+                        break;
+                    }
+                    @endphp
+                    @endif
+                @endforeach
             </div>
         </div>
             <!-- Product tab Area Start -->
@@ -124,7 +135,9 @@
                                 <div class="row">
                                     <!-- Product Content -->
                                     @foreach($new_products as $key => $new_pro)
+                        
                                     @if($key >= $index)
+
                                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content">
                                         <div class="ec-product-inner border-product">
                                             <div class="ec-pro-image-outer">
@@ -184,6 +197,7 @@
                                     <!-- Product Content -->
                                     @foreach($hot_products as $key => $hot_pro)
                                     @if($key >= $index)
+
                                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content">
                                         <div class="ec-product-inner border-product">
                                             <div class="ec-pro-image-outer">
@@ -799,12 +813,15 @@
     <section>
     	<div style="margin-top: 68px;" class="container">
     		<div class="row">
-    			<div class="col-md-6">
-    				<img style="width: 100%;" src="assets/images/banner/banner-doi-1.png">
-    			</div>
-    			<div class="col-md-6">
-    				<img style="width: 100%;" src="assets/images/banner/banner-doi-2.png">
-    			</div>
+                @foreach($slides as $slide)
+                    @if($slide->position == 3)
+                    <div class="col-md-6">
+                       <a target="_blank" href="{{$slide->url}}"><img style="width: 100%;" src="{{url($slide->image)}}"></a>
+                    </div>
+                    @endif
+                @endforeach
+    			
+    			
     		</div>
     	</div>
     </section>
@@ -877,17 +894,8 @@
     	</div>
 
     </section>
-    <style type="text/css">
-        
-         /*   .owl-carousel .prev-carousel:hover {
-              background-position: 0px -53px;
-            }
 
-            .owl-carousel .next-carousel:hover {
-              background-position: -24px -53px;
-            }*/
-    </style>
-    <section>
+   <!--  <section>
     <div style="margin-top: 68px; height:  745px; background-color: #ececec;">
          <div class="trend-heading" style="padding-top: 60px;">Cẩm nang nội thất</div>
          <div class="camnang-text">Tư vấn, chia sẻ những thông tin hữu ích xoay quanh các vấn đề liên quan đến nội thất</div>
@@ -910,6 +918,6 @@
 
     	
   
-    </section>
+    </section> -->
 @stop
 

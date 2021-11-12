@@ -19326,7 +19326,7 @@ body.ec-open:before {
   font-family: 'Open Sans', sans-serif;
   position: relative;
 }
-.ec-slide-content .ec-slide-title:before {
+/*.ec-slide-content .ec-slide-title:before {
   content: "";
   position: absolute;
   top: 0;
@@ -19336,7 +19336,7 @@ body.ec-open:before {
   background: #3474d4;
   left: 4px;
   right: auto;
-}
+}*/
 .ec-slide-content .ec-slide-stitle {
   font-size: 50px;
   font-weight: 400;

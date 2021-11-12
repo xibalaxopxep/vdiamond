@@ -30,7 +30,7 @@
                     <th>#</th>
                     <th>Họ tên</th>
                     <th>Email</th>
-                    <th>Số điện thoại</th>
+                    <th>Trạng thái</th>
                     <th>Ngày tạo</th>
                     <th>Tác vụ</th>
                 </tr>
@@ -40,10 +40,15 @@
                     <tr>
                         <td>{{++$key}}</td>
                         <td>{{$record->name}}</td>
-                        <td>{{$record->email}}</td>
+                        
                         <td>{{$record->mobile}}</td>
+                        @if($record->is_read == 0)
+                        <td><span class="badge badge-secondary">Chưa xem</span></td>
+                        @else
+                        <td ><span class="badge badge-success">Đã xem</span></td>
+                        @endif
                         <td>{{$record->created_at()}}</td>
-                        <td class="text-center">
+                        <td class="">
                             <a href="{{route('admin.contact.edit', $record->id)}}" title="{!! trans('base.show') !!}" class="success"><i class="icon-eye"></i></a>
                             <form action="{!! route('admin.contact.destroy', ['id' => $record->id]) !!}" method="POST" style="display: inline-block">
                                 {!! method_field('DELETE') !!}

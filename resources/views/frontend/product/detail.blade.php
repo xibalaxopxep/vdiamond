@@ -152,7 +152,7 @@
                                                 <span style="margin-right: 30px;" class="old-price">{{$record->getPrice()}}</span>
                                                 <span class="new-price">{{$record->getSalePrice()}}</span>
                                             </div>
-                                            <div class="btn btn-light ec-single-stoke col-0">
+                                            <div data-product_id="{{$record->id}}" class="btn btn-light ec-single-stoke col-0 add-to-cart">
                                                 <span class="ec-single-sku"><img src="{{asset('assets/images/icons/cart-detail.svg')}}"> Thêm vào giỏ hàng </span>
                                             </div>
                                         </div>
