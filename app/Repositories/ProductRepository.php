@@ -52,6 +52,13 @@ class ProductRepository extends AbstractRepository {
         return $this->model->whereIn('id', $product_ids)->get();
     }
 
+    public function searchProductByKey($request){
+        $model = $this->model;
+        $records = $model->where('title','like','%'.$request->get('keyword').'%')
+                                   ->orWhere('keywords','like','%'.$request->get('keyword').'%')->get();
+        return $records;
+    }
+
     public function readFE($request) {
         $model = $this->model;
         if ($request->get('category_id')) {
@@ -64,16 +71,16 @@ class ProductRepository extends AbstractRepository {
             $model = $model->whereIn('id', $product_ids);
         }
         if ($request->get('keyword')) {
-//            $category = \App\Category::where('title','like',$request->get('keyword'))->first();
-//            if($category){
-//                $product_ids1 = \Db::table('product_category')->where('category_id', $category->id)->pluck('product_id');
-//                $model = $model->whereIn('id', $product_ids1);
-//            }else{
-//                $model = $model->where(function ($query) use ($request) {
-//                    return $query->where('title','like','%'.$request->get('keyword').'%')
-//                                    ->orWhere('keywords','like','%'.$request->get('keyword').'%');
-//                });
-//            }
+           $category = \App\Category::where('title','like',$request->get('keyword'))->first();
+           if($category){
+               $product_ids1 = \Db::table('product_category')->where('category_id', $category->id)->pluck('product_id');
+               $model = $model->whereIn('id', $product_ids1);
+           }else{
+               $model = $model->where(function ($query) use ($request) {
+                   return $query->where('title','like','%'.$request->get('keyword').'%')
+                                   ->orWhere('keywords','like','%'.$request->get('keyword').'%');
+               });
+           }
             $model = $model->where(function ($query) use ($request) {
                    return $query->where('title','like','%'.$request->get('keyword').'%')
                                    ->orWhere('keywords','like','% '.$request->get('keyword').' %');
@@ -87,6 +94,7 @@ class ProductRepository extends AbstractRepository {
         }
         return $model->where('status', 1)->orderBy(DB::raw('RAND()'))->paginate($limit);
     }
+
     public function readSale($request) {
         $model = $this->model;
         if ($request->get('category_id')) {
@@ -127,8 +135,8 @@ class ProductRepository extends AbstractRepository {
         return $this->model->where('alias', '=', $alias)->first();
     }
 
-    public function readRelatedProduct($limit = 15, $category) {
-        $product_ids = \DB::table('product_category')->where('category_id', $category->id)->pluck('product_id');
+    public function readRelatedProduct($limit = 15, $category, $id) {
+        $product_ids = \DB::table('product_category')->where('category_id', $category->id)->where('product_id','!=',$id)->pluck('product_id');
         return $this->model->where('status', 1)->whereIn('id', $product_ids)->orderBy('created_at', 'desc')->take($limit)->get();
     }
 

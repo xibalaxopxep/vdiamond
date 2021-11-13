@@ -13,6 +13,7 @@ use Repositories\CategoryRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\OrderDetailRepository;
 use App\Product;
+use DB;
 
 
 class ProductController extends Controller {
@@ -41,7 +42,53 @@ class ProductController extends Controller {
             $attributes[$key]->parent_name = \DB::table('attribute')->where('id', $key)->pluck('title')->first();
         }
         $colors = \DB::table('attribute')->where('module','color')->whereIn('id', $attr_ids)->get();
-        return view('frontend/product/detail', compact('record','attributes','colors'));
+        $cat_id = \DB::table('product_category')->where('product_id', $record->id)->get()->pluck('category_id');
+        $category = \DB::table('category')->where('id', $cat_id)->first();
+        $related_products = $this->productRepo->readRelatedProduct(15,$category, $record->id);
+        return view('frontend/product/detail', compact('record','attributes','colors','category','related_products'));
+    }
+
+    public function search(Request $request){
+        $search_key = $request->keyword;
+        $products = $this->productRepo->searchProductByKey($request);
+        $attribute_id = DB::table('product_attribute')->whereIn('product_id',$products->pluck('id'))->get();
+        $attributes = DB::table('attribute')->whereIn('id', $attribute_id->pluck('attribute_id'))->where('module','!=','color')->get()->groupBy('parent_id');
+        foreach($attributes as $key => $attr){
+            $attributes[$key]->name = DB::table('attribute')->where('id', $key)->pluck('title')->first();
+        }
+        $category_id = DB::table('product_category')->whereIn('product_id',$products->pluck('id'))->get();
+        $categories = DB::table('category')->whereIn('id', $category_id->pluck('category_id'))->get()->groupBy('parent_id');
+        foreach($categories as $key => $cat){
+            $categories[$key]->name = DB::table('category')->where('id', $key)->pluck('title')->first();
+        }
+        return view('frontend/product/search', compact('products','categories','attributes','search_key'));
+    }
+
+    public function category(Request $request){
+        $alias = $request->alias;
+        $category = DB::table('category')->where('alias', $alias)->first();
+        $parent = DB::table('category')->where('parent_id', $category->id)->get();
+        if(count($parent) == 0){
+            $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
+            $products = Product::whereIn('id', $product_id)->get();
+        }
+        else{
+            $parent = $parent->pluck('id');
+            $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
+            $products = Product::whereIn('id', $product_id)->get();
+        }
+        $attribute_id = DB::table('product_attribute')->whereIn('product_id',$products->pluck('id'))->get();
+        $attributes = DB::table('attribute')->whereIn('id', $attribute_id->pluck('attribute_id'))->where('module','!=','color')->get()->groupBy('parent_id');
+        foreach($attributes as $key => $attr){
+            $attributes[$key]->name = DB::table('attribute')->where('id', $key)->pluck('title')->first();
+        }
+        $category_id = DB::table('product_category')->whereIn('product_id',$products->pluck('id'))->get();
+        $categories = DB::table('category')->whereIn('id', $category_id->pluck('category_id'))->get()->groupBy('parent_id');
+        foreach($categories as $key => $cat){
+            $categories[$key]->name = DB::table('category')->where('id', $key)->pluck('title')->first();
+        }
+        return view('frontend/product/category', compact('products','categories','attributes','alias','category'));
+
     }
     
 

@@ -29,7 +29,21 @@
 
 		color: #000000;
  	}
+
+ 	.fotorama__nav-wrap{
+ 		display: none;
+ 	}
  </style>
+
+ <script type="text/javascript">
+ 	$('.fotorama').fotorama({
+		  width: 700,
+		  maxwidth: '100%',
+		  ratio: 16/9,
+		  allowfullscreen: true,
+		  nav: 'thumbs'
+		});
+ </script>
 <div style="background: white; height: 	auto	;"	>	
 	<div class="" style="height: auto; background-image: url('assets/images/background/galerry.png'); background-repeat: 	no-repeat;">
 		<div class="text-center" style="justify-content: center;">
@@ -37,40 +51,31 @@
 
 			<h2 class="galerry-h2 text-upper" style="margin-bottom: 45px;">khách hàng vdiamond</h2>
 		</div>
+
+
 		<div class="container">
 			<div class="row pl-0 pr-0">
-				<div class="col-md-3 col-6">
-                    <div class="fotorama" >	
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-					</div>
-					
-					<div style="" class="see-image" >
+				
+		
 
-						<img src="{{asset('assets/images/icons/galerry.svg')}}">
-						<span style="color:"> xem ảnh</span>
+				@foreach($galerry as $gal)
+				<div class="col-md-3 col-6 mb-4">	
+                    <div class="fotorama" data-width="100%" style="height: auto; border-radius: 5px;" 
+      data-allowfullscreen="native">
+                    @foreach(explode(',',$gal->feedback) as $image)
+					<img  style="object-fit: cover; " data-full="{{url($image)}}" src="{{url($image)}}">
+					@break;
+					@endforeach
 					</div>
+					<!-- <div style="" class="see-image" >
+						<img  src="{{asset('assets/images/icons/galerry.svg')}}">
+						<span style="color:"> xem ảnh</span>
+					</div> -->
 				</div>
-				<div class="col-md-3 col-6">
-					<img class="img" src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
-				<div class="col-md-3 col-6">
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
-				<div class="col-md-3 col-6">
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
-				<div class="col-md-3 col-6">
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
-				<div class="col-md-3 col-6">
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
-				<div class="col-md-3 col-6">
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
-				<div class="col-md-3 col-6">
-					<img src="{{asset('assets/images/galerry/gl1.png')}}">
-				</div>
+				@endforeach
+				
+
+				
 			</div>
 		</div>
 

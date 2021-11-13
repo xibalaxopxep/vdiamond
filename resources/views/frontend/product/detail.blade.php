@@ -98,9 +98,10 @@
                 <div class="col-12">
                     <div class="row ec_breadcrumb_inner">
                         <div class="col-md-6 col-sm-12">
-                            <ul style="float:left;" class="ec-breadcrumb-list">
-                                <li class="ec-breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                <li class="ec-breadcrumb-item active">Products</li>
+                            <ul style="float:left; margin-top: 35px;" class="ec-breadcrumb-list">
+                                <li class="ec-breadcrumb-item"><a href="{{route('home.index')}}">Trang chủ</a></li>
+                                <li class="ec-breadcrumb-item "><a href="{{route('product.category', $category->alias)}}">{{$category->title}}</a></li>
+                                <li class="ec-breadcrumb-item "><a href="#">{{$record->title}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -249,40 +250,41 @@
         </div>
     </section>
     <!-- End Single product -->
-
+    @if($record->feedback != null)
     <!-- feedback Product Start -->
     <section class="section ec-releted-product feedback-product section-space-p">
         <div class="container">
             <div class="row">
                 <h2 class="ec-title-customer text-upper">Hình ảnh thực tế - khách hàng đã mua</h2>
             </div>
-       
+               
                 <div class="owl-carousel" id="feedback-carousel">
-                   
-                        <img style="height: 200px; border-radius: 7px;" src="{{asset('assets/images/product/image1.png')}}">
-                        <img style="height: 200px; border-radius: 7px;" src="{{asset('assets/images/product/image1.png')}}">
-                        <img style="height: 200px; border-radius: 7px;" src="{{asset('assets/images/product/image1.png')}}">
+                         @foreach($record->getFeedback() as $feedback_img)
+                        <img style="height: 200px; border-radius: 7px;" src="{{url($feedback_img)}}">
+                         @endforeach
                     </div>
               
         </div>
     </section>
+    @endif
 
     <!-- feedback Product end -->
 
     <!-- Related Product Start -->
+    @if(count($related_products) >0)
     <section class="section ec-releted-product section-space-p">
         <div  class="container">
              <div class="row">
                 <h2 class="ec-title-related text-upper">sản phẩm liên quan</h2>
             </div>
             <div class="owl-carousel" id="related-carousel">
-            
+               @foreach($related_products as $related_product)
                 <div class="ec-product-inner border-product">
                     <div class="ec-pro-image-outer">
                         <div class="ec-pro-image">
-                            <a href="product-left-sidebar.html" class="image">
+                            <a href="{{route('product.detail', $related_product->alias)}}" class="image">
                                 <img style="height: 213px; object-fit: cover;" class="main-image"
-                                    src="{{asset('assets/images/product/image1.png')}}" alt="Product" />
+                                    src="{{url($related_product->image)}}" alt="Product" />
                                 <!-- <img class="hover-image"
                                     src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
                             </a>
@@ -296,20 +298,22 @@
                         </div>
                     </div>
                     <div class="ec-pro-content">
-                        <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Sản phẩm sofa</a></h5>
-                        <p style="text-align: center;">Model: VD123</p>
+                        <h5 class="ec-pro-title"><a href="{{route('product.detail', $related_product->alias)}}">{{$related_product->title}}</a></h5>
+                        <p style="text-align: center;">{{$related_product->model}}</p>
                         <span class="ec-price" style="justify-content: center !important;">
                           
-                            <span style="float: left; padding-right: 10px;" class="new-price">45.000.000đ</span>
-                            <span style="float: right; padding-left: 10px;" class="old-price">45.000.000đ</span>
+                            <span style="float: left; padding-right: 10px;" class="new-price">{{$related_product->getSalePrice()}}đ</span>
+                            <span style="float: right; padding-left: 10px;" class="old-price">{{$related_product->getPrice()}}đ</span>
                         </span>
                         
                     </div>
                 </div>
+                @endforeach
                          
             </div>
         </div>
     </section>
+    @endif
 
 
     <!-- Related Product end -->

@@ -9,12 +9,111 @@ use App\Repositories\ProductRepository;
 use Repositories\AttributeRepository;
 use Carbon\Carbon;
 use DB;
+use App\Product;
 
 class ProductController extends Controller {
 
     public function __construct(ProductRepository $productRepo, AttributeRepository $attributeRepo) {
         $this->productRepo = $productRepo;
         $this->attributeRepo = $attributeRepo;
+    }
+
+    public function search(Request $request){
+
+        $data = $request->all();
+        if(!isset($data['cat']) && !isset($data['attr'])){
+
+            if(isset($data['keyword'])){
+                $products =  Product::where('title','like','%'.$request->get('keyword').'%');
+            }else{
+                $alias = $data['alias'];
+                $category = DB::table('category')->where('alias', $alias)->first();
+                $parent = DB::table('category')->where('parent_id', $category->id)->get();
+                if(count($parent) == 0){
+                    $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
+                    $products = Product::whereIn('id', $product_id);
+                }
+                else{
+                    $parent = $parent->pluck('id');
+                    $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
+                    $products = Product::whereIn('id', $product_id);
+                }
+            }
+            if($data['filter'] == "tra_gop"){
+                $products = $products->where('is_tragop', 1);
+            }elseif($data['filter'] == "ban_chay"){
+                $products = $products->where('is_best_seller', 1);
+            }elseif($data['filter'] == "khuyen_mai"){
+                $products = $products->where('sale_price','!=', "0");
+            }
+
+            if($data['sortByPrice'] == 1){
+                $products = $products->orderBy('price', 'asc');
+            }elseif($data['sortByPrice'] == 2){
+                $products = $products->orderBy('price', 'desc');
+            }else{
+
+            }
+            $products = $products->get();
+            return response()->json($products);
+        }
+        if(isset($data['cat']) && isset($data['attr'])){
+        $product_category = DB::table('product_category')->whereIn('category_id', $data['cat'])->get()->pluck('product_id');
+        $product_attribute = DB::table('product_attribute')->whereIn('attribute_id', $data['attr'])->get()->pluck('product_id');
+        $product_id = [];
+        foreach($product_category as $key => $pro_category){
+            foreach($product_attribute as $key => $pro_attribute){
+                 if($pro_category == $pro_attribute){
+                      $product_id[]+=$pro_category;
+                 }
+            }
+        }
+        $product_id = array_unique($product_id);
+
+        }
+
+        elseif(isset($data['cat'])){
+            $product_id = DB::table('product_category')->whereIn('category_id', $data['cat'])->get()->pluck('product_id');
+        }
+        elseif(isset($data['attr'])){
+            $product_id = DB::table('product_attribute')->whereIn('attribute_id', $data['attr'])->get()->pluck('product_id');
+        }
+        if(isset($data['keyword'])){
+            $products = Product::whereIn('id', $product_id)->where('title','like','%'.$request->get('keyword').'%');
+        }
+        else{
+            $products = Product::whereIn('id', $product_id);
+            // $alias = $data['alias'];
+            // $category = DB::table('category')->where('alias', $alias)->first();
+            // $parent = DB::table('category')->where('parent_id', $category->id)->get();
+            // if(count($parent) == 0){
+            //     $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
+            //     $products = Product::whereIn('id', $product_id);
+            // }
+            // else{
+            //     $parent = $parent->pluck('id');
+            //     $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
+            //     $products = Product::whereIn('id', $product_id);
+            // }
+        }
+        
+        if($data['filter'] == "tra_gop"){
+                $products = $products->where('is_tragop', 1);
+            }elseif($data['filter'] == "ban_chay"){
+                $products = $products->where('is_best_seller', 1);
+            }elseif($data['filter'] == "khuyen_mai"){
+                $products = $products->where('sale_price','!=', "0");
+            }
+
+        if($data['sortByPrice'] == 1){
+            $products = $products->orderBy('price', 'asc');
+        }elseif($data['sortByPrice'] == 2){
+            $products = $products->orderBy('price', 'desc');
+        }else{
+        }
+        $products = $products->get();
+       
+        return response()->json($products);
     }
 
     public function addToCart(Request $request){

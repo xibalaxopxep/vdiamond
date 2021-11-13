@@ -2,7 +2,7 @@
 
     <div class="ec-side-cart-overlay" style=""></div>
 
-     <footer class="ec-footer section-space-mt" style="background-image: url('assets/images/background/footer.png'); background-repeat: no-repeat;  background-position: center;
+     <footer class="ec-footer section-space-mt" style="background-image: url('/assets/images/background/footer.png'); background-repeat: no-repeat;  background-position: center;
     background-size: cover;">
         <div class="footer-container footer-destop" style="background: rgba(16, 16, 16, 0.5);">
             
@@ -22,10 +22,11 @@
                             <div class="ec-footer-widget">
                                 <div class="ec-footer-links">
                                     <ul class="align-items-center">
-                                        <li class="ec-footer-link"><a href="about-us.html"><i class="fa-rotate-270 fas fa-caret-down"></i> About us</a></li>
-                                        <li class="ec-footer-link"><a href="faq.html"><i class="fa-rotate-270 fas fa-caret-down"></i> FAQ</a></li>
-                                        <li class="ec-footer-link"><a href="track-order.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Delivery Information</a></li>
-                                        <li class="ec-footer-link"><a href="contact-us.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Contact us</a></li>
+                                        <li class="ec-footer-link"><a href="about-us.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Giới thiệu V DIAMOND</a></li>
+                                        <li class="ec-footer-link"><a href="faq.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Giao hàng, lắp đặt</a></li>
+                                        <li class="ec-footer-link"><a href="track-order.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Câu hỏi thường gặp</a></li>
+                                        <li class="ec-footer-link"><a href="contact-us.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Hướng dẫn mua hàng</a></li>
+                                        <li class="ec-footer-link"><a href="contact-us.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Quy định thanh toán</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -35,10 +36,12 @@
                             <div class="ec-footer-widget">
                                 <div class="ec-footer-links">
                                     <ul class="align-items-center">
-                                        <li class="ec-footer-link"><a href="track-order.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Discount Returns</a></li>
-                                        <li class="ec-footer-link"><a href="privacy-policy.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Policy & policy </a></li>
-                                        <li class="ec-footer-link"><a href="terms-condition.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Customer Service</a></li>
-                                        <li class="ec-footer-link"><a href="terms-condition.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Term & condition</a>
+                                        <li class="ec-footer-link"><a href="track-order.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Thanh toán trả góp</a></li>
+                                        <li class="ec-footer-link"><a href="privacy-policy.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Nhượng quyền kinh doanh </a></li>
+                                        <li class="ec-footer-link"><a href="terms-condition.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Chính sánh cho cộng tác viên</a></li>
+                                        <li class="ec-footer-link"><a href="terms-condition.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Chính sách bảo mật thông tin</a>
+                                        </li>
+                                         <li class="ec-footer-link"><a href="terms-condition.html"><i class="fa-rotate-270 fas fa-caret-down"></i> Đổi trả bảo hành</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -51,8 +54,9 @@
                                 <div style="padding-left: 20px;" class="ec-footer-links">
                                     <ul class="align-items-center">
                                         <li class="mt-2 mb-2 ec-footer-link">Showroom: Số 4, Hồ Sen, Lê Chân, Hải Phòng</li>
-                                        <li class="mt-2 mb-2 ec-footer-link">Showroom: Số 4, Hồ Sen, Lê Chân, Hải Phòng</li>
-                                        <li class="mt-2 mb-2 ec-footer-link">Showroom: Số 4, Hồ Sen, Lê Chân, Hải Phòng</li>
+                                        <li class="mt-2 mb-2 ec-footer-link">1900 999 886</li>
+                                        <li class="mt-2 mb-2 ec-footer-link">Suport@vidamond.com.vn</li>
+                                        <li class="mt-2 mb-2 ec-footer-link">Nội thất kim Cương Việt Vdiamond</li>
                                     </ul>
                                    <!--  <div class="ec-subscribe-form">
                                         <form id="ec-newsletter-form" name="ec-newsletter-form" method="post"
@@ -160,10 +164,10 @@
                   $(this).addClass('active');
               });
 
-                // $(".ec-mobile-menu-href").on("click", function(){
-                //   $("#ec-mobile-menu").addClass( "ec-open");
-                //   $('.ec-side-cart-overlay').show();
-                // });
+                $(".ec-mobile-menu-href").on("click", function(){
+                  $("#ec-mobile-menu").addClass( "ec-open");
+                  $('.ec-side-cart-overlay').show();
+                });
 
                 $('.ec-close').on('click',function(){
                   $("#ec-mobile-menu, #ec-side-cart").removeClass("ec-open");
@@ -448,6 +452,102 @@
 
      
           });
+</script>
+
+<script type="text/javascript">
+        function number_format(nStr)
+        {
+            nStr += '';
+            x = nStr.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+            return x1 + x2;
+        }
+        var cat = []; 
+        var attr = [];  
+        var filter;
+        $('input[name="cat"], input[name="attr"]').on('click',function(){
+            if($(this).data('type') == 1){
+              if($(this).is(':checked')){
+                cat.push($(this).val());
+              }else{
+                cat.splice($.inArray($(this).val(), cat), 1);
+              }
+            }
+            else{
+              if($(this).is(':checked')){
+                attr.push($(this).val());
+              }else{
+                attr.splice($.inArray($(this).val(), attr), 1);
+              }
+            }
+            var sortByPrice = $('.sort-by-price').val();
+            search(cat, attr, sortByPrice)
+        });
+
+        $('.sort-by-price').on('change',function(){
+            var sortByPrice = $('.sort-by-price').val();
+            search(cat, attr, sortByPrice);
+        });
+
+        $('.btn-filter').on('click',function(){
+            var sortByPrice = $('.sort-by-price').val();
+            filter = $(this).data('type');
+            search(cat, attr, sortByPrice, filter);
+        });
+
+
+        function search(cat, attr, sortByPrice, filter = null){
+               $.ajax({
+                url: '/api/search-product',
+                type: 'get',
+                data: {
+                    cat : cat,
+                    attr: attr,
+                    sortByPrice: sortByPrice,
+                    filter : filter,
+                    alias : $('.product-alias').val(),
+                    keyword : $('.product-key').val()
+                },
+                success: function(data) {
+                  var html = "";
+                  var url = window.location.origin;
+                  $.each( data, function( key, value ) {
+                      html+= `<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div class="ec-product-inner">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <a href="`+url+`/san-pham/`+value.alias+`" class="image">
+                                                    <img style="width: 100%; height: auto; object-fit: cover;" class="main-image"
+                                                        src="`+value.image+`" alt="Product" />
+                                                </a>
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="ec-pro-content">
+                                            <h5 class="ec-pro-title"><a href="`+url+`/san-pham/`+value.alias+`">`+value.title+`</a></h5>
+                                            <span class="model">`+value.title+`</span>
+                                            <span style="justify-content: center;" class="ec-price">
+                                                <span class="old-price">`+number_format(value.price)+"đ"+`</span>
+                                                <span class="new-price">`+number_format(value.sale_price)+"đ"+`</span>
+                                            </span>
+                                             <span style=" display: none;" class="ec-price-mobile">
+                                                <p class="new-price">`+number_format(value.sale_price)+"đ"+`</p>
+                                                <p class="old-price">`+number_format(value.price)+"đ"+`</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                              </div>`;
+
+                  });
+                  $('.list-product').html(html);
+                }
+            });
+        }
 </script>
 
   

@@ -18970,7 +18970,8 @@ body.ec-open:before {
   border: 0;
   font-size: 30px;
   line-height: 1;
-  color: #555;
+  color: #CCB9A7;
+  backdrop-filter: blur(15px);
 }
 .ec-side-cart .ec-menu-inner .ec-menu-content ul li {
   position: relative;
@@ -18981,10 +18982,19 @@ body.ec-open:before {
   display: block;
   padding: 10px 0px;
   text-transform: capitalize;
-  color: #444444;
+  color: #CCB9A7;
   border-bottom: 1px solid #ededed;
-  font-size: 15px;
-  font-weight: 500;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 40px;
+  /* or 357% */
+
+  text-transform: uppercase;
+
+  color: #9A7E67;
 }
 .ec-side-cart .ec-menu-inner .ec-menu-content ul li .sub-menu {
   position: static;

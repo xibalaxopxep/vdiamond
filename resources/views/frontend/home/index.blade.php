@@ -28,29 +28,29 @@
                 </div>
                  <div class="col-md-3 row">
                     <div class="col-md-4">
-                        <img src="assets/frontend/images/icons/freeship.svg">
+                        <img src="assets/images/icons/chinh_sach.svg">
                     </div>
                     <div style="margin-left: -52px;" class="col-md-9">
-                        <div class="text-upper policy-text">MIỄN PHÍ VẬN CHUYỂN</div>
-                        <div class="policy-content">Đơn hàng tối thiểu 10.000.000 ₫</div>
+                        <div class="text-upper policy-text">chính sách đổi trả</div>
+                        <div class="policy-content">Đảm bảo hoàn tiền 100%</div>
                     </div>
                 </div>
                  <div class="col-md-3 row">
                     <div class="col-md-4">
-                        <img src="assets/frontend/images/icons/freeship.svg">
+                        <img src="assets/images/icons/tu_van.svg">
                     </div>
                     <div style="margin-left: -52px;" class="col-md-8">
-                        <div class="text-upper policy-text">MIỄN PHÍ VẬN CHUYỂN</div>
-                        <div class="policy-content">Đơn hàng tối thiểu 10.000.000 ₫</div>
+                        <div class="text-upper policy-text">Tư vấn hỗ trợ</div>
+                        <div class="policy-content">Hotline: 1900 566 999</div>
                     </div>
                 </div>
                  <div class="col-md-3 row">
                     <div class="col-md-4">
-                        <img src="assets/frontend/images/icons/freeship.svg">
+                        <img src="assets/images/icons/thanh_toan.svg">
                     </div>
-                    <div style="margin-left: -52px;" class="col-md-8">
-                        <div class="text-upper policy-text">MIỄN PHÍ VẬN CHUYỂN</div>
-                        <div class="policy-content">Đơn hàng tối thiểu 10.000.000 ₫</div>
+                    <div style="margin-left: -47px;" class="col-md-8">
+                        <div class="text-upper policy-text">THANH TOÁN dễ dàng</div>
+                        <div class="policy-content">Cổng thanh toán online</div>
                     </div>
                 </div>
             </div>
@@ -325,7 +325,14 @@
             	</span>
             	<div  class="container container-best-seller product-best-seller">
             		<div class="owl-carousel owl-theme" id="best-seller-carousel">
+                        @php
+                           $avg = ceil(count($best_sell_products)/5);
+                           $index = 0;
+                        @endphp
+                        @for
     	            	<div style="margin-top: 20px;" class="row"  style="">
+
+                            @foreach()
     	            	    <div class="col-md-3">
     	            	     
     	            	        	<div class="list-product-best-seller ec-product-content" >
@@ -361,8 +368,7 @@
                                                 </span> 
                                             </div>
                                         </div>
-                                    </div>
-    	            	    
+                                    </div> 
     	            	        <div class="ec-product-content list-product-best-seller" >
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
@@ -396,8 +402,7 @@
                                                 
                                             </div>
                                         </div>
-                                    </div>
-
+                                </div>
     	            	    </div>
     	            	    <div class="col-md-6">
 
@@ -506,9 +511,10 @@
                                                 
                                             </div>
                                         </div>
-                                    </div>
+                                </div>
     	            	    </div>
     	            	</div>
+                        @endfor
     	            	<div class="row"  style="">
     	            	    <div class="col-md-3">
     	            	     

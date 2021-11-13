@@ -57,7 +57,8 @@ class FrontendController extends Controller {
     }
 
     public function galerry(){
-        return view('frontend/gallery/index');
+        $galerry = DB::table('product')->where('feedback', '!=', null)->orderBy('updated_at','desc')->get();
+        return view('frontend/gallery/index', compact('galerry'));
     }
 
 }

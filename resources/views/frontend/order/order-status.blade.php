@@ -1,7 +1,23 @@
 @extends('frontend.layouts.master')
 @section('content')
 
- 
+  <!-- Ec breadcrumb start -->
+    <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb" style="height:130px; background-image: url('/assets/images/background/breakcum.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row ec_breadcrumb_inner">
+                        <div class="col-md-6 col-sm-12">
+                            <ul style="float:left; margin-top: 35px;" class="ec-breadcrumb-list">
+                                <li class="ec-breadcrumb-item"><a href="{{route('home.index')}}">Trang chủ</a></li>
+                                <li class="ec-breadcrumb-item "><a href="#">Giỏ hàng</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Start Privacy & Policy page -->
     <section class="ec-page-content section-space-p order-v" style="background-color: #f8f8f8;">

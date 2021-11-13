@@ -8,7 +8,7 @@ class Product extends Model {
 
     protected $table = 'product';
     protected $fillable = [
-        'created_by', 'is_hot', 'is_new', 'is_combo','is_best_seller','content', 'price', 'sale_price', 'image' , 'images', 'title', 'model', 'description', 'keywords', 'meta_title', 'meta_description', 'meta_keywords', 'view_count', 'sell_count', 'status', 'alias', 'ordering'
+        'created_by', 'is_hot', 'is_new', 'is_combo','is_best_seller','content', 'price', 'sale_price', 'image' , 'images', 'title', 'model', 'description', 'keywords', 'meta_title', 'meta_description', 'meta_keywords', 'view_count', 'sell_count', 'status', 'alias', 'ordering','is_tragop', 'feedback'
     ];
 
     public function attributes() {
@@ -26,6 +26,11 @@ class Product extends Model {
     public function getImage() {
         $image_arr = explode(',', $this->images);
         return $image_arr[0];
+    }
+
+     public function getFeedback() {
+        $image_arr = explode(',', $this->feedback);
+        return $image_arr;
     }
 
     public function getPrice() {

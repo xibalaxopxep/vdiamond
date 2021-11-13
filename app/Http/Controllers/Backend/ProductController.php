@@ -57,6 +57,7 @@ class ProductController extends Controller {
         $input['is_new'] = isset($input['is_new']) ? 1 : 0;
         $input['is_combo'] = isset($input['is_combo']) ? 1 : 0;
         $input['is_best_seller'] = isset($input['is_best_seller']) ? 1 : 0;
+        $input['is_tragop'] = isset($input['is_tragop']) ? 1 : 0;
         $input['created_by'] = \Auth::user()->id;
         $input['view_count'] = 0;
         $input['post_schedule'] = isset($input['post_schedule']) ? $input['post_schedule_submit'] : date('Y-m-d H:i:s');
@@ -128,6 +129,7 @@ class ProductController extends Controller {
         $input['is_new'] = isset($input['is_new']) ? 1 : 0;
         $input['is_combo'] = isset($input['is_combo']) ? 1 : 0;
         $input['is_best_seller'] = isset($input['is_best_seller']) ? 1 : 0;
+        $input['is_tragop'] = isset($input['is_tragop']) ? 1 : 0;
         $input['created_by'] = \Auth::user()->id;
         $input['post_schedule'] = isset($input['post_schedule']) ? $input['post_schedule_submit'] : date('Y-m-d H:i:s');
         $res = $this->productRepo->update($input, $id);

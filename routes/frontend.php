@@ -5,6 +5,7 @@ Route::group(['middleware' => 'frontend'], function() {
 
     /* Sản phẩm */
     Route::get('/san-pham', ['as' => 'product.index', 'uses' => 'Frontend\ProductController@index']);
+    Route::get('/danh-muc/{alias}', ['as' => 'product.category', 'uses' => 'Frontend\ProductController@category']);
     Route::get('/sale', ['as' => 'product.sale', 'uses' => 'Frontend\ProductController@sale']);
     Route::get('/san-pham/{alias}', ['as' => 'product.detail', 'uses' => 'Frontend\ProductController@detail']);
 
@@ -27,12 +28,15 @@ Route::group(['middleware' => 'frontend'], function() {
     Route::post('/dat-hang', ['as' => 'order.index', 'uses' => 'Frontend\OrderController@order']);
 
     // Khách Hàng
-    Route::get('/hinh-anh', ['as' => 'galerry.index', 'uses' => 'Frontend\FrontendController@']);
+    Route::get('/hinh-anh', ['as' => 'galerry.index', 'uses' => 'Frontend\FrontendController@galerry']);
 
     //Thêm giỏ hàng
     Route::post('/add-to-cart/{id}', ['as' => 'addToCart', 'uses' => 'Frontend\OrderController@addToCart']);
     
     //chi tiết  đặt hàng
     Route::get('/don-hang/{id}', ['as' => 'order.detail', 'uses' => 'Frontend\OrderController@detail']);
+
+    //search
+    Route::get('/tim', ['as' => 'product.search', 'uses' => 'Frontend\ProductController@search']);
 
 });

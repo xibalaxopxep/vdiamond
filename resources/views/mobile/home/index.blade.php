@@ -315,7 +315,7 @@
    <!--   sp thượng lưu -->
      <section class="section ec-product-tab section-space-p margin-top">
         <div class="row mobile-luxury-product" style=" height:950px; background-image: url('assets/images/background/best-mobile.png')">
-            <div class="container " style="text-align:  center;" >
+            <div class="container mt-4" style="text-align:  center;" >
                 <img class="vip-top" src="assets/images/banner/vip-top.png">  
                 <img class="vip-middle" style="z-index: 10; " src="assets/images/banner/vip.png">  
                 <img class="vip-bottom" src="assets/images/banner/vip-bottom.png">  

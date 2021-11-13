@@ -108,6 +108,28 @@
                                             <span class="help-block">Chỉ cho phép các file ảnh có đuôi <code>jpg</code>, <code>gif</code> và <code>png</code>. File có dung lượng tối đa 20M.</span>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2  control-label text-right text-semibold" for="images">Ảnh feedback:</label>
+                                        <div class="col-lg-10 div-image">
+                                            <div class="file-input file-input-ajax-new">
+                                                <div class="file-preview ">
+                                                    <div class=" file-drop-zone">
+                                                    </div>
+                                                </div>
+                                                <div class="input-group file-caption-main">
+                                                    <div class="file-caption form-control kv-fileinput-caption" tabindex="500">
+                                                    </div>
+                                                    <div class="input-group-btn input-group-append">
+                                                        <div tabindex="500" class="btn btn-primary btn-file"><i class="icon-folder-open"></i>&nbsp; <span class="hidden-xs">Chọn</span>
+                                                            <input type="file" id="images" class="upload-images" name="file_upload[]" multiple="multiple" data-fouc="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="feedback" class="image_data">
+                                            <span class="help-block">Chỉ cho phép các file ảnh có đuôi <code>jpg</code>, <code>gif</code> và <code>png</code>. File có dung lượng tối đa 20M.</span>
+                                        </div>
+                                    </div>
                                 </fieldset>
                             </div>
                             <div class="col-md-4">
@@ -174,6 +196,14 @@
                                         <label class="form-check-label float-right">
                                             Bán chạy
                                             <input type="checkbox" class="form-check-input-styled" name="is_best_seller" data-fouc="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-check col-md-6 form-check-right">
+                                        <label class="form-check-label float-right">
+                                            Trả góp
+                                            <input type="checkbox" class="form-check-input-styled" name="is_tragop" data-fouc="">
                                         </label>
                                     </div>
                                 </div>
