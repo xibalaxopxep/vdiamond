@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                     <div class="ec-product-inner">
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
@@ -131,7 +131,7 @@
                                                    
                                                 </a>
                                                 <span class="percentage">20%</span>
-                                                
+                                                 
                                             </div>
                                         </div>
                                         <div class="ec-pro-content">

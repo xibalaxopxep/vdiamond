@@ -63,11 +63,19 @@ class ProductController extends Controller {
         }
         return view('frontend/product/search', compact('products','categories','attributes','search_key'));
     }
+    
+  
 
     public function category(Request $request){
         $alias = $request->alias;
         $category = DB::table('category')->where('alias', $alias)->first();
         $parent = DB::table('category')->where('parent_id', $category->id)->get();
+        
+
+        if($category->parent_id == 0){
+            $products = Product::where('title','like','%'.$category->title.'%')
+                                   ->orWhere('keywords','like','%'.$category->title.'%')->get();
+        }else{
         if(count($parent) == 0){
             $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
             $products = Product::whereIn('id', $product_id)->get();
@@ -77,6 +85,9 @@ class ProductController extends Controller {
             $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
             $products = Product::whereIn('id', $product_id)->get();
         }
+        }
+
+
         $attribute_id = DB::table('product_attribute')->whereIn('product_id',$products->pluck('id'))->get();
         $attributes = DB::table('attribute')->whereIn('id', $attribute_id->pluck('attribute_id'))->where('module','!=','color')->get()->groupBy('parent_id');
         foreach($attributes as $key => $attr){

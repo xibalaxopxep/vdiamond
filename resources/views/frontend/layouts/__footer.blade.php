@@ -467,6 +467,7 @@
             }
             return x1 + x2;
         }
+
         var cat = []; 
         var attr = [];  
         var filter;
@@ -485,6 +486,26 @@
                 attr.splice($.inArray($(this).val(), attr), 1);
               }
             }
+            var sortByPrice = $('.sort-by-price').val();
+            search(cat, attr, sortByPrice)
+        });
+
+        $('.select-cat, .select-attr').on('change',function(){
+            if($(this).data('type') == 1){
+              if($(this).val() != 0){
+                cat.push($(this).val());
+              }else{
+                cat.splice($.inArray($(this).val(), cat), 1);
+              }
+            }
+            else{
+              if($(this).is(':selected')){
+                attr.push($(this).val());
+              }else{
+                attr.splice($.inArray($(this).val(), attr), 1);
+              }
+            }
+            console.log(attr);
             var sortByPrice = $('.sort-by-price').val();
             search(cat, attr, sortByPrice)
         });
@@ -548,6 +569,19 @@
                 }
             });
         }
+</script>
+
+<script>
+  $(".news-top ul.pin").owlCarousel({
+    nav: false,
+    lazyLoad: true,
+    items: 1,
+    dots: true
+  });
+  if($(document).width()>1200)
+  {
+    $(".news-top ul.hot").prepend('<h1>Tin tức nổi bật</h1>');
+  }
 </script>
 
   

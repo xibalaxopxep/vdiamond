@@ -29,6 +29,10 @@ class ProductController extends Controller {
                 $alias = $data['alias'];
                 $category = DB::table('category')->where('alias', $alias)->first();
                 $parent = DB::table('category')->where('parent_id', $category->id)->get();
+                if($category->parent_id == 0){
+                       $products = Product::where('title','like','%'.$category->title.'%')
+                                   ->orWhere('keywords','like','%'.$category->title.'%');
+                }else{
                 if(count($parent) == 0){
                     $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
                     $products = Product::whereIn('id', $product_id);
@@ -37,6 +41,7 @@ class ProductController extends Controller {
                     $parent = $parent->pluck('id');
                     $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
                     $products = Product::whereIn('id', $product_id);
+                }
                 }
             }
             if($data['filter'] == "tra_gop"){
@@ -59,43 +64,62 @@ class ProductController extends Controller {
         }
         if(isset($data['cat']) && isset($data['attr'])){
         $product_category = DB::table('product_category')->whereIn('category_id', $data['cat'])->get()->pluck('product_id');
-        $product_attribute = DB::table('product_attribute')->whereIn('attribute_id', $data['attr'])->get()->pluck('product_id');
+        $product_attribute = DB::table('product_attribute')->whereIn('attribute_id', $data['attr'])->get();
+        $product_s = Product::whereIn('id',$product_attribute->pluck('attribute_id'))->get();
+        foreach ($product_s as $key => $product) {
+             $attr =  DB::table('product_attribute')->where('product_id', $product->id)->get()->pluck('attribute_id')->toArray();
+             foreach ($product_attribute->pluck('attribute_id') as $key => $product_attr) {
+
+                 if(!in_array($product_attr, $attr)){
+                    unset($product_attribute[$key]);
+                 }
+             }
+        }
+
         $product_id = [];
+        dd($product_attribute);
         foreach($product_category as $key => $pro_category){
             foreach($product_attribute as $key => $pro_attribute){
-                 if($pro_category == $pro_attribute){
+                 if($pro_category->product_id == $pro_attribute){
                       $product_id[]+=$pro_category;
                  }
             }
         }
+        // dd($product_attribute);
         $product_id = array_unique($product_id);
 
-        }
-
-        elseif(isset($data['cat'])){
+        }else{
+        if(isset($data['cat'])){
             $product_id = DB::table('product_category')->whereIn('category_id', $data['cat'])->get()->pluck('product_id');
         }
-        elseif(isset($data['attr'])){
+        else{
             $product_id = DB::table('product_attribute')->whereIn('attribute_id', $data['attr'])->get()->pluck('product_id');
         }
+        }
+        
         if(isset($data['keyword'])){
             $products = Product::whereIn('id', $product_id)->where('title','like','%'.$request->get('keyword').'%');
         }
         else{
-            $products = Product::whereIn('id', $product_id);
-            // $alias = $data['alias'];
-            // $category = DB::table('category')->where('alias', $alias)->first();
-            // $parent = DB::table('category')->where('parent_id', $category->id)->get();
-            // if(count($parent) == 0){
-            //     $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
-            //     $products = Product::whereIn('id', $product_id);
-            // }
-            // else{
-            //     $parent = $parent->pluck('id');
-            //     $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
-            //     $products = Product::whereIn('id', $product_id);
-            // }
+
+            $alias = $data['alias'];
+            $category = DB::table('category')->where('alias', $alias)->first();
+            $parent = DB::table('category')->where('parent_id', $category->id)->get();
+            if($category->parent_id == 0){
+                       $products = Product::whereIn('id', $product_id)->where('title','like','%'.$category->title.'%')->orWhere('keywords','like','%'.$category->title.'%');;
+                                   
+            }else{
+            if(count($parent) == 0){
+                $product_id = DB::table('product_category')->where('category_id', $category->id)->get()->pluck('product_id');
+                $products = Product::whereIn('id', $product_id);
+            }
+            else{
+                $parent = $parent->pluck('id');
+                $product_id = DB::table('product_category')->whereIn('category_id', $parent)->get()->pluck('product_id');
+                $products = Product::whereIn('id', $product_id);
+            }
         }
+    }
         
         if($data['filter'] == "tra_gop"){
                 $products = $products->where('is_tragop', 1);

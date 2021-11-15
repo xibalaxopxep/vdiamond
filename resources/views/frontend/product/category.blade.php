@@ -13,6 +13,74 @@
         color: #000000;
         height: 38px;
     }
+
+    .ec-select-inner{
+        width: 100% !important;
+    }
+
+    .ec-select-inner select{
+
+        min-height: 32px !important;
+        font-family: Open Sans !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: black !important;
+        /* or 143% */
+        color: #585858;
+    }
+
+    .placeholder{
+        font-style: italic !important;
+        color: #636c72;
+    }
+
+    .in_stock{
+        background: rgba(75, 170, 1, 0.05);
+        border: 0.5px solid #4BAA01;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        /* or 143% */
+        color: #4BAA01;
+    }
+
+      .out_stock{
+        background: #EBF2FF;
+        border: 0.5px solid #2264D1;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        /* or 143% */
+
+
+        color: #2264D1;
+    }
+    .form-check.col-4{
+        padding-left: 14px !important;
+
+    }
+
+    .form-check.col-4 button{
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .filter-mobile{
+            display: block !important;
+        }
+    }
+
+
 </style>
     <!-- Ec breadcrumb start -->
     <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb" style="height:130px; background-image: url('/assets/images/background/breakcum.png')">
@@ -61,72 +129,74 @@
                                     <option value="0" selected disabled>--Xếp theo--</option>
                                     <option value="1">Giá thấp đến cao</option>
                                     <option value="2">Giá cao đến thấp</option>
-                                </select>  
+                            </select>  
                         </div>
 
                     </div>
-                    <div style="display: none;" class="row col-md-0">
-                        <div class="col-md-6 col-6">
-                            <select>
-                                    <option selected disabled>Position</option>
-                                    <option value="1">Relevance</option>
-                                    <option value="2">Name, A to Z</option>
-                                    <option value="3">Name, Z to A</option>
-                                    <option value="4">Price, low to high</option>
-                                    <option value="5">Price, high to low</option>
+
+                    <div class="filter-mobile" style="display: none;">
+                    <div style="" class="row">
+                        @foreach($categories as $key => $category)
+                        <div class="col-md-6 col-6 mb-2">
+                            <div  class="ec-select-inner">
+                            <select data-type="1" class="form-control form-control-sm select-cat" style="background: #F7F7F7;">
+                                    <option class="placeholder" selected>{{$category->name}}</option>
+                                    @foreach($category as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                    @endforeach
                             </select>    
+                            </div>
                         </div>
-                        <div class="col-md-6 col-6">
-                            <select>
-                                    <option selected disabled>Position</option>
-                                    <option value="1">Relevance</option>
-                                    <option value="2">Name, A to Z</option>
-                                    <option value="3">Name, Z to A</option>
-                                    <option value="4">Price, low to high</option>
-                                    <option value="5">Price, high to low</option>
+                        @endforeach
+
+                        @foreach($attributes as $key => $attribute)
+                        <div class="col-md-6 col-6 mb-2">
+                            <div  class="ec-select-inner">
+                            <select  data-type="2" class="form-control form-control-sm select-attr" style="background: #F7F7F7;">
+                                    <option class="placeholder" selected >{{$attribute->name}}</option>
+                                    @foreach($attribute as $attr)
+                                    <option value="{{$attr->id}}">{{$attr->title}}</option>
+                                    @endforeach
+                                    
                             </select>    
+                            </div>
                         </div>
-                        <div class="col-md-6 col-6">
-                            <select>
-                                    <option selected disabled>Position</option>
-                                    <option value="1">Relevance</option>
-                                    <option value="2">Name, A to Z</option>
-                                    <option value="3">Name, Z to A</option>
-                                    <option value="4">Price, low to high</option>
-                                    <option value="5">Price, high to low</option>
+                        @endforeach
+
+                        <div class="col-md-6 col-6 mb-2">
+                            <div  class="ec-select-inner">
+                            <select class="form-control form-control-sm sort-by-price" style="background: #F7F7F7;">
+                                    <option value="0" class="placeholder" selected disabled>Xếp theo</option>
+                                    <option value="1">Từ thấp đến cao</option>
+                                    <option value="2">Từ cao đến thấp</option>
                             </select>    
+                            </div>
                         </div>
-                        <div class="col-md-6 col-6">
-                            <select >
-                                    <option selected disabled>Position</option>
-                                    <option value="1">Relevance</option>
-                                    <option value="2">Name, A to Z</option>
-                                    <option value="3">Name, Z to A</option>
-                                    <option value="4">Price, low to high</option>
-                                    <option value="5">Price, high to low</option>
-                            </select>    
+
+                    </div> 
+  
+
+                   <!--  <div style="" class="row">
+                       <div class="col-6 ">
+                          <button style="width: 100%" data-type="ban_chay" type="button" class="btn btn-filter in_stock">Bán chạy</button>
+                        </div>
+                        <div class="col-6 ">
+                          <button style="width: 100%" data-type="ban_chay" type="button" class="btn btn-filter out_stock">Bán chạy</button>
+                        </div>
+                    </div>  -->
+
+                    <div style="" class="row mb-8">
+                        <div class="form-check col-4">
+                          <button style="" data-type="ban_chay" type="button" class="btn btn-filter col-md-4  ">Bán chạy</button>
+                        </div>
+                        <div class="form-check col-4">
+                          <button data-type="tra_gop" type="button" class="btn btn-filter col-md-4  ">Trả góp</button>
+                        </div>
+                        <div class="form-check col-4">
+                          <button data-type="khuyen_mai" type="button" class="btn btn-filter col-md-4  ">Khuyến mãi</button>
                         </div>
                     </div> 
-                    <div style="display: none;" class="row">
-                        <div class="form-check col-4">
-                          <input style="width: 15px; height: 15px;" type="checkbox" value="" id="">
-                          <label class="form-check-label" for="flexCheckDefault">
-                            Default
-                          </label>
-                        </div>
-                        <div class="form-check col-4">
-                          <input style="width: 15px; height: 15px;" type="checkbox" value="" id="">
-                          <label class="form-check-label" for="flexCheckDefault">
-                            Default
-                          </label>
-                        </div>
-                        <div class="form-check col-4">
-                          <input style="width: 15px; height: 15px;" type="checkbox" value="" id="">
-                          <label class="form-check-label" for="flexCheckDefault">
-                            Default
-                          </label>
-                        </div>
-                    </div> 
+                    </div>
 
                     <!-- Shop Top End -->
 

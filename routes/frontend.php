@@ -39,4 +39,6 @@ Route::group(['middleware' => 'frontend'], function() {
     //search
     Route::get('/tim', ['as' => 'product.search', 'uses' => 'Frontend\ProductController@search']);
 
+
+
 });

@@ -30,7 +30,9 @@ class News extends Model {
 
     public function getImage() {
         $image_arr = explode(',', $this->images);
-        return $image_arr[0];
+        if(count($image_arr) >0){
+           return $image_arr[0];
+        }
     }
 
     public function created_at() {

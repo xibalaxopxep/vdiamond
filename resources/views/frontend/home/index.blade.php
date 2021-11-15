@@ -1,6 +1,13 @@
 @extends('frontend.layouts.master_index')
 @section('content')
 
+
+
+    <style type="text/css">
+        img{
+            object-fit: cover;
+        }
+    </style>
     <div class="" style="position: fixed; left: 0; z-index: 9999; top:20%;">
     	<!-- <div class="row" >
     		<div class="col-md-12" >
@@ -144,7 +151,7 @@
                                                 <div class="ec-pro-image">
                                                     <a href="{{route('product.detail', $new_pro->alias)}}" class="image">
                                                         <img style="height: 213px; object-fit: cover;" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
+                                                            src="{{asset($new_pro->image)}}" alt="Product" />
                                                         <!-- <img class="hover-image"
                                                             src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
                                                     </a>
@@ -161,7 +168,7 @@
                                                 <h5 class="ec-pro-title"><a href="{{route('product.detail', $new_pro->alias)}}">{{$new_pro->title}}</a></h5>
                                                 <p style="text-align: center;">{{$new_pro->model}}</p>
                                                 <span class="ec-price" style="justify-content: center !important;">
-                                                    <span style="" class="new-price">{{number_format($new_pro->price)}}đ</span>
+                                                    <span style="" class="new-price">{{$new_pro->getSalePrice()}}</span>
                                                 </span>
                                                 
                                             </div>
@@ -204,7 +211,7 @@
                                                 <div class="ec-pro-image">
                                                     <a href="{{route('product.detail', $hot_pro->alias)}}" class="image">
                                                         <img style="height: 213px; object-fit: cover;" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
+                                                            src="{{asset($hot_pro->image)}}" alt="Product" />
                                                         <!-- <img class="hover-image"
                                                             src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
                                                     </a>
@@ -222,7 +229,7 @@
                                                 <p style="text-align: center;">{{$hot_pro->model}}</p>
                                                 <span class="ec-price" style="justify-content: center !important;">
                                                   
-                                                    <span style="" class="new-price">{{number_format($hot_pro->price)}}đ</span>
+                                                    <span style="" class="new-price">{{$hot_pro->getSalePrice()}}</span>
                                                 </span>
                                                 
                                             </div>
@@ -263,7 +270,7 @@
                                                 <div class="ec-pro-image">
                                                     <a href="{{route('product.detail', $combo_pro->alias)}}" class="image">
                                                         <img style="height: 213px; object-fit: cover;" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
+                                                            src="{{asset($combo_pro->image)}}" alt="Product" />
                                                        
                                                     </a>
                                                     <span class="flags-sale flags">
@@ -280,7 +287,7 @@
                                                 <p style="text-align: center;">{{$combo_pro->model}}</p>
                                                 <span class="ec-price" style="justify-content: center !important;">
                                                   
-                                                    <span style="" class="new-price">{{number_format($combo_pro->price)}}đ</span>
+                                                    <span style="" class="new-price">{{$combo_pro->getSalePrice()}}</span>
                                                 </span>
                                                 
                                             </div>
@@ -329,19 +336,23 @@
                            $avg = ceil(count($best_sell_products)/5);
                            $index = 0;
                         @endphp
-                        @for
+                        @for($i = 0 ; $i < $avg ; $i++)
+                        @php
+                            $each = 1;
+                            $in_each = 0;
+                        @endphp
     	            	<div style="margin-top: 20px;" class="row"  style="">
-
-                            @foreach()
+                            
     	            	    <div class="col-md-3">
-    	            	     
-    	            	        	<div class="list-product-best-seller ec-product-content" >
+    	            	        @foreach($best_sell_products as $key => $best_sell_product)
+                                @if($key >= $index)
+    	            	        <div class="list-product-best-seller ec-product-content" >
                                         <div class="ec-product-inner border-best-seller">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
                                                         <img style="" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
+                                                            src="{{asset($best_sell_product->image)}}" alt="Product" />
                                                         <!-- <img class="hover-image"
                                                             src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
                                                     </a>
@@ -357,62 +368,42 @@
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
+                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$best_sell_product->title}}</a></h5>
                                                 <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
+                                                    <span  class="model-product">{{$best_sell_product->model}}</span>
                                                 </div>
                                                
                                                  <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
+                                                	<span class="new-price">{{$best_sell_product->getSalePrice()}}</span>
+                                                    <span class="old-price ">{{$best_sell_product->getPrice()}}</span>   
                                                 </span> 
                                             </div>
                                         </div>
-                                    </div> 
-    	            	        <div class="ec-product-content list-product-best-seller" >
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img style="" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img style="overflow: none !important;" src="assets/images/icons/sp-ban-chay.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                               
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
                                 </div>
-    	            	    </div>
-    	            	    <div class="col-md-6">
+                                
+                                @php
+                                  $index++;
+                                  $in_each++;
+                                  if($in_each==2){
+                                      break;
+                                   }
+                                @endphp
+                                @endif
+                                @endforeach
 
+    	            	       
+    	            	    </div>
+
+    	            	    <div class="col-md-6">
+                                @foreach($best_sell_products as $key => $best_sell_product)
+                                @if($key >= $index)
     	            	    	<div  class="ec-product-content list-product-best-seller">
                                         <div class="ec-product-inner border-best-seller">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image" style="height: 620px;">
                                                     <a href="product-left-sidebar.html" class="image">
                                                         <img style="object-fit: cover; height: 620px;" class="main-image"
-                                                            src="assets/images/product/image2.png" alt="Product" />
+                                                            src="{{asset($best_sell_product->image)}}" alt="Product" />
                                                         <!-- <img class="hover-image"
                                                             src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
                                                     </a>
@@ -427,104 +418,42 @@
                                                 </div>
                                             </div>
                                              <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
+                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$best_sell_product->title}}</a></h5>
                                                 <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
+                                                    <span  class="model-product">{{$best_sell_product->model}}</span>
                                                 </div>
                                                
                                                  <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-    	            	    </div>
-    	            	    <div class="col-md-3 ">
-    	            	     	 <div class="list-product-best-seller ec-product-content">
-                                        <div class="ec-product-inner border-best-seller">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img style="" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img style="overflow: none !important;" src="assets/images/icons/sp-ban-chay.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                                
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-    	            	        <div class=" list-product-best-seller ec-product-content">
-                                        <div class="ec-product-inner">
-                                        	
-                                            <div class="ec-pro-image-outer">
-                                                <div  class="ec-pro-image">
-                                       
-                                                    <a  href="product-left-sidebar.html" class="image">
-                                                        <img   class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img style="overflow: none !important;" src="assets/images/icons/sp-ban-chay.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                               
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
+                                                	<span class="new-price">{{$best_sell_product->getSalePrice()}}</span>
+                                                    <span class="old-price ">{{$best_sell_product->getPrice()}}</span>   
                                                 </span>
                                                 
                                             </div>
                                         </div>
                                 </div>
+                                
+                                @php
+                                  $index++;
+                                  $in_each++;
+                                  if($in_each==3){
+                                      break;
+                                   }
+                                @endphp
+                                @endif
+                                @endforeach
+                                
     	            	    </div>
-    	            	</div>
-                        @endfor
-    	            	<div class="row"  style="">
-    	            	    <div class="col-md-3">
-    	            	     
-    	            	        	<div class="list-product-best-seller ec-product-content" >
+    	            	    <div class="col-md-3 ">
+    	            	     	 
+    	            	        @foreach($best_sell_products as $key => $best_sell_product)
+                                @if($key >= $index)
+                                <div class="list-product-best-seller ec-product-content" >
                                         <div class="ec-product-inner border-best-seller">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
                                                     <a href="product-left-sidebar.html" class="image">
-                                                        <img style="" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
+                                                        <img style="object-fit: cover;" class="main-image"
+                                                            src="{{asset($best_sell_product->image)}}" alt="Product" />
                                                         <!-- <img class="hover-image"
                                                             src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
                                                     </a>
@@ -532,173 +461,43 @@
                                                     <span class="flags-sale flags">
                                                         <span class="sale">Sale</span>
                                                     </span>
-                                                     <span class="flags-new flags">
+                                                    
+                                                    <span class="flags-new flags">
                                                         <span class="new">New</span>
                                                     </span>
                                                  
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
+                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$best_sell_product->title}}</a></h5>
                                                 <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
+                                                    <span  class="model-product">{{$best_sell_product->model}}</span>
                                                 </div>
                                                
                                                  <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
+                                                    <span class="new-price">{{$best_sell_product->getSalePrice()}}</span>
+                                                    <span class="old-price ">{{$best_sell_product->getPrice()}}</span>   
+                                                </span> 
                                             </div>
                                         </div>
-                                    </div>
-    	            	    
-    	            	        <div class="ec-product-content list-product-best-seller" >
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img style="" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img style="overflow: none !important;" src="assets/images/icons/sp-ban-chay.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                               
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                </div>
+                               
+                                @php
+                                  $index++;
+                                  $in_each++;
+                                  if($in_each == 5){
+                                      break;
+                                   }
+                                @endphp
+                                @endif
+                                @endforeach
+                                 
     	            	    </div>
-    	            	    <div class="col-md-6">
-
-    	            	    	<div  class="ec-product-content list-product-best-seller">
-                                        <div class="ec-product-inner border-best-seller">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image" style="height: 620px;">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img style="object-fit: cover; height: 620px;" class="main-image"
-                                                            src="assets/images/product/image2.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img  src="assets/images/icons/sp-ban-chay2.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                               
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-    	            	    </div>
-    	            	    <div class="col-md-3 ">
-    	            	     	 <div class="list-product-best-seller ec-product-content">
-                                        <div class="ec-product-inner border-best-seller">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img style="" class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img style="overflow: none !important;" src="assets/images/icons/sp-ban-chay.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div style="text-align: center;" class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                                
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-    	            	        <div class=" list-product-best-seller ec-product-content">
-                                        <div class="ec-product-inner">
-                                        	
-                                            <div class="ec-pro-image-outer">
-                                                <div  class="ec-pro-image">
-                                       
-                                                    <a  href="product-left-sidebar.html" class="image">
-                                                        <img   class="main-image"
-                                                            src="assets/images/product/image1.png" alt="Product" />
-                                                        <!-- <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg" alt="Product" /> -->
-                                                    </a>
-                                                    <span class="percentage"><img style="overflow: none !important;" src="assets/images/icons/sp-ban-chay.png"></span>
-                                                    <span class="flags-sale flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                     <span class="flags-new flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                 
-                                                </div>
-                                            </div>
-                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Full Sleeve Shirt</a></h5>
-                                                <div class="ec-pro-rating">
-                                                    <span  class="model-product">Model: VD167</span>
-                                                </div>
-                                               
-                                                 <span style="margin:auto; display:table;" class="ec-price mb-2">
-                                                	<span class="new-price">10.000.000 đ</span>
-                                                    <span class="old-price ">12.000.000 đ</span>   
-                                                </span>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-    	            	    </div>
+                            
+                    
     	            	</div>
+                        @endfor
+    	            	
 	                </div>
 	            <div style="position: absolute;  right: 19%; margin-top:  40px;
     "  ><a style=" color:#000000; font-weight: 700; font-size: 15px;" href="#">XEM THÊM <img style="color:  black; margin-bottom:5px;width: 23px; height: 22px;" src="assets/images/icons/arrow-right-black.svg"></a></div>
@@ -737,9 +536,9 @@
             <div class="item news-home">
                 <a href="{{route('product.detail', $add_product->alias)}}">
                 <div style="" class="luxury-content row">
-                     <img class="" style=" height: 560px; object-fit: cover;" src="assets/images/product/top-product-2.png">
+                     <img class="" style=" height: 560px; object-fit: cover;" src="{{asset($add_product->image)}}">
                      <h3 class="luxury-head text-upper" >{{$add_product->description}}</h3>
-                     <p class="luxury-text">{{$add_product->content}}</p>
+                     <span class="luxury-text">{!!$add_product->content!!}</span>
                      <div class="luxury-detail" style="position: absolute; bottom: 20px; margin-left: 68%;">
                      <div style=" width:27%; height: 130px; background-color: rgba(212, 212, 212, 0.36); backdrop-filter: blur(31px);" class="row">
                      		<h4 class="luxury-title text-upper">{{$add_product->title}}</h4>
@@ -793,7 +592,7 @@
                     <div class="owl-carousel owl-theme" id="luxury-carou">
                         @foreach($luxury_products as $lux_product)
                         <div class="">
-                          <img class="d-block w-100" src="assets/images/product/top-product.png" alt="First slide">
+                          <img style="border-radius: 20px;" class="d-block w-100" src="{{asset($lux_product->image)}}" alt="First slide">
                           <h4 class="top-carousel-h4">{{$lux_product->title}}</h4>
                           <h5 class="top-carousel-h5">{{$lux_product->model}}</h5>
                           <p style="margin-bottom: 35px;" class="text-upper top-carousel-h5">GIÁ: {{$lux_product->getPrice()}}</p>
@@ -804,14 +603,6 @@
                 </div>
             </div>
 
-
-
-
-
-    		
-
-
-    		
     	</div>
     </section>
     
